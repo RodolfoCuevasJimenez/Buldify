@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "988018636813",
+    "project_id": "buildify-40e0e",
+    "storage_bucket": "buildify-40e0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988018636813:android:05e5c1ae1d3512fa9efd44",
+        "android_client_info": {
+          "package_name": "cr.una.buildify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988018636813-20lbv4v3eib8ak4025cnvapbgfncc12k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cr.una.buildify",
+            "certificate_hash": "3e74581ef07ecad091307468df5ce59518553bac"
+          }
+        },
+        {
+          "client_id": "988018636813-703dobv94f6naoc87fldd13fp8v1qmet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKm_XKWScOAv8XG90ju91tWOX0Pe09UT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988018636813-703dobv94f6naoc87fldd13fp8v1qmet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
