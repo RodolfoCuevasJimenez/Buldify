@@ -36,7 +36,7 @@
         android:outlineSpotShadowColor="#F69100"
         android:radius="30dp"
         android:shape="rectangle"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textColorHint="#7C7777"
         android:textSize="20sp"

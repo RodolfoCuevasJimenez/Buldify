@@ -4,9 +4,9 @@
     <string name="buscador">Buscador de Servicios Independientes</string>
     <string name="buscar">Buscar servicio independiente: </string>
     <string name="btnBuscar">Buscar</string>
-    <string name="hintBusqueda">Esriba aquí su búsqueda</string>
+    <string name="hintBusqueda">Escriba aquí su búsqueda</string>
     <string name="direccion">Dirección</string>
-    <string name="nombrePersona">Nombre de la persona</string>
+    <string name="nombrePersona">Encargado</string>
     <string name="telefono">Teléfono</string>
     <string name="correo">Correo Electrónico</string>
     <string name="fecha">Fecha</string>

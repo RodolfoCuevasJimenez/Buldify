@@ -4,7 +4,6 @@ import android.content.ContentValues.TAG
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
@@ -84,14 +83,14 @@ class VisualizacionAdapter(private val visualizacionList: MutableList<Visualizac
         val mltObservaciones = itemView.findViewById<EditText>(R.id.mltObservaciones)
 
         fun bind(visualizacion: Visualizacion) {
-            itemView.findViewById<TextView>(R.id.tvEtapa).text = visualizacion.etapa
+            itemView.findViewById<TextView>(R.id.tvEncargado).text = visualizacion.etapa
             itemView.findViewById<TextView>(R.id.tvDescripcionV).text = visualizacion.descripcion
             val timestamp: Timestamp? = visualizacion.fecha
             if (timestamp != null) {
                 val date: Date = timestamp.toDate()
                 val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                 val dateString = formatter.format(date)
-                itemView.findViewById<TextView>(R.id.tvFecha).text = dateString
+                itemView.findViewById<TextView>(R.id.tvDireccion).text = dateString
             }
 
 
