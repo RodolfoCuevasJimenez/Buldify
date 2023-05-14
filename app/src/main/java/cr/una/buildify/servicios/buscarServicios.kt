@@ -3,11 +3,14 @@ package cr.una.buildify.servicios
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import cr.una.buildify.R
+
 
 class BuscarServicios : AppCompatActivity() {
 
@@ -18,14 +21,21 @@ class BuscarServicios : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var btnBusqueda: Button
+        var etBusqueda: EditText
         setContentView(R.layout.activity_buscar_servicios)
-        recyclerViewServicios = findViewById(R.id.recyclerServicios)
+        etBusqueda = findViewById(R.id.etBusqueda)
+        btnBusqueda = findViewById(R.id.btnBusqueda)
+        recyclerViewServicios = findViewById(R.id.rvServicios)
         recyclerViewServicios.layoutManager = LinearLayoutManager(this)
 
         db = FirebaseFirestore.getInstance()
 
-        val tipo = intent.getStringExtra("tipo") ?: ""
-        filterServices(tipo)
+        filterServices("")
+        btnBusqueda.setOnClickListener{
+            var tipo = etBusqueda.text.toString().trim().lowercase()
+            filterServices(tipo)
+        }
     }
     private fun filterServices(tipo: String) {
         val serviciosRef = db.collection("Servicios")

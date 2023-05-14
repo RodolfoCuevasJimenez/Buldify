@@ -30,16 +30,16 @@ class VisualizacionAdapter(private val visualizacionList: MutableList<Visualizac
        holder.bind(visualizacion)
 
        if (visualizacion.observaciones.isNotEmpty()) {
-           holder.etObservaciones.setText(visualizacion.observaciones)
-           holder.etObservaciones.isEnabled = false
+           holder.mltObservaciones.setText(visualizacion.observaciones)
+           holder.mltObservaciones.isEnabled = false
            holder.btnGuardar.isEnabled = false
        } else {
-           holder.etObservaciones.isEnabled = true
+           holder.mltObservaciones.isEnabled = true
            holder.btnGuardar.isEnabled = true
        }
 
        holder.btnGuardar.setOnClickListener {
-           val observaciones = holder.etObservaciones.text.toString()
+           val observaciones = holder.mltObservaciones.text.toString()
 
            visualizacion.observaciones = observaciones
 
@@ -55,7 +55,7 @@ class VisualizacionAdapter(private val visualizacionList: MutableList<Visualizac
                    document.reference.update("observaciones", observaciones)
                        .addOnSuccessListener {
                            Log.d(TAG, "Observaciones actualizadas exitosamente en la base de datos")
-                           holder.etObservaciones.isEnabled = false
+                           holder.mltObservaciones.isEnabled = false
                            holder.btnGuardar.isEnabled = false
                        }
                        .addOnFailureListener {
@@ -75,12 +75,11 @@ class VisualizacionAdapter(private val visualizacionList: MutableList<Visualizac
 
     class VisualizacionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val btnGuardar = itemView.findViewById<Button>(R.id.btnGuardar)
-        val etObservaciones = itemView.findViewById<EditText>(R.id.etObservaciones)
+        val mltObservaciones = itemView.findViewById<EditText>(R.id.mltObservaciones)
 
         fun bind(visualizacion: Visualizacion) {
             itemView.findViewById<TextView>(R.id.tvEtapa).text = visualizacion.etapa
-            itemView.findViewById<TextView>(R.id.tvDescripcion).text = visualizacion.descripcion
-           // itemView.findViewById<TextView>(R.id.tvFecha).text = visualizacion.fecha.toString()
+            itemView.findViewById<TextView>(R.id.tvDescripcionV).text = visualizacion.descripcion
             val timestamp: Timestamp? = visualizacion.fecha
             if (timestamp != null) {
                 val date: Date = timestamp.toDate()

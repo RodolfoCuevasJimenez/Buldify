@@ -2,13 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clVisualizacionGeneral"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/buttonColor">
 
     <LinearLayout
-        android:layout_width="407dp"
-        android:layout_height="262dp"
+        android:id="@+id/llVisualizacion"
+        android:layout_width="355dp"
+        android:layout_height="221dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="8dp"
@@ -22,6 +24,7 @@
         app:layout_constraintVertical_bias="0.057">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clVisualizacion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/forma"
@@ -33,44 +36,44 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/txtViewPersona"
+                app:layout_constraintBottom_toBottomOf="@+id/tvEtapa1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.052"
-                app:layout_constraintStart_toEndOf="@+id/txtViewPersona"
+                app:layout_constraintStart_toEndOf="@+id/tvEtapa1"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
                 tools:ignore="HardcodedText,TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvDescripcion1"
+                android:id="@+id/tvDescripcionV1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/descripcionV"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/txtViewFecha"
-                app:layout_constraintTop_toBottomOf="@+id/txtViewFecha"
+                app:layout_constraintStart_toStartOf="@+id/tvFecha1"
+                app:layout_constraintTop_toBottomOf="@+id/tvFecha1"
                 app:layout_constraintVertical_bias="0.074"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/txtViewPersona"
+                android:id="@+id/tvEtapa1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/etapa"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvDescripcion1"
+                app:layout_constraintEnd_toEndOf="@+id/tvDescripcionV1"
                 app:layout_constraintHorizontal_bias="0.051"
-                app:layout_constraintStart_toStartOf="@+id/tvDescripcion1"
-                app:layout_constraintTop_toBottomOf="@+id/tvDescripcion1"
+                app:layout_constraintStart_toStartOf="@+id/tvDescripcionV1"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescripcionV1"
                 app:layout_constraintVertical_bias="0.081"
                 tools:ignore="MissingConstraints,TextSizeCheck" />
 
             <TextView
-                android:id="@+id/txtViewFecha"
+                android:id="@+id/tvFecha1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="72dp"
@@ -91,31 +94,31 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/txtViewFecha"
-                app:layout_constraintStart_toEndOf="@+id/txtViewFecha"
-                app:layout_constraintTop_toTopOf="@+id/txtViewFecha"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFecha1"
+                app:layout_constraintStart_toEndOf="@+id/tvFecha1"
+                app:layout_constraintTop_toTopOf="@+id/tvFecha1"
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="HardcodedText,TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvObservaciones"
+                android:id="@+id/tvObservaciones1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="124dp"
+                android:layout_marginBottom="84dp"
                 android:text="@string/observaciones"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/txtViewPersona"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/txtViewPersona"
+                app:layout_constraintEnd_toEndOf="@+id/tvEtapa1"
+                app:layout_constraintHorizontal_bias="0.033"
+                app:layout_constraintStart_toStartOf="@+id/tvEtapa1"
                 tools:ignore="TextSizeCheck" />
 
             <EditText
-                android:id="@+id/etObservaciones"
+                android:id="@+id/mltObservaciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="112dp"
+                android:layout_marginStart="24dp"
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="Ingrese sus observaciones aquí "
@@ -123,12 +126,10 @@
                 android:textColor="@color/black"
                 android:textColorHint="#817373"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvObservaciones"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/tvObservaciones"
-                app:layout_constraintTop_toTopOf="@+id/tvObservaciones"
-                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="@+id/tvObservaciones1"
+                app:layout_constraintStart_toEndOf="@+id/tvObservaciones1"
+                app:layout_constraintTop_toTopOf="@+id/tvObservaciones1"
+                app:layout_constraintVertical_bias="0.605"
                 tools:ignore="Autofill,HardcodedText" />
 
             <Button
@@ -136,29 +137,30 @@
                 android:layout_width="240dp"
                 android:layout_height="36dp"
                 android:layout_marginBottom="16dp"
-                android:background="@color/black"
+                android:background="@drawable/botones"
+                android:backgroundTint="@color/buttonColor"
                 android:text="@string/btnGuardar"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/etObservaciones"
-                app:layout_constraintHorizontal_bias="0.276"
-                app:layout_constraintStart_toStartOf="@+id/etObservaciones"
-                app:layout_constraintTop_toBottomOf="@+id/etObservaciones"
+                app:layout_constraintEnd_toEndOf="@+id/mltObservaciones"
+                app:layout_constraintHorizontal_bias="0.868"
+                app:layout_constraintStart_toStartOf="@+id/mltObservaciones"
+                app:layout_constraintTop_toBottomOf="@+id/mltObservaciones"
                 app:layout_constraintVertical_bias="1.0"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="TouchTargetSizeCheck,TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvDescripcion"
+                android:id="@+id/tvDescripcionV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/tvDescripcion1"
-                app:layout_constraintStart_toEndOf="@+id/tvDescripcion1"
-                app:layout_constraintTop_toTopOf="@+id/tvDescripcion1" />
+                app:layout_constraintBottom_toBottomOf="@+id/tvDescripcionV1"
+                app:layout_constraintStart_toEndOf="@+id/tvDescripcionV1"
+                app:layout_constraintTop_toTopOf="@+id/tvDescripcionV1" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/ivIncidente"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:contentDescription="icono"
