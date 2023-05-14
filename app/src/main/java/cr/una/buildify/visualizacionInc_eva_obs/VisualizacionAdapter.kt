@@ -4,10 +4,12 @@ import android.content.ContentValues.TAG
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.buildify.R
 import java.text.SimpleDateFormat
@@ -33,9 +35,11 @@ class VisualizacionAdapter(private val visualizacionList: MutableList<Visualizac
            holder.mltObservaciones.setText(visualizacion.observaciones)
            holder.mltObservaciones.isEnabled = false
            holder.btnGuardar.isEnabled = false
+           holder.btnGuardar.visibility = View.INVISIBLE
        } else {
            holder.mltObservaciones.isEnabled = true
            holder.btnGuardar.isEnabled = true
+           holder.btnGuardar.visibility = View.VISIBLE
        }
 
        holder.btnGuardar.setOnClickListener {
@@ -57,6 +61,8 @@ class VisualizacionAdapter(private val visualizacionList: MutableList<Visualizac
                            Log.d(TAG, "Observaciones actualizadas exitosamente en la base de datos")
                            holder.mltObservaciones.isEnabled = false
                            holder.btnGuardar.isEnabled = false
+                           holder.btnGuardar.visibility = View.INVISIBLE
+                           Toast.makeText(holder.itemView.context, "Observaciones guardadas correctamente", Toast.LENGTH_SHORT).show()
                        }
                        .addOnFailureListener {
                            Log.e(TAG, "Error al actualizar las observaciones en la base de datos", it)
