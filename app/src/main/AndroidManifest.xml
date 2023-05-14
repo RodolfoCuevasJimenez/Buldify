@@ -31,12 +31,30 @@
         <activity
             android:name=".iniciosesion.inicioSesion"
             android:exported="true">
+        </activity>
+        <activity
+            android:name=".visualizacionInc_eva_obs.Visualizacion_inc_eva_obs"
+            android:clearTaskOnLaunch="true"
+            android:exported="true"
+            android:finishOnTaskLaunch="true"
+            android:launchMode="singleTop"
+            android:stateNotNeeded="true"
+            >
+        </activity>
+        <activity
+            android:name=".servicios.busquedaServicio"
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".servicios.BuscarServicios"
+            android:exported="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true" />
