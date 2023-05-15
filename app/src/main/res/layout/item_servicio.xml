@@ -5,8 +5,8 @@
     android:id="@+id/clServiciosGeneral"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/iconoapp_background"
-    android:backgroundTint="@color/iconoapp_background">
+    android:background="@color/teal_200"
+    android:backgroundTint="@color/teal_200">
 
     <LinearLayout
         android:id="@+id/llServicios"

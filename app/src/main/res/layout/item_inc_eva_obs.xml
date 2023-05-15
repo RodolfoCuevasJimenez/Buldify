@@ -5,7 +5,7 @@
     android:id="@+id/clVisualizacionGeneral"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/buttonColor">
+    android:background="@color/teal_200">
 
     <LinearLayout
         android:id="@+id/llVisualizacion"
@@ -36,12 +36,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:textColor="@color/black"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvEncargado1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.222"
+                app:layout_constraintHorizontal_bias="0.229"
                 app:layout_constraintStart_toEndOf="@+id/tvEncargado1"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintTop_toTopOf="@+id/tvEncargado1"
+                app:layout_constraintVertical_bias="0.0"
                 tools:ignore="HardcodedText,TextSizeCheck" />
 
             <TextView
@@ -50,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/descripcionV"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/tvDireccion1"
@@ -63,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/etapa"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tvTelefono1"
@@ -79,6 +82,7 @@
                 android:layout_marginBottom="72dp"
                 android:text="@string/fecha"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -94,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="48dp"
                 android:textColor="@color/black"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvDireccion1"
                 app:layout_constraintStart_toEndOf="@+id/tvDireccion1"
                 app:layout_constraintTop_toTopOf="@+id/tvDireccion1"
@@ -107,6 +112,7 @@
                 android:layout_marginBottom="84dp"
                 android:text="@string/observaciones"
                 android:textColor="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tvEncargado1"
@@ -124,7 +130,7 @@
                 android:hint="Ingrese sus observaciones aquí "
                 android:inputType="textMultiLine"
                 android:textColor="@color/black"
-                android:textColorHint="#817373"
+                android:textColorHint="#616161"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvCorreo1"
                 app:layout_constraintStart_toEndOf="@+id/tvCorreo1"
@@ -141,6 +147,7 @@
                 android:backgroundTint="@color/buttonColor"
                 android:text="@string/btnGuardar"
                 android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/mltObservaciones"
                 app:layout_constraintStart_toStartOf="@+id/tvCorreo1"
@@ -150,9 +157,9 @@
 
             <TextView
                 android:id="@+id/tvDescripcionV"
-                android:layout_width="253dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="12dp"
+                android:layout_width="263dp"
+                android:layout_height="49dp"
+                android:layout_marginStart="8dp"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTelefono1"
                 app:layout_constraintStart_toEndOf="@+id/tvTelefono1"

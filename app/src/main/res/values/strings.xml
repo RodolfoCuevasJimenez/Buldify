@@ -1,10 +1,8 @@
 <resources>
     <string name="app_name">Buildify</string>
     <string name="prefs_file">cr.una.buildify.PREFERENCES_FILE_KEY</string>
-    <string name="buscador">Buscador de Servicios Independientes</string>
-    <string name="buscar">Buscar servicio independiente: </string>
     <string name="btnBuscar">Buscar</string>
-    <string name="hintBusqueda">Escriba aquí su búsqueda</string>
+    <string name="hintBusqueda">Escriba su búsqueda</string>
     <string name="direccion">Dirección</string>
     <string name="nombrePersona">Encargado</string>
     <string name="telefono">Teléfono</string>
