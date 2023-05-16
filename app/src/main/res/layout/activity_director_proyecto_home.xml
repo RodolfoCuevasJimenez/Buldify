@@ -40,7 +40,7 @@
         android:layout_marginTop="-80dp"
         android:rowCount="5"
         android:columnCount="2"
-        >
+        tools:ignore="ExtraText">
 
         //Crear Proyectos
         <androidx.cardview.widget.CardView
@@ -356,6 +356,7 @@
 
         //Servicios Independientes
         <androidx.cardview.widget.CardView
+            android:id="@+id/CardViewServicios"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#e3e3e3"
@@ -395,6 +396,7 @@
 
         //Incidentes
         <androidx.cardview.widget.CardView
+            android:id="@+id/CardViewIncidentes"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#e3e3e3"
