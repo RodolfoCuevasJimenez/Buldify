@@ -34,7 +34,7 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/view_top"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="-80dp"
@@ -47,14 +47,14 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="50dp"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/teal_200"
+            android:background="@color/white"
             app:cardCornerRadius="12dp"
             app:cardElevation="0dp">
 
