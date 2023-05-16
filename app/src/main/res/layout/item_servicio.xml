@@ -61,20 +61,20 @@
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvEncargado"
+                android:id="@+id/tvEtapa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvEncargado1"
-                app:layout_constraintStart_toEndOf="@+id/tvEncargado1"
-                app:layout_constraintTop_toTopOf="@+id/tvEncargado1"
+                app:layout_constraintBottom_toBottomOf="@+id/tvEtapa1"
+                app:layout_constraintStart_toEndOf="@+id/tvEtapa1"
+                app:layout_constraintTop_toTopOf="@+id/tvEtapa1"
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvTelefono1"
+                android:id="@+id/tvDescripcion1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -82,14 +82,14 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/tvEncargado1"
+                app:layout_constraintEnd_toEndOf="@+id/tvEtapa1"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvEncargado1"
-                app:layout_constraintTop_toBottomOf="@+id/tvEncargado1"
+                app:layout_constraintStart_toStartOf="@+id/tvEtapa1"
+                app:layout_constraintTop_toBottomOf="@+id/tvEtapa1"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvEncargado1"
+                android:id="@+id/tvEtapa1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -98,15 +98,15 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvDireccion1"
+                app:layout_constraintEnd_toEndOf="@+id/tvFecha1"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvDireccion1"
-                app:layout_constraintTop_toBottomOf="@+id/tvDireccion1"
+                app:layout_constraintStart_toStartOf="@+id/tvFecha1"
+                app:layout_constraintTop_toBottomOf="@+id/tvFecha1"
                 app:layout_constraintVertical_bias="0.015"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvDireccion1"
+                android:id="@+id/tvFecha1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="72dp"
@@ -123,21 +123,21 @@
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvDireccion"
+                android:id="@+id/tvFecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/tvDireccion1"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFecha1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/tvDireccion1"
-                app:layout_constraintTop_toTopOf="@+id/tvDireccion1"
+                app:layout_constraintStart_toEndOf="@+id/tvFecha1"
+                app:layout_constraintTop_toTopOf="@+id/tvFecha1"
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvCorreo1"
+                android:id="@+id/tvObservaciones1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -145,10 +145,10 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/tvTelefono1"
+                app:layout_constraintEnd_toEndOf="@+id/tvDescripcion1"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvTelefono1"
-                app:layout_constraintTop_toBottomOf="@+id/tvTelefono1"
+                app:layout_constraintStart_toStartOf="@+id/tvDescripcion1"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescripcion1"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
@@ -158,11 +158,11 @@
                 android:layout_marginStart="4dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvCorreo1"
+                app:layout_constraintBottom_toBottomOf="@+id/tvObservaciones1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.318"
-                app:layout_constraintStart_toEndOf="@+id/tvCorreo1"
-                app:layout_constraintTop_toTopOf="@+id/tvCorreo1"
+                app:layout_constraintStart_toEndOf="@+id/tvObservaciones1"
+                app:layout_constraintTop_toTopOf="@+id/tvObservaciones1"
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="TextSizeCheck" />
 
@@ -172,11 +172,11 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvTelefono1"
+                app:layout_constraintBottom_toBottomOf="@+id/tvDescripcion1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.025"
-                app:layout_constraintStart_toEndOf="@+id/tvTelefono1"
-                app:layout_constraintTop_toTopOf="@+id/tvTelefono1"
+                app:layout_constraintStart_toEndOf="@+id/tvDescripcion1"
+                app:layout_constraintTop_toTopOf="@+id/tvDescripcion1"
                 tools:ignore="TextSizeCheck" />
 
             <ImageView

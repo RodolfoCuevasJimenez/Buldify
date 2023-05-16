@@ -29,8 +29,8 @@ class ServiciosAdapter(private val servicios: List<Servicio>) : RecyclerView.Ada
         fun bind(servicio: Servicio) {
             itemView.findViewById<TextView>(R.id.tvTituloServicio).text = servicio.titulo
             itemView.findViewById<TextView>(R.id.tvDescripcion).text = servicio.descripcion
-            itemView.findViewById<TextView>(R.id.tvDireccion).text = servicio.direccion
-            itemView.findViewById<TextView>(R.id.tvEncargado).text = servicio.nombrePersona
+            itemView.findViewById<TextView>(R.id.tvFecha).text = servicio.direccion
+            itemView.findViewById<TextView>(R.id.tvEtapa).text = servicio.nombrePersona
             itemView.findViewById<TextView>(R.id.tvTelefono).text = servicio.telefono
             itemView.findViewById<TextView>(R.id.tvCorreo).text = servicio.correoElectronico
         }
