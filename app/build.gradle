@@ -30,6 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -44,6 +48,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx:21.2.1'
     implementation 'com.google.firebase:firebase-auth-ktx:21.2.0'
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
+    implementation 'com.google.firebase:firebase-database:20.2.0'
+    implementation 'com.google.firebase:firebase-firestore:24.5.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:23.0.3' // esta línea es importante para usar Firestore en Kotlin
+    implementation 'com.google.android.gms:play-services-tasks:17.2.0' //// esta línea es importante para usar la clase Timestamp
 
 
     testImplementation 'junit:junit:4.13.2'

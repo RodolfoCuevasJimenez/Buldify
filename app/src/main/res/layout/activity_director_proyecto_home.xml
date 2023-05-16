@@ -14,7 +14,7 @@
         android:background="@drawable/background_view" />
 
     <TextView
-        android:id="@+id/txtTituloMenu"
+        android:id="@+id/txtTitulosolicitud"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -288,7 +288,8 @@
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/cardViewTablaCosto">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -327,7 +328,8 @@
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/cardViewSolicitudDetalle">
 
             <LinearLayout
                 android:layout_width="match_parent"

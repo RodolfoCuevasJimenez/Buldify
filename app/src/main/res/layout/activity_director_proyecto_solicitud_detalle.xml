@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/teal_200">
 
     <View
         android:id="@+id/view_top"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:background="@drawable/background_view" />
 
     <TextView
@@ -21,7 +21,7 @@
         android:gravity="center"
         android:text="Registrar Solicitud Detalle de Obra"
         android:textColor="@color/black"
-        android:textSize="34sp"
+        android:textSize="30sp"
         app:fontFamily="@font/montserrat_extrabold" />
 
     <ImageView
@@ -39,15 +39,15 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="-80dp"
         android:layout_marginRight="24dp"
+        android:background="@color/white"
         android:columnCount="2"
-        android:background="@color/teal_200"
         android:rowCount="5">
 
         //Crear Proyectos
 
         <androidx.cardview.widget.CardView
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="300dp"
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:layout_column="0"
@@ -56,13 +56,13 @@
             android:layout_marginBottom="15dp"
             android:background="@color/teal_200"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="477dp"
+                android:background="@color/white"
                 android:gravity="center"
-                android:background="@color/teal_200"
                 android:orientation="vertical">
 
 
@@ -76,11 +76,11 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edittext_id"
+                    android:id="@+id/et_id_solicitud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
-                    android:textColor="#333333"
+                    android:textColor="@color/black"
 
                     android:textSize="16sp" />
 
@@ -94,11 +94,11 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edittext_nombre"
+                    android:id="@+id/et_nombre_solicitud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
-                    android:textColor="#333333"
+                    android:textColor="@color/black"
 
                     android:textSize="16sp" />
 
@@ -112,11 +112,11 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edittext_tipo"
+                    android:id="@+id/et_tipo_solicitud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
-                    android:textColor="#333333"
+                    android:textColor="@color/black"
 
                     android:textSize="16sp" />
 
@@ -130,11 +130,11 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edittext_area"
+                    android:id="@+id/et_area_solicitud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
-                    android:textColor="#333333"
+                    android:textColor="@color/black"
 
                     android:textSize="16sp" />
 
@@ -148,23 +148,24 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edittext_detalle"
+                    android:id="@+id/et_detalle_solicitud"
                     android:layout_width="match_parent"
-                    android:layout_height="137dp"
+                    android:layout_height="58dp"
                     android:padding="8dp"
-                    android:textColor="#333333"
+                    android:textColor="@color/black"
 
                     android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:orientation="vertical">
 
                     <Button
                         android:id="@+id/btn_add_solicitud"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="65dp"
                         android:background="@drawable/background_view"
                         android:text="Enviar Solicitud"
                         android:textColor="#000000"

@@ -14,7 +14,7 @@
         android:background="@drawable/background_view" />
 
     <TextView
-        android:id="@+id/txtTituloMenu"
+        android:id="@+id/txtTitulosolicitud"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -202,6 +202,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="50dp"
+            android:id="@+id/cardTablaCosto"
             android:layout_height="50dp"
             android:layout_row="2"
             android:layout_rowWeight="1"

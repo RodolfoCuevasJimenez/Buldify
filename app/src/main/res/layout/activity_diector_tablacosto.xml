@@ -1,6 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/iconoapp_background">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="900dp"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_200"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/iconoapp_background"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="70dp"
+                    android:layout_height="62dp"
+                    app:srcCompat="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Tabla de Costos"
+                    android:textColor="@color/black"
+                    android:textSize="34sp"
+                    app:fontFamily="@font/montserrat_extrabold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="411dp"
+                android:layout_height="19dp"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="411dp"
+                android:layout_height="58dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/bntV_cargar"
+                        android:layout_width="94dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/search" />
+
+                    <EditText
+                        android:id="@+id/editBuscar"
+                        android:layout_width="320dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="right"
+                        android:ems="10"
+                        android:hint="Buscar"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <ScrollView
+                    android:id="@+id/scrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableLayout
+                        android:id="@+id/tablaid"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/gris"
+                            android:textColor="@color/white">
+
+                            <TextView
+                                android:id="@+id/columtv_prototipo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:padding="16dp"
+
+                                android:text="Prototipo"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/columnatv_preciom2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="16dp"
+                                android:text="Precio m2"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/columnatv_precioTotal"
+                                android:layout_width="wrap_content"
+                                android:padding="16dp"
+                                android:text="Precio Total"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/columnatv_detalle"
+                                android:padding="16dp"
+                                android:text="Detalle"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                        </TableRow>
+
+
+                    </TableLayout>
+
+                </ScrollView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

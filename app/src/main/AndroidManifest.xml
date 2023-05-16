@@ -25,9 +25,24 @@
         <activity
             android:name=".duenno_obra.Duenno_Obra_Home"
             android:exported="false" />
+
+
+
         <activity
             android:name=".director_proyecto.Director_Proyecto_Home"
             android:exported="false" />
+        <activity
+            android:name=".director_proyecto.tabla_costo.prueba"
+            android:exported="true"  />
+
+
+        <activity
+            android:name=".director_proyecto.tabla_costo.tablaCostoActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".director_proyecto.solicitud_Detalle.solicitudDetalleActivity"
+            android:exported="true"  />
         <activity
             android:name=".iniciosesion.inicioSesion"
             android:exported="true">
