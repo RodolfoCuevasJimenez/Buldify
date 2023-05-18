@@ -1,6 +1,5 @@
 package cr.una.buildify.iniciosesion
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -18,10 +17,9 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import cr.una.buildify.MainActivity
 import cr.una.buildify.ProviderType
 import cr.una.buildify.R
-import cr.una.buildify.director_proyecto.Director_Proyecto_Home
+import cr.una.buildify.director_proyecto_drawer
 
 
 lateinit var btnRegistrar:Button
@@ -107,7 +105,7 @@ class inicioSesion : AppCompatActivity() {
     }
 
     private fun navegarPrincipal(email : String,provider : ProviderType){
-        val paginaPrincipal = Intent(this,Director_Proyecto_Home::class.java).apply {
+        val paginaPrincipal = Intent(this,director_proyecto_drawer::class.java).apply {
             putExtra("Email",email)
             putExtra("Provider",provider.name)
         }

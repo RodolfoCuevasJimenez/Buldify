@@ -9,11 +9,6 @@ import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import cr.una.buildify.iniciosesion.inicioSesion
 
-enum class ProviderType{
-    BASIC,
-    GOOGLE
-}
-
 class MainActivity : AppCompatActivity() {
 
     lateinit var btnCerrarSesion: Button

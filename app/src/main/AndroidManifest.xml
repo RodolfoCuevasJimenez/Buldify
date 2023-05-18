@@ -14,6 +14,11 @@
         android:theme="@style/Theme.Buildify"
         tools:targetApi="31">
         <activity
+            android:name=".director_proyecto_drawer"
+            android:exported="false"
+            android:label="@string/title_activity_director_proyecto_drawer"
+            android:theme="@style/Theme.Buildify.NoActionBar" />
+        <activity
             android:name=".usuario_invitado.Usuario_Invitado_Home"
             android:exported="false" />
         <activity
@@ -25,9 +30,7 @@
         <activity
             android:name=".duenno_obra.Duenno_Obra_Home"
             android:exported="false" />
-        <activity
-            android:name=".director_proyecto.Director_Proyecto_Home"
-            android:exported="false" />
+
         <activity
             android:name=".iniciosesion.inicioSesion"
             android:exported="true">
