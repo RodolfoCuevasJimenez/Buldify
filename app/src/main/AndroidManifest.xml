@@ -14,11 +14,20 @@
         android:theme="@style/Theme.Buildify"
         tools:targetApi="31">
         <activity
+            android:name=".trabajador_independiente.RegistrarServicio"
+            android:exported="false" />
+        <activity
             android:name=".usuario_invitado.Usuario_Invitado_Home"
             android:exported="false" />
         <activity
             android:name=".trabajador_independiente.Trabajador_Independiente_Home"
-            android:exported="false" />
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".evaluador_obra.Evaluador_Obra_Home"
             android:exported="false" />
@@ -33,6 +42,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -42,16 +52,11 @@
             android:exported="true"
             android:finishOnTaskLaunch="true"
             android:launchMode="singleTop"
-            android:stateNotNeeded="true"
-            >
-        </activity>
+            android:stateNotNeeded="true" />
         <activity
             android:name=".servicios.BuscarServicios"
             android:exported="true"
-            android:windowSoftInputMode="adjustNothing"
-            >
-
-            </activity>
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

@@ -12,4 +12,13 @@
     <string name="descripcionV">Descripción</string>
     <string name="etapa">Etapa</string>
     <string name="btnGuardar">Guardar observaciones</string>
+    <string name="tituloServicio">Título</string>
+    <string name="descripcionServicio">Descripción</string>
+    <string name="tipo_de_servicio">Tipo de servicio</string>
+    <string name="nombre_de_la_persona">Nombre de la persona</string>
+    <string name="telefonoPersona">Teléfono</string>
+    <string name="direccionPersona">Dirección</string>
+    <string name="correo_electronico">Correo Electrónico</string>
+    <string name="guardar_servicio">Guardar servicio</string>
+    <string name="datos">Por favor ingrese los datos del servicio</string>
 </resources>
