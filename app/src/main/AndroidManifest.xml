@@ -27,7 +27,16 @@
             android:exported="false" />
         <activity
             android:name=".director_proyecto.Director_Proyecto_Home"
-            android:exported="false" />
+            android:exported="true" />
+        <activity
+            android:name=".creacionProyecto.CrearProyecto"
+            android:exported="true" />
+        <activity android:name=".visualizacionDeProyectos.VisualizacionDeProyectos"
+            android:exported="true"
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name=".editarEquipo.EditarEquipoDeTrabajo"
+            android:exported="true"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity
             android:name=".iniciosesion.inicioSesion"
             android:exported="true">

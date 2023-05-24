@@ -46,7 +46,7 @@ class inicioSesion : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                         if (it.isSuccessful){
-                            navegarPrincipal(it.result?.user?.email?:"",ProviderType.BASIC)
+                            navegarPrincipal(it.result?.user?.uid?:"", it.result?.user?.email?:"",ProviderType.BASIC)
                         }
                         else{
                             mostrarAlerta()
@@ -66,7 +66,7 @@ class inicioSesion : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
-                        navegarPrincipal(it.result?.user?.email?:"",ProviderType.BASIC)
+                        navegarPrincipal(it.result?.user?.uid?:"", it.result?.user?.email?:"",ProviderType.BASIC)
                     }
                     else{
                         mostrarAlerta()
@@ -106,8 +106,9 @@ class inicioSesion : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun navegarPrincipal(email : String,provider : ProviderType){
+    private fun navegarPrincipal(uid: String, email : String,provider : ProviderType){
         val paginaPrincipal = Intent(this,Director_Proyecto_Home::class.java).apply {
+            putExtra("UID", uid)
             putExtra("Email",email)
             putExtra("Provider",provider.name)
         }
@@ -116,10 +117,11 @@ class inicioSesion : AppCompatActivity() {
 
     private fun sesion(){
         val prefs : SharedPreferences? = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
-        val email : String? = prefs?.getString("email",null)
-        val provider: String? = prefs?.getString("provider",null)
-        if(email != null){
-            navegarPrincipal(email, ProviderType.valueOf(provider.toString()))
+        val uid : String? = prefs?.getString("UID", null)
+        val email : String? = prefs?.getString("Email",null)
+        val provider: String? = prefs?.getString("Provider",null)
+        if(email != null && uid != null){
+            navegarPrincipal(uid, email, ProviderType.valueOf(provider.toString()))
         }
     }
 
@@ -137,7 +139,7 @@ class inicioSesion : AppCompatActivity() {
 
                     FirebaseAuth.getInstance().signInWithCredential(credencial).addOnCompleteListener {
                         if (it.isSuccessful){
-                            navegarPrincipal(cuenta.email?:"null",ProviderType.GOOGLE)
+                            navegarPrincipal(cuenta.id?:"", cuenta.email?:"null",ProviderType.GOOGLE)
                         }
                         else{
                             mostrarAlerta()

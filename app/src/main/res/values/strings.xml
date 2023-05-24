@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">Buildify</string>
     <string name="prefs_file">cr.una.buildify.PREFERENCES_FILE_KEY</string>
+    <!-- Pantalla de Creación de proyectos -->
+    <string name="TituloCrearProyecto">Nuevo Proyecto</string>
+    <string name="hintNombre">Nombre del proyecto</string>
+    <string name="hintPresupuesto">Presupuesto</string>
+    <string name="hintDescripcion">Descripción</string>
+    <string name="btnCrearProyecto">Crear Proyecto</string>
+    <!-- Pantalla de visualización de proyectos-->
+    <string name="tvTipoProyecto">Tipo de proyecto: </string>
+    <string name="tvDescripcionProyecto">Descripción:</string>
+    <string name="tvPresupuestoProyecto">Presupuesto: </string>
+    <string name="tvCliente">Cliente: </string>
+    <string name="btnEditarEquipo">Editar equipo de trabajo</string>
+    <string name="btnBuscar">Buscar</string>
+    <string name="busquedaProyecto">Buscar proyecto</string>
+    <string name="btnEditar">Editar</string>
+    <string name="btnBorrar">Borrar</string>
+    <!-- Pantalla -->
 </resources>
