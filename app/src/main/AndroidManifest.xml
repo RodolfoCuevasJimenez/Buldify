@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Buildify"
         tools:targetApi="31">
         <activity
+            android:name=".editarEquipo.FormularioTrabajador"
+            android:exported="false" />
+        <activity
             android:name=".usuario_invitado.Usuario_Invitado_Home"
             android:exported="false" />
         <activity
@@ -31,12 +34,14 @@
         <activity
             android:name=".creacionProyecto.CrearProyecto"
             android:exported="true" />
-        <activity android:name=".visualizacionDeProyectos.VisualizacionDeProyectos"
+        <activity
+            android:name=".visualizacionDeProyectos.VisualizacionDeProyectos"
             android:exported="true"
-            android:windowSoftInputMode="adjustNothing"/>
-        <activity android:name=".editarEquipo.EditarEquipoDeTrabajo"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".editarEquipo.EditarEquipoDeTrabajo"
             android:exported="true"
-            android:windowSoftInputMode="adjustNothing"/>
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".iniciosesion.inicioSesion"
             android:exported="true">

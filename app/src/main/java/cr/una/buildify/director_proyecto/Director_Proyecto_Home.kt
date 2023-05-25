@@ -3,7 +3,6 @@ package cr.una.buildify.director_proyecto
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.cardview.widget.CardView
 import cr.una.buildify.R
 import cr.una.buildify.creacionProyecto.CrearProyecto
@@ -32,7 +31,6 @@ class Director_Proyecto_Home : AppCompatActivity() {
                 putExtra("UID", uid)
             }
             startActivity(intent)
-            finish()
         }
 
         btnVisualizarProyectos.setOnClickListener {
@@ -42,7 +40,6 @@ class Director_Proyecto_Home : AppCompatActivity() {
                 putExtra("UID", uid)
             }
             startActivity(intent)
-            finish()
         }
     }
 }

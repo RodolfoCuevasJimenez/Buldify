@@ -1,7 +1,5 @@
 package cr.una.buildify.creacionProyecto
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -9,7 +7,6 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.ktx.auth
 import cr.una.buildify.R
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -48,8 +45,6 @@ class CrearProyecto : AppCompatActivity() {
     }
 
     private fun agregarProyecto(uid: String) {
-        val user = Firebase.auth.currentUser
-        val prefs : SharedPreferences? = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val equipo = arrayListOf<Trabajador>()
         if(verificarFormulario()){
             val nuevoProyecto = Proyecto(
@@ -63,12 +58,9 @@ class CrearProyecto : AppCompatActivity() {
             )
             db.collection("Proyectos")
                 .add(nuevoProyecto)
-                .addOnSuccessListener {
-                        documentReference -> Toast.makeText(this, "Documento creado con el id: ${documentReference.id}", Toast.LENGTH_SHORT).show()
-                }.
-                addOnFailureListener() {
-                    Toast.makeText(this, "No se ha agregado el documento", Toast.LENGTH_SHORT).show()
-                }
+                .addOnSuccessListener { Toast.makeText(this, "Proyecto creado.", Toast.LENGTH_SHORT).show() }
+                .addOnFailureListener() { Toast.makeText(this, "No se ha creado el proyecto.", Toast.LENGTH_SHORT).show() }
+            finish()
         }
     }
 
