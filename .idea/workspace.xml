@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ffd9254-4e20-4c64-8d09-b78d0560218c" name="Changes" comment="se arregla el marging de la tabla">
+    <list default="true" id="9ffd9254-4e20-4c64-8d09-b78d0560218c" name="Changes" comment="mejora del print 1">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/VisualizarSolicitudDetalle.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_diector_visualizar_solicitud_detalle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
@@ -20,8 +22,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_diector_tablacosto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_diector_tablacosto.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_director_proyecto_solicitud_detalle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_director_proyecto_solicitud_detalle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalleActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalleActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalleAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalleAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/tabla_costo/tablaCostoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/tabla_costo/tablaCostoActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684260091109</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="mejora del print 1">
+      <created>1684905648838</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684905648838</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,6 +240,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="menu conexion" />
     <MESSAGE value="se arregla el marging de la tabla" />
-    <option name="LAST_COMMIT_MESSAGE" value="se arregla el marging de la tabla" />
+    <MESSAGE value="mejora del print 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="mejora del print 1" />
   </component>
 </project>

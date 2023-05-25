@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/teal_200">
+
+
+    <TextView
+        android:id="@+id/txtTitulosolicitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Visualizar Solicitud Detalle de Obra"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:fontFamily="@font/montserrat_extrabold" />
+
+
+
+    <!-- item_layout.xml -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="328dp"><![CDATA[
+        android:padding="8dp">
+
+
+        ]]>
+
+        <TextView
+            android:id="@+id/tv_tipo_solicitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple_500"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_name_solicitud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple_500"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_area_solicitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple_500"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_detalle_solicitud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple_500"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="403dp"
+        android:layout_height="465dp"
+        android:horizontalSpacing="8dp"
+        android:numColumns="2"
+        android:verticalSpacing="8dp"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

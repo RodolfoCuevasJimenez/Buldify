@@ -26,14 +26,6 @@ class tablaCostoActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance() //obtenemos instancia de BD
         val tablaLayout = findViewById<TableLayout>(R.id.tablaid)
 
-//scroll
-        val scrollView = findViewById<ScrollView>(R.id.scrollView)
-        val displayMetrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(displayMetrics)
-        val screenHeight = displayMetrics.heightPixels
-        val otherViewHeight = findViewById<View>(R.id.tablaid).height
-        scrollView.layoutParams.height = screenHeight - otherViewHeight
-//fin scroll
 
         db.collection("Tabla_Costo")
             .get()

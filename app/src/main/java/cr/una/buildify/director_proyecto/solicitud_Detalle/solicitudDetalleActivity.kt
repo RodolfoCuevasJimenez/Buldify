@@ -10,9 +10,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import cr.una.buildify.R
 import android.view.View
-import cr.una.buildify.director_proyecto.tabla_costo.tablaCosto
-import cr.una.buildify.director_proyecto.tabla_costo.tablaCostoAdapter
-import cr.una.buildify.databinding.ActivityDirectorProyectoSolicitudDetalleBinding
+
 
 class solicitudDetalleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
