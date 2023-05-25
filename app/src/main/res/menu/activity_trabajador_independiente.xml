@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_calificaciones"
+            android:icon="@drawable/calificaciones"
+            android:title="Calificaciones" />
+
+        <item
+            android:id="@+id/nav_crear_servicios"
+            android:icon="@drawable/servicios"
+            android:title="Crear Servicios" />
+
+        <item
+            android:id="@+id/nav_postularse"
+            android:icon="@drawable/serviciosindependientes"
+            android:title="Postularse a Servicio" />
+
+
+
+    </group>
+</menu>

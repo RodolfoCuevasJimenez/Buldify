@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_crear_proyectos"
+            android:icon="@drawable/crearproyecto"
+            android:title="Crear Proyectos" />
+
+        <item
+            android:id="@+id/nav_registrar_personal"
+            android:icon="@drawable/annadirpersonal"
+            android:title="Registrar Personal" />
+
+        <item
+            android:id="@+id/nav_registrar_documentos"
+            android:icon="@drawable/nuevodocumento"
+            android:title="Registrar Documentos" />
+
+        <item
+            android:id="@+id/nav_registrar_avance"
+            android:icon="@drawable/crearproyecto"
+            android:title="Registrar Avance" />
+
+        <item
+            android:id="@+id/nav_visualizar_proyectos"
+            android:icon="@drawable/visualizarproyecto"
+            android:title="Visualizar Proyecto" />
+
+        <item
+            android:id="@+id/nav_crear_cronograma"
+            android:icon="@drawable/cronograma"
+            android:title="Crear Cronograma" />
+
+        <item
+            android:id="@+id/nav_crear_tabla_costos"
+            android:icon="@drawable/tablacostos"
+            android:title="Crear Tabla Costos" />
+
+        <item
+            android:id="@+id/nav_detalles_obra"
+            android:icon="@drawable/detalleobra"
+            android:title="Detalles de Obra" />
+
+        <item
+            android:id="@+id/nav_servicios_independientes"
+            android:icon="@drawable/serviciosindependientes"
+            android:title="Servicios Independientes" />
+
+        <item
+            android:id="@+id/nav_incidentes"
+            android:icon="@drawable/incidentes"
+            android:title="Gestión de Incidentes" />
+
+
+    </group>
+</menu>

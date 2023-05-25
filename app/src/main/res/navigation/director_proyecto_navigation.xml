@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation5"
+    app:startDestination="@id/director_Proyecto_Main">
+
+
+    <fragment
+        android:id="@+id/director_Proyecto_Main"
+        android:name="cr.una.buildify.ui.director_proyecto.Director_Proyecto_Main"
+        android:label="fragment_director__proyecto__main"
+        tools:layout="@layout/fragment_director__proyecto__main" />
+</navigation>

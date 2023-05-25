@@ -1,4 +1,4 @@
-package cr.una.buildify.ui.director_proyecto
+package cr.una.buildify.ui.trabajador_independiente
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
+import cr.una.buildify.R
+import cr.una.buildify.databinding.FragmentEvaluadorObraMainBinding
+import cr.una.buildify.databinding.FragmentTrabajadorIndependienteMainBinding
+import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
-class Director_Proyecto_Main : Fragment() {
+class trabajador_independiente_main : Fragment() {
 
-    private var _binding: FragmentDirectorProyectoMainBinding? = null
+    private var _binding: FragmentTrabajadorIndependienteMainBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +27,7 @@ class Director_Proyecto_Main : Fragment() {
         val homeViewModel =
             ViewModelProvider(this).get(DirectorProyectoMainViewModel::class.java)
 
-        _binding = FragmentDirectorProyectoMainBinding.inflate(inflater, container, false)
+        _binding = FragmentTrabajadorIndependienteMainBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         return root
@@ -40,5 +43,4 @@ class Director_Proyecto_Main : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

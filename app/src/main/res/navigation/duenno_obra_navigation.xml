@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@id/duenno_Obra_Main">
+
+    <fragment
+        android:id="@+id/duenno_Obra_Main"
+        android:name="cr.una.buildify.ui.duenno_obra.Duenno_Obra_Main"
+        android:label="fragment_duenno__obra__main"
+        tools:layout="@layout/fragment_duenno__obra__main" />
+</navigation>

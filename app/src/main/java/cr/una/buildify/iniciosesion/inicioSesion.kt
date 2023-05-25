@@ -1,12 +1,9 @@
 package cr.una.buildify.iniciosesion
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -17,34 +14,43 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import cr.una.buildify.ProviderType
+import com.google.firebase.firestore.FirebaseFirestore
 import cr.una.buildify.R
 import cr.una.buildify.director_proyecto_drawer
+import cr.una.buildify.ui.duenno_obra.duenno_obra_drawer
+import cr.una.buildify.ui.evaluador_obra.Evaluador_Obra_drawer
+import cr.una.buildify.ui.trabajador_independiente.trabajador_independiente_drawer
+import cr.una.buildify.ui.trabajador_independiente.trabajador_independiente_main
+import cr.una.buildify.ui.usuario_invitado.Usuario_Invitado_Drawer
 
 
 lateinit var btnRegistrar:Button
 lateinit var btnIngresar:Button
 lateinit var btnGoogle:TextView
+lateinit var autoCompleteTextView: AutoCompleteTextView
 
 @Suppress("DEPRECATION")
 class inicioSesion : AppCompatActivity() {
 
     private val GOOGLE_SING_IN = 100
+    private lateinit var baseDatos: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio_sesion)
+        baseDatos = FirebaseFirestore.getInstance()
 
         title = "Buildify - Inicio de Sesión"
         //Configuración de botones
         //Botón de registrar
         btnRegistrar = findViewById(R.id.btnRegistrar)
         btnRegistrar.setOnClickListener{
-            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty()){
+            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty() && findViewById<AutoCompleteTextView>(R.id.cmbRol).text.isNotEmpty()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                         if (it.isSuccessful){
-                            navegarPrincipal(it.result?.user?.email?:"",ProviderType.BASIC)
+                            postUsuario(findViewById<TextView>(R.id.inputEmail).text.toString(),findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
+                            navegarPrincipal(it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                         }
                         else{
                             mostrarAlerta()
@@ -60,11 +66,11 @@ class inicioSesion : AppCompatActivity() {
         //Botón de acceder
         btnIngresar = findViewById(R.id.btnIngresar)
         btnIngresar.setOnClickListener{
-            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty()){
+            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty() && findViewById<AutoCompleteTextView>(R.id.cmbRol).text.isNotEmpty()){
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
-                        navegarPrincipal(it.result?.user?.email?:"",ProviderType.BASIC)
+                        navegarPrincipal(it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                     }
                     else{
                         mostrarAlerta()
@@ -91,8 +97,35 @@ class inicioSesion : AppCompatActivity() {
             }
         }
 
+        val roles = resources.getStringArray(R.array.roles)
+        val arrayAdapter = ArrayAdapter(this,R.layout.roles,roles)
+
         //Comprobar si existe una sesión activa
-        sesion()
+        //sesion()
+
+        autoCompleteTextView = findViewById(R.id.cmbRol)
+        with(autoCompleteTextView){
+            setAdapter(arrayAdapter)
+        }
+    }
+
+    private fun postUsuario(email: String,tipo: String){
+        val usuario = hashMapOf(
+            "idUsuario" to findViewById<TextView>(R.id.inputEmail).text.toString(),
+            "tipo" to findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString()
+        )
+
+        baseDatos.collection("Usuario")
+            .document()
+            .set(usuario)
+            .addOnSuccessListener {
+                val toast = Toast.makeText(this,"Usuario agregado correctamente",Toast.LENGTH_SHORT)
+                toast.show()
+            }
+            .addOnFailureListener{
+                val toast = Toast.makeText(this,"Error al agregar el usuario ",Toast.LENGTH_SHORT)
+                toast.show()
+            }
     }
 
     private fun mostrarAlerta(){
@@ -104,22 +137,41 @@ class inicioSesion : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun navegarPrincipal(email : String,provider : ProviderType){
-        val paginaPrincipal = Intent(this,director_proyecto_drawer::class.java).apply {
-            putExtra("Email",email)
-            putExtra("Provider",provider.name)
+    private fun navegarPrincipal(email : String,tipo : String){
+        var paginaPrincipal: Intent? = null
+        when(tipo){
+            "Director de Proyecto" ->  paginaPrincipal = Intent(this,director_proyecto_drawer::class.java).apply {
+                                                            putExtra("Email",email)
+                                                            putExtra("Tipo",tipo)
+                                                            }
+            "Dueño de la Obra" -> paginaPrincipal = Intent(this, duenno_obra_drawer::class.java).apply {
+                                                        putExtra("Email",email)
+                                                        putExtra("Tipo",tipo)
+                                                    }
+            "Evaluador de la Obra" -> paginaPrincipal = Intent(this,Evaluador_Obra_drawer::class.java).apply {
+                                                            putExtra("Email",email)
+                                                            putExtra("Tipo",tipo)
+                                                        }
+            "Trabajador Independiente" -> paginaPrincipal = Intent(this,trabajador_independiente_drawer::class.java).apply {
+                                                                putExtra("Email",email)
+                                                                putExtra("Tipo",tipo)
+                                                            }
+            "Usuario Invitado" -> paginaPrincipal = Intent(this,Usuario_Invitado_Drawer::class.java).apply {
+                                                        putExtra("Email",email)
+                                                        putExtra("Tipo",tipo)
+                                                    }
         }
         startActivity(paginaPrincipal)
     }
 
-    private fun sesion(){
+    /*private fun sesion(){
         val prefs : SharedPreferences? = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val email : String? = prefs?.getString("email",null)
-        val provider: String? = prefs?.getString("provider",null)
+        val provider: String? = prefs?.getString("tipo",null)
         if(email != null){
             navegarPrincipal(email, ProviderType.valueOf(provider.toString()))
         }
-    }
+    }*/
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -128,6 +180,7 @@ class inicioSesion : AppCompatActivity() {
 
             try {
                 val cuenta : GoogleSignInAccount? = tarea.getResult(ApiException::class.java)
+                val tipo : String = findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString()
 
                 //Autenticación
                 if(cuenta != null){
@@ -135,7 +188,7 @@ class inicioSesion : AppCompatActivity() {
 
                     FirebaseAuth.getInstance().signInWithCredential(credencial).addOnCompleteListener {
                         if (it.isSuccessful){
-                            navegarPrincipal(cuenta.email?:"null",ProviderType.GOOGLE)
+                            navegarPrincipal(cuenta.email?:"null",tipo)
                         }
                         else{
                             mostrarAlerta()

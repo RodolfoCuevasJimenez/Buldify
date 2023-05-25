@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_servicios_independientes"
+            android:icon="@drawable/serviciosindependientes"
+            android:title="Servicios Independientes" />
+
+        <item
+            android:id="@+id/nav_visualizar_proyectos"
+            android:icon="@drawable/visualizarproyecto"
+            android:title="Visualizar Proyectos Compartidos" />
+
+        <item
+            android:id="@+id/nav_visualizar_cronograma"
+            android:icon="@drawable/cronograma"
+            android:title="Visualizar Cronograma" />
+
+        <item
+            android:id="@+id/nav_visualizar_tabla_costos"
+            android:icon="@drawable/tablacostos"
+            android:title="Visualizar Tabla Costos" />
+
+        <item
+            android:id="@+id/nav_visualizar_documentos"
+            android:icon="@drawable/registroavance"
+            android:title="Visualizar Documentos" />
+
+    </group>
+</menu>

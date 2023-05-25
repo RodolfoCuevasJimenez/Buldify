@@ -12,4 +12,17 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string-array name="roles">
+        <item>Director de Proyecto</item>
+        <item>Dueño de la Obra</item>
+        <item>Evaluador de la Obra</item>
+        <item>Trabajador Independiente</item>
+        <item>Usuario Invitado</item>
+    </string-array>
+    <string name="title_activity_duenno_obra_drawer">duenno_obra_drawer</string>
+    <string name="title_activity_evaluador_obra_drawer">Evaluador_Obra_drawer</string>
+    <string name="title_activity_trabajador_independiente_drawer">trabajador_independiente_drawer
+    </string>
+    <string name="title_activity_usuario_invitado_drawer">usuario_invitado_drawer</string>
 </resources>
