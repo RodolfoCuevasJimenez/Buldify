@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/purple_500</item>
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+
+    <style name="CalendarDayHeader" parent="android:TextAppearance.DeviceDefault">
+        <item name="android:weekDayTextAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:dateTextAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>
