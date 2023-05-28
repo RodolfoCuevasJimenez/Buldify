@@ -21,4 +21,27 @@
     <string name="correo_electronico">Correo Electrónico</string>
     <string name="guardar_servicio">Guardar servicio</string>
     <string name="datos">Por favor ingrese los datos del servicio</string>
+    <!-- Pantalla de Creación de proyectos -->
+    <string name="TituloCrearProyecto">Nuevo Proyecto</string>
+    <string name="hintNombreProyecto">Nombre del proyecto</string>
+    <string name="hintPresupuesto">Presupuesto en la construcción</string>
+    <string name="hintDescripcion">Descripción</string>
+    <string name="btnCrearProyecto">Crear Proyecto</string>
+    <!-- Pantalla de visualización de proyectos-->
+    <string name="tvTipoProyecto">Tipo de proyecto: </string>
+    <string name="tvDescripcionProyecto">Descripción:</string>
+    <string name="tvPresupuestoProyecto">Presupuesto en la construcción: </string>
+    <string name="tvCliente">Cliente: </string>
+    <string name="btnEditarEquipo">Editar equipo de trabajo</string>
+    <string name="busquedaProyecto">Buscar proyecto</string>
+    <string name="btnEditar">Editar</string>
+    <string name="btnBorrar">Borrar</string>
+    <string name="btnAgregar">Agregar</string>
+    <!-- Pantalla de Adicion/Edicion del trabajador -->
+    <string name="TituloFormularioTrabajador">Agregar Trabajador</string>
+    <string name="hintNombreTrabajador">Nombre del trabajador</string>
+    <string name="hintRolTrabajador">Rol del trabajador</string>
+    <string name="hintCorreoTrabajador">Correo electrónico</string>
+    <string name="btnCancelar">Cancelar</string>
+    <string name="buscar_trabajador">Buscar trabajador</string>
 </resources>
