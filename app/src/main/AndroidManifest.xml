@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="cr.una.buildify" >
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/iconoapp"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/iconoapp_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Buildify"
+        tools:targetApi="31" >
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="cr.una.buildify.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".carga_archivos.Cargar_Archivos"
+            android:configChanges="uiMode"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".carga_archivos.Cargar_Recorridos"
+            android:configChanges="uiMode"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".carga_archivos.Cargar_Planos"
+            android:configChanges="uiMode"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".carga_archivos.Cargar_Renders"
+            android:configChanges="uiMode"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".carga_archivos.Cargar_Documentos"
+            android:configChanges="uiMode"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".carga_archivos.Cargar_Progreso"
+            android:configChanges="uiMode"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".ui.usuario_invitado.Usuario_Invitado_Drawer"
+            android:exported="false"
+            android:label="@string/title_activity_usuario_invitado_drawer"
+            android:theme="@style/Theme.Buildify.NoActionBar" />
+
+        <activity
+            android:name=".ui.trabajador_independiente.trabajador_independiente_drawer"
+            android:exported="false"
+            android:label="@string/title_activity_trabajador_independiente_drawer"
+            android:theme="@style/Theme.Buildify.NoActionBar" />
+        <activity
+            android:name=".ui.evaluador_obra.Evaluador_Obra_drawer"
+            android:exported="false"
+            android:label="@string/title_activity_evaluador_obra_drawer"
+            android:theme="@style/Theme.Buildify.NoActionBar" />
+        <activity
+            android:name=".ui.duenno_obra.duenno_obra_drawer"
+            android:exported="false"
+            android:label="@string/title_activity_duenno_obra_drawer"
+            android:theme="@style/Theme.Buildify.NoActionBar" />
+        <activity
+            android:name=".director_proyecto_drawer"
+            android:exported="false"
+            android:label="@string/title_activity_director_proyecto_drawer"
+            android:theme="@style/Theme.Buildify.NoActionBar" />
+        <activity
+            android:name=".iniciosesion.inicioSesion"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

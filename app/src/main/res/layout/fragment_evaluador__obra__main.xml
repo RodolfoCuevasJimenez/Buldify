@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "#e3e3e3"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.evaluador_obra.Evaluador_Obra_Main">
+
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/background_view" />
+
+    <TextView
+        android:id="@+id/txtTituloMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="80dp"
+        android:textSize="34sp"
+        app:fontFamily="@font/montserrat_extrabold"
+        android:text="Menú Principal" />
+
+    <ImageView
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="24dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="380dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/salir" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/view_top"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="-80dp"
+        android:rowCount="5"
+        android:columnCount="2"
+        >
+
+        //Formulario de incidentes
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "0"
+            android:layout_column = "0"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/formularioincidentes" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Formulario de
+                    Incidentes"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        //Formulario de Evaluación de la etapa
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "0"
+            android:layout_column = "1"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/formularioevaluacion" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Formulario de
+                    Evaluación de la Etapa"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        //Observaciones de mejora
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "1"
+            android:layout_column = "0"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/mejoras" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Observaciones de mejora"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </GridLayout>
+
+</RelativeLayout>

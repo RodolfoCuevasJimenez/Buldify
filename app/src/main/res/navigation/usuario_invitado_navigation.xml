@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation5"
+    app:startDestination="@id/usuario_invitado_main">
+    <fragment
+        android:id="@+id/usuario_invitado_main"
+        android:name="cr.una.buildify.ui.usuario_invitado.usuario_invitado_main"
+        android:label="fragment_usuario_invitado_main"
+        tools:layout="@layout/fragment_usuario_invitado_main" />
+</navigation>

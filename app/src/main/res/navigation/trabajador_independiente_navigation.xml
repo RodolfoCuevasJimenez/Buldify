@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation4"
+    app:startDestination="@id/trabajador_independiente_main">
+
+    <fragment
+        android:id="@+id/trabajador_independiente_main"
+        android:name="cr.una.buildify.ui.trabajador_independiente.trabajador_independiente_main"
+        android:label="fragment_trabajador_independiente_main"
+        tools:layout="@layout/fragment_trabajador_independiente_main" />
+</navigation>

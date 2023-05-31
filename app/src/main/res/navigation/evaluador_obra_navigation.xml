@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation3"
+    app:startDestination="@id/evaluador_Obra_Main">
+
+    <fragment
+        android:id="@+id/evaluador_Obra_Main"
+        android:name="cr.una.buildify.ui.evaluador_obra.Evaluador_Obra_Main"
+        android:label="fragment_evaluador__obra__main"
+        tools:layout="@layout/fragment_evaluador__obra__main" />
+</navigation>
