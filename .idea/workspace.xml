@@ -9,24 +9,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ffd9254-4e20-4c64-8d09-b78d0560218c" name="Changes" comment="mejora del print 1">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/VisualizarSolicitudDetalle.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_diector_visualizar_solicitud_detalle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+    <list default="true" id="9ffd9254-4e20-4c64-8d09-b78d0560218c" name="Changes" comment="pantalla sprint 2 visualizar solicitud detalle, carga de datoS desde BD. Mejorar la pantalla front">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/VisualizarSolicitudDetalle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/VisualizarSolicitudDetalle.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalle.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalleActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalleActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalleAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/solicitud_Detalle/solicitudDetalleAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/tabla_costo/tablaCostoActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/cr/una/buildify/director_proyecto/tabla_costo/tablaCostoActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_diector_visualizar_solicitud_detalle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_diector_visualizar_solicitud_detalle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684905648838</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="pantalla sprint 2 visualizar solicitud detalle, carga de datoS desde BD. Mejorar la pantalla front">
+      <created>1684991232937</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684991232937</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,6 +238,7 @@
     <MESSAGE value="menu conexion" />
     <MESSAGE value="se arregla el marging de la tabla" />
     <MESSAGE value="mejora del print 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="mejora del print 1" />
+    <MESSAGE value="pantalla sprint 2 visualizar solicitud detalle, carga de datoS desde BD. Mejorar la pantalla front" />
+    <option name="LAST_COMMIT_MESSAGE" value="pantalla sprint 2 visualizar solicitud detalle, carga de datoS desde BD. Mejorar la pantalla front" />
   </component>
 </project>

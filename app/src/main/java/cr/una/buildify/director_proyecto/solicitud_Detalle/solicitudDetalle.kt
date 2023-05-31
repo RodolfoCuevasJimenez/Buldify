@@ -9,3 +9,11 @@ class solicitudDetalle (var id: String = "",
                                          ) {
 
 }
+
+
+val id =""
+val nombre=""
+val tipo=""
+val area=""
+val detalle=""
+

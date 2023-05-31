@@ -1,15 +1,12 @@
 package cr.una.buildify.director_proyecto.solicitud_Detalle
 
-import android.graphics.Typeface
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import cr.una.buildify.R
-import cr.una.buildify.director_proyecto.tabla_costo.tablaCosto
 
 
 class VisualizarSolicitudDetalle : AppCompatActivity() {
@@ -28,15 +25,15 @@ class VisualizarSolicitudDetalle : AppCompatActivity() {
         var serviciosList: MutableList<solicitudDetalle> = mutableListOf()
 
         db = FirebaseFirestore.getInstance() //obtenemos instancia de BD
-      val gridView = findViewById<GridView>(R.id.gridView)
-        val tv_detalle_solicitud = findViewById<TextView>(R.id.tv_detalle_solicitud)
+      /*val gridView = findViewById<GridView>(R.id.gridView)
+        val tv_detalle_solicitud = findViewById<TextView>(R.id.tv_detalle_solicitud)*/
 
         db.collection("Solicitud_Detalle")
             .get()
             .addOnSuccessListener {
                     resultado ->
                 for (documento in resultado){
-                    datos = "${documento.id}:${documento.data}\n"
+                    datos = "${documento.id}:${documento.data}\n "
                     val tabla = documento.toObject(solicitudDetalle::class.java)
                     if (tabla != null) {
                         serviciosList.add(tabla)
@@ -45,8 +42,12 @@ class VisualizarSolicitudDetalle : AppCompatActivity() {
 
                        // tv_detalle_solicitud.text =tabla.detalle
 
-                        val adapter = solicitudDetalleAdapter(this, serviciosList)
-                        gridView.adapter = adapter
+                     /*   val adapter = solicitudDetalleAdapter(this, serviciosList)
+                        gridView.adapter = adapter*/
+                        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+                        recyclerView.layoutManager = LinearLayoutManager(this)
+                        val adapter = solicitudDetalleAdapter(serviciosList)
+                        recyclerView.adapter = adapter
 
 
                     }
@@ -61,7 +62,7 @@ class VisualizarSolicitudDetalle : AppCompatActivity() {
             }
 
             .addOnFailureListener{exception ->
-                tv_detalle_solicitud.text ="no hay datos a extraer"
+               // tv_detalle_solicitud.text ="no hay datos a extraer"
 
             }
 

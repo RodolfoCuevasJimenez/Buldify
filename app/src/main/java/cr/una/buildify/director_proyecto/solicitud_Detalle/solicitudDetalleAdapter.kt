@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cr.una.buildify.R
 import cr.una.buildify.director_proyecto.tabla_costo.tablaCosto
 
-
+/*
     class solicitudDetalleAdapter(private val context: Context, private val dataList: List<solicitudDetalle>) : BaseAdapter() {
 
 
@@ -52,4 +52,40 @@ import cr.una.buildify.director_proyecto.tabla_costo.tablaCosto
         }
 
 
+}*/
+
+
+class solicitudDetalleAdapter(private val dataList: MutableList<solicitudDetalle>) :
+    RecyclerView.Adapter<solicitudDetalleAdapter.ViewHolder>() {
+
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val textViewTitle: TextView = view.findViewById(R.id.textViewTitle)
+        // Aumentar tamaño de la letra
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.activity_diector_visualizar_solicitud_detalle, parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = toStringSolicitud(position)
+        holder.textViewTitle.text = item
+
+    }
+
+    override fun getItemCount(): Int {
+        return dataList.size
+    }
+
+     fun toStringSolicitud(position: Int): String {
+
+        return "ID:   ${dataList[position].id}\n" +
+                "Nombre:   ${dataList[position].nombre}\n" +
+                "Tipo:   ${dataList[position].tipo}\n" +
+                "Área:   ${dataList[position].area}\n" +
+                "Detalle:   ${dataList[position].detalle}"
+    }
 }
