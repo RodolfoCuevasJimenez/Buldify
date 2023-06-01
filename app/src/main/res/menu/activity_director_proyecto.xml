@@ -15,13 +15,13 @@
             android:title="Registrar Personal" />
 
         <item
-            android:id="@+id/nav_registrar_documentos"
+            android:id="@+id/cargar_Archivos"
             android:icon="@drawable/nuevodocumento"
             android:title="Registrar Documentos" />
 
         <item
-            android:id="@+id/nav_registrar_avance"
-            android:icon="@drawable/crearproyecto"
+            android:id="@+id/cargar_Progreso"
+            android:icon="@drawable/registroavance"
             android:title="Registrar Avance" />
 
         <item

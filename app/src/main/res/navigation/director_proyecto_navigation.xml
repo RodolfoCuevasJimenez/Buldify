@@ -11,4 +11,12 @@
         android:name="cr.una.buildify.ui.director_proyecto.Director_Proyecto_Main"
         android:label="fragment_director__proyecto__main"
         tools:layout="@layout/fragment_director__proyecto__main" />
+    <activity
+        android:id="@+id/cargar_Archivos"
+        android:name="cr.una.buildify.carga_archivos.Cargar_Archivos"
+        android:label="Cargar_Archivos" />
+    <activity
+        android:id="@+id/cargar_Progreso"
+        android:name="cr.una.buildify.carga_archivos.Cargar_Progreso"
+        android:label="Cargar_Progreso" />
 </navigation>
