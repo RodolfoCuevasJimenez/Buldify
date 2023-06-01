@@ -45,7 +45,13 @@ class VisualizarSolicitudDetalle : AppCompatActivity() {
                      /*   val adapter = solicitudDetalleAdapter(this, serviciosList)
                         gridView.adapter = adapter*/
                         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-                        recyclerView.layoutManager = LinearLayoutManager(this)
+                       recyclerView.layoutManager = LinearLayoutManager(this)
+
+                        val itemSpacing = resources.getDimensionPixelSize(R.dimen.item_spacing)
+
+// Crea una instancia de RecyclerViewItemDecoration y añádelo al RecyclerView
+                        val itemDecoration = RecyclerViewItemDecoration(itemSpacing)
+                        recyclerView.addItemDecoration(itemDecoration)
                         val adapter = solicitudDetalleAdapter(serviciosList)
                         recyclerView.adapter = adapter
 

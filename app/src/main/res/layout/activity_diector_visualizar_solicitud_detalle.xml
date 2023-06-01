@@ -7,7 +7,7 @@
     android:background="@color/teal_200">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
 
         android:orientation="vertical"
@@ -20,7 +20,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="5dp"
             android:gravity="center"
             android:text="@string/titulovisualizarDetalle"
             android:textColor="@color/black"
@@ -31,12 +31,32 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
+    </LinearLayout>
 
-    <!-- item_layout.xml -->
+
+
+    <!--Segundo layout-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+
+
+        <!-- item_layout.xml -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="565dp"
-            android:orientation="vertical">
+            android:layout_marginTop="75dp"
+            android:orientation="vertical"
+            android:padding="@dimen/item_spacing">
 
             <TextView
                 android:id="@+id/textViewTitle"
@@ -44,14 +64,14 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp" />
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_marginTop="20dp" />
-
+                android:layout_height="365dp"
+                android:layout_marginTop="0dp" />
         </LinearLayout>
 
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
