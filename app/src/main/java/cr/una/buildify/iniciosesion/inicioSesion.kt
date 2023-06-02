@@ -22,6 +22,8 @@ import cr.una.buildify.ui.evaluador_obra.Evaluador_Obra_drawer
 import cr.una.buildify.ui.trabajador_independiente.trabajador_independiente_drawer
 import cr.una.buildify.ui.trabajador_independiente.trabajador_independiente_main
 import cr.una.buildify.ui.usuario_invitado.Usuario_Invitado_Drawer
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 lateinit var btnRegistrar:Button
@@ -110,13 +112,16 @@ class inicioSesion : AppCompatActivity() {
     }
 
     private fun postUsuario(email: String,tipo: String){
+        val idUsuario = findViewById<TextView>(R.id.inputEmail).text.toString() // Obtener el ID del usuario desde el TextView
+        val tipo = findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString() // Obtener el tipo de usuario desde el AutoCompleteTextView
+
         val usuario = hashMapOf(
-            "idUsuario" to findViewById<TextView>(R.id.inputEmail).text.toString(),
-            "tipo" to findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString()
+            "idUsuario" to idUsuario,
+            "tipo" to tipo
         )
 
-        baseDatos.collection("Usuario")
-            .document()
+        baseDatos.collection("Usuarios")
+            .document(idUsuario)
             .set(usuario)
             .addOnSuccessListener {
                 val toast = Toast.makeText(this,"Usuario agregado correctamente",Toast.LENGTH_SHORT)
