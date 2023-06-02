@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Buildify</string>
-    <string name="titulovisualizarDetalle">Visualizar Solicitud Detalle de Obra</string>
+
     <string name="prefs_file">cr.una.buildify.PREFERENCES_FILE_KEY</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="titulovisualizarDetalle">Visualizar Solicitud Detalle de Obra</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

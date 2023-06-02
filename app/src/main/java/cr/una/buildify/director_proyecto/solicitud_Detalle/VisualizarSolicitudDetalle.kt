@@ -25,8 +25,7 @@ class VisualizarSolicitudDetalle : AppCompatActivity() {
         var serviciosList: MutableList<solicitudDetalle> = mutableListOf()
 
         db = FirebaseFirestore.getInstance() //obtenemos instancia de BD
-      /*val gridView = findViewById<GridView>(R.id.gridView)
-        val tv_detalle_solicitud = findViewById<TextView>(R.id.tv_detalle_solicitud)*/
+
 
         db.collection("Solicitud_Detalle")
             .get()
@@ -37,30 +36,23 @@ class VisualizarSolicitudDetalle : AppCompatActivity() {
                     val tabla = documento.toObject(solicitudDetalle::class.java)
                     if (tabla != null) {
                         serviciosList.add(tabla)
-//aqui creamos la tabla dinamica
 
-
-                       // tv_detalle_solicitud.text =tabla.detalle
-
-                     /*   val adapter = solicitudDetalleAdapter(this, serviciosList)
-                        gridView.adapter = adapter*/
+//RECYCLER VIEW
                         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-                       recyclerView.layoutManager = LinearLayoutManager(this)
-
-                        val itemSpacing = resources.getDimensionPixelSize(R.dimen.item_spacing)
-
-// Crea una instancia de RecyclerViewItemDecoration y añádelo al RecyclerView
-                        val itemDecoration = RecyclerViewItemDecoration(itemSpacing)
-                        recyclerView.addItemDecoration(itemDecoration)
                         val adapter = solicitudDetalleAdapter(serviciosList)
                         recyclerView.adapter = adapter
 
+                        recyclerView.layoutManager = LinearLayoutManager(this)
+
+                        val itemSpacing = resources.getDimensionPixelSize(R.dimen.item_spacing)
+
+// Crea una instancia de RecyclerViewItemDecoration y AGREGAMOS RecyclerView
+                        val itemDecoration = RecyclerViewItemDecoration(itemSpacing)
+                        recyclerView.addItemDecoration(itemDecoration)
+
+
 
                     }
-
-
-
-
 
                 }
 
@@ -68,7 +60,7 @@ class VisualizarSolicitudDetalle : AppCompatActivity() {
             }
 
             .addOnFailureListener{exception ->
-               // tv_detalle_solicitud.text ="no hay datos a extraer"
+
 
             }
 
