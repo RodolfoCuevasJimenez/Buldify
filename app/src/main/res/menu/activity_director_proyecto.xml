@@ -15,7 +15,7 @@
             android:title="Registrar Personal" />
 
         <item
-            android:id="@+id/cargar_Archivos"
+            android:id="@+id/cargar_Archivos_Fragment"
             android:icon="@drawable/nuevodocumento"
             android:title="Registrar Documentos" />
 

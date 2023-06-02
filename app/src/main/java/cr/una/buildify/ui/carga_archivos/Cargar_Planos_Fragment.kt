@@ -1,37 +1,33 @@
-package cr.una.buildify.carga_archivos
-
+package cr.una.buildify.ui.carga_archivos
 
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts.*
-import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewGroup
+import android.widget.*
 import androidx.cardview.widget.CardView
-import cr.una.buildify.R
+import androidx.navigation.Navigation
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
-import java.util.*
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-
+import cr.una.buildify.R
+import cr.una.buildify.databinding.FragmentCargarPlanosBinding
+import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 lateinit var button_back_p: Button
 lateinit var btn_next_p: ImageView
 lateinit var btn_cargar_archivo: CardView
-lateinit var archive:TextView
-lateinit var cargado:TextView
+lateinit var archive: TextView
+lateinit var cargado: TextView
 private lateinit var btn_save: Button
 private lateinit var et_filename: EditText
 private lateinit var pdfUri: Uri
@@ -39,55 +35,70 @@ private lateinit var storage: FirebaseStorage
 // Define un código de solicitud para el Intent de selección de archivo
 val PICK_PDF_REQUEST = 1
 
-@Suppress("DEPRECATION")
-class Cargar_Planos : AppCompatActivity() {
+class Cargar_Planos_Fragment : Fragment() {
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.carga_planos)
+    private var _binding: FragmentCargarPlanosBinding? = null
 
-        btn_next_p = findViewById(R.id.btn_next_p)
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        val homeViewModel =
+            ViewModelProvider(this).get(DirectorProyectoMainViewModel::class.java)
+
+        _binding = FragmentCargarPlanosBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        btn_next_p =  binding.btnNextP
         btn_next_p.setOnClickListener {
-            navegarSiguiente()
+            navegarSiguiente(view)
         }
 
-        button_back_p = findViewById(R.id.back)
+        button_back_p = binding.back
         button_back_p.setOnClickListener {
-            volver()
+            volver(view)
         }
 
         storage = FirebaseStorage.getInstance()
-        et_filename = findViewById(R.id.name_document_planos)
-        archive = findViewById(R.id.archive)
-        cargado = findViewById(R.id.cargado)
+        et_filename = binding.nameDocumentPlanos
+        archive = binding.archive
+        cargado = binding.cargado
 
-        btn_save = findViewById(R.id.save)
-            btn_save.setOnClickListener {
-                val text = et_filename.text.toString()
-                if (text.isEmpty()) {
-                    Toast.makeText(this, "Ingresa un nombre de archivo", Toast.LENGTH_SHORT).show()
+        btn_save = binding.save
+        btn_save.setOnClickListener {
+            val text = et_filename.text.toString()
+            if (text.isEmpty()) {
+                Toast.makeText(activity, "Ingresa un nombre de archivo", Toast.LENGTH_SHORT).show()
+            } else {
+                // Llamar a la función savePdf() pasando pdfUri
+                if (pdfUri != null) {
+                    savePdf(pdfUri!!, text) // Asegúrate de que pdfUri no sea nulo antes de llamar a savePdf
                 } else {
-                    // Llamar a la función savePdf() pasando pdfUri
-                    if (pdfUri != null) {
-                        savePdf(pdfUri!!, text) // Asegúrate de que pdfUri no sea nulo antes de llamar a savePdf
-                    } else {
-                        Toast.makeText(this, "Selecciona un archivo PDF", Toast.LENGTH_SHORT).show()
-                    }
+                    Toast.makeText(activity, "Selecciona un archivo PDF", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
 
 
-            val btn_cargar_archivo = findViewById<CardView>(R.id.btn_cargar_archivo)
+        val btn_cargar_archivo = binding.btnCargarArchivo
         btn_cargar_archivo.setOnClickListener {
 
-           val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "application/pdf"
-           }
+            }
             startActivityForResult(intent, PICK_PDF_REQUEST)
         }
 
-        }
+
+        return root
+    }
+
     private fun savePdf(pdfUri: Uri, text: String) {
         data class ImageInfo(
             val Ruta: String,
@@ -97,7 +108,7 @@ class Cargar_Planos : AppCompatActivity() {
         val fileName = "$text.pdf"
         val storageRef: StorageReference = storage.reference.child("Planos Usuarios/$fileName")
 
-        val progressDialog = ProgressDialog(this)
+        val progressDialog = ProgressDialog(activity)
         progressDialog.setMessage("Cargando PDF...")
         progressDialog.setCancelable(false)
         progressDialog.show()
@@ -107,7 +118,7 @@ class Cargar_Planos : AppCompatActivity() {
         uploadTask
             .addOnSuccessListener {
                 progressDialog.dismiss()
-                Toast.makeText(this, "PDF cargado exitosamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "PDF cargado exitosamente", Toast.LENGTH_SHORT).show()
 
                 // Crear un objeto imageInfo con la información a guardar
                 val imageInfo = hashMapOf(
@@ -121,14 +132,14 @@ class Cargar_Planos : AppCompatActivity() {
                 db.collection("Carga_Documentos_Planos")
                     .add(imageInfo)
                     .addOnSuccessListener {
-                        Toast.makeText(this, "PDF y datos guardados exitosamente", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "PDF y datos guardados exitosamente", Toast.LENGTH_SHORT).show()
                     }
-                }
+            }
 
             .addOnFailureListener { exception ->
                 progressDialog.dismiss()
                 Log.e("Cargar_Planos", "Error al cargar el PDF: $exception")
-                Toast.makeText(this, "Error al cargar el PDF", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Error al cargar el PDF", Toast.LENGTH_SHORT).show()
             }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -142,13 +153,17 @@ class Cargar_Planos : AppCompatActivity() {
             }
         }
     }
-    private fun navegarSiguiente() {
-        val siguiente = Intent(this, Cargar_Renders::class.java)
-        startActivity(siguiente)
+    private fun navegarSiguiente(view: View?) {
+        if (view != null) {
+            Navigation.findNavController(view).navigate(R.id.cargar_Renders_Fragment)
+        }
     }
 
-    private fun volver() {
-        val volver = Intent(this, Cargar_Archivos::class.java)
-        startActivity(volver)
+    private fun volver(view: View?) {
+        if (view != null) {
+            Navigation.findNavController(view).navigate(R.id.cargar_Archivos_Fragment)
+        }
     }
+
+
 }

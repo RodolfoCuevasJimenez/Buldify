@@ -27,36 +27,6 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".carga_archivos.Cargar_Archivos"
-            android:configChanges="uiMode"
-            android:exported="true">
-        </activity>
-
-        <activity android:name=".carga_archivos.Cargar_Recorridos"
-            android:configChanges="uiMode"
-            android:exported="true">
-        </activity>
-
-        <activity android:name=".carga_archivos.Cargar_Planos"
-            android:configChanges="uiMode"
-            android:exported="true">
-        </activity>
-
-        <activity android:name=".carga_archivos.Cargar_Renders"
-            android:configChanges="uiMode"
-            android:exported="true">
-        </activity>
-
-        <activity android:name=".carga_archivos.Cargar_Documentos"
-            android:configChanges="uiMode"
-            android:exported="true">
-        </activity>
-
-        <activity android:name=".carga_archivos.Cargar_Progreso"
-            android:configChanges="uiMode"
-            android:exported="true">
-        </activity>
-
         <activity
             android:name=".ui.usuario_invitado.Usuario_Invitado_Drawer"
             android:exported="false"

@@ -1,11 +1,15 @@
 package cr.una.buildify.ui.director_proyecto
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.navigation.Navigation
+import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
 
 class Director_Proyecto_Main : Fragment() {
@@ -32,7 +36,10 @@ class Director_Proyecto_Main : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val crdResistrarDocs = binding.crdRegistroDocumentos
+        crdResistrarDocs.setOnClickListener(){
+            Navigation.findNavController(view).navigate(R.id.cargar_Archivos_Fragment)
+        }
 
     }
 

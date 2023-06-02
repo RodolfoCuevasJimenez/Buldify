@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textAlignment="center">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.carga_archivos.Cargar_Progreso_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +18,7 @@
             android:layout_gravity="clip_horizontal|center"
             android:fontFamily="sans-serif"
             android:gravity="center"
-            android:text="@string/Title_Upload"
+            android:text="@string/Title_Upload3"
             android:textAlignment="center"
             android:textColor="#FF9800"
             android:textSize="34sp"
@@ -49,28 +48,18 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/ivimage"
+                            android:id="@+id/progreso"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginEnd="-11dp"
-                            android:layout_marginBottom="-3dp"
-                            android:contentDescription='@string/plans'
+                            android:layout_marginEnd="-20dp"
+                            android:layout_marginBottom="-2dp"
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/planos" />
+                            android:src="@drawable/progreso" />
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
-
-                <ImageView
-                    android:id="@+id/btn_next_p"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:clickable="true"
-                    android:src="@drawable/next"
-                    app:srcCompat="@drawable/next" />
 
             </LinearLayout>
 
@@ -95,7 +84,7 @@
                 android:editable="false"
                 android:gravity="center"
                 android:inputType="text"
-                android:text="@string/plans"
+                android:text="@string/evidence"
                 android:textAlignment="center"
                 android:textColor="#C1C1C1"
                 android:textSize="20sp"
@@ -112,7 +101,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/name_document_planos"
+                android:id="@+id/et_filename_pr"
                 android:layout_width="352dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
@@ -123,7 +112,8 @@
                 android:padding="16dp"
                 android:radius="16dp"
                 android:textColor="#C1C1C1"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -136,7 +126,7 @@
                 android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btn_cargar_archivo"
+                android:id="@+id/cd_progreso"
                 android:layout_width="352dp"
                 android:layout_height="120dp"
                 android:layout_row="1"
@@ -146,45 +136,40 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:background="#e3e3e3"
-                android:clickable="true"
                 app:cardBackgroundColor="#333333"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="12dp">
 
-                <TextView
-                    android:id="@+id/cargado"
+                <ImageView
+                    android:id="@+id/iv_select"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:background="#4E8E36"
-                    android:backgroundTint="#3BA529"
-                    android:gravity="center"
-                    android:text="@string/newArchive"
-                    android:textAlignment="textEnd"
-                    android:textSize="34sp"
-                    android:textStyle="bold"
-                    android:visibility="gone"
-                    app:fontFamily="@font/montserrat_extrabold"
-                    tools:visibility="gone" />
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#973C3C"
+                    android:visibility="visible"
+                    tools:visibility="invisible" />
+
+                <VideoView
+                    android:id="@+id/vv_select"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    tools:visibility="invisible" />
 
                 <LinearLayout
-                    android:id="@+id/Normal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:baselineAligned="false"
-                    android:foregroundGravity="center">
+                    android:foregroundGravity="center"
+                    android:gravity="center">
 
                     <ImageView
-                        android:id="@+id/archivo"
                         android:layout_width="80dp"
                         android:layout_height="match_parent"
-                        android:layout_gravity="start|center_horizontal"
-                        android:adjustViewBounds="false"
-                        android:foregroundGravity="left"
+                        android:layout_gravity="center_horizontal"
                         app:srcCompat="@drawable/clip" />
 
                     <TextView
-                        android:id="@+id/archive"
+                        android:id="@+id/tv_archivo_pr"
                         android:layout_width="207dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
@@ -192,9 +177,7 @@
                         android:text="@string/Archivo"
                         android:textSize="34sp"
                         android:textStyle="bold"
-                        android:visibility="visible"
-                        app:fontFamily="@font/montserrat_extrabold"
-                        tools:visibility="visible" />
+                        app:fontFamily="@font/montserrat_extrabold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -206,7 +189,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/back"
+                    android:id="@+id/btn_back_pr"
                     android:layout_width="120dp"
                     android:layout_height="65dp"
                     android:layout_gravity="left"
@@ -229,7 +212,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/save"
+                        android:id="@+id/btn_save_pr"
                         android:layout_width="120dp"
                         android:layout_height="65dp"
                         android:layout_gravity="right"
@@ -248,4 +231,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

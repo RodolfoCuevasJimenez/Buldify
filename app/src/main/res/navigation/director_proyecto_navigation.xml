@@ -10,13 +10,80 @@
         android:id="@+id/director_Proyecto_Main"
         android:name="cr.una.buildify.ui.director_proyecto.Director_Proyecto_Main"
         android:label="fragment_director__proyecto__main"
-        tools:layout="@layout/fragment_director__proyecto__main" />
-    <activity
-        android:id="@+id/cargar_Archivos"
-        android:name="cr.una.buildify.carga_archivos.Cargar_Archivos"
-        android:label="Cargar_Archivos" />
+        tools:layout="@layout/fragment_director__proyecto__main" >
+        <action
+            android:id="@+id/action_director_Proyecto_Main_to_cargar_Progreso"
+            app:destination="@id/cargar_Progreso" />
+        <action
+            android:id="@+id/action_director_Proyecto_Main_to_cargar_Archivos_Fragment2"
+            app:destination="@id/cargar_Archivos_Fragment" />
+    </fragment>
     <activity
         android:id="@+id/cargar_Progreso"
         android:name="cr.una.buildify.carga_archivos.Cargar_Progreso"
-        android:label="Cargar_Progreso" />
+        android:label="Cargar_Progreso"
+        tools:layout="@layout/carga_progreso" />
+    <fragment
+        android:id="@+id/cargar_Archivos_Fragment"
+        android:name="cr.una.buildify.ui.carga_archivos.Cargar_Archivos_Fragment"
+        android:label="fragment_cargar__archivos"
+        tools:layout="@layout/fragment_cargar__archivos" >
+        <action
+            android:id="@+id/action_cargar_Archivos_Fragment_to_cargar_Planos_Fragment"
+            app:destination="@id/cargar_Planos_Fragment" />
+        <action
+            android:id="@+id/action_cargar_Archivos_Fragment_to_cargar_Documentos_Fragment"
+            app:destination="@id/cargar_Documentos_Fragment" />
+        <action
+            android:id="@+id/action_cargar_Archivos_Fragment_to_cargar_Progreso"
+            app:destination="@id/cargar_Progreso" />
+    </fragment>
+    <fragment
+        android:id="@+id/cargar_Planos_Fragment"
+        android:name="cr.una.buildify.ui.carga_archivos.Cargar_Planos_Fragment"
+        android:label="fragment_cargar__planos"
+        tools:layout="@layout/fragment_cargar__planos" >
+        <action
+            android:id="@+id/action_cargar_Planos_Fragment_to_cargar_Archivos_Fragment"
+            app:destination="@id/cargar_Archivos_Fragment" />
+        <action
+            android:id="@+id/action_cargar_Planos_Fragment_to_cargar_Renders_Fragment"
+            app:destination="@id/cargar_Renders_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cargar_Renders_Fragment"
+        android:name="cr.una.buildify.ui.carga_archivos.Cargar_Renders_Fragment"
+        android:label="fragment_cargar__renders"
+        tools:layout="@layout/fragment_cargar__renders" >
+        <action
+            android:id="@+id/action_cargar_Renders_Fragment_to_cargar_Planos_Fragment"
+            app:destination="@id/cargar_Planos_Fragment" />
+        <action
+            android:id="@+id/action_cargar_Renders_Fragment_to_cargar_Recorridos_Fragment"
+            app:destination="@id/cargar_Recorridos_Fragment" />
+        <action
+            android:id="@+id/action_cargar_Renders_Fragment_to_cargar_Archivos_Fragment"
+            app:destination="@id/cargar_Archivos_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cargar_Recorridos_Fragment"
+        android:name="cr.una.buildify.ui.carga_archivos.Cargar_Recorridos_Fragment"
+        android:label="fragment_cargar__recorridos"
+        tools:layout="@layout/fragment_cargar__recorridos" >
+        <action
+            android:id="@+id/action_cargar_Recorridos_Fragment_to_cargar_Archivos_Fragment"
+            app:destination="@id/cargar_Archivos_Fragment" />
+        <action
+            android:id="@+id/action_cargar_Recorridos_Fragment_to_cargar_Renders_Fragment"
+            app:destination="@id/cargar_Renders_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cargar_Documentos_Fragment"
+        android:name="cr.una.buildify.ui.carga_archivos.Cargar_Documentos_Fragment"
+        android:label="fragment_cargar__documentos"
+        tools:layout="@layout/fragment_cargar__documentos" >
+        <action
+            android:id="@+id/action_cargar_Documentos_Fragment_to_cargar_Archivos_Fragment"
+            app:destination="@id/cargar_Archivos_Fragment" />
+    </fragment>
 </navigation>

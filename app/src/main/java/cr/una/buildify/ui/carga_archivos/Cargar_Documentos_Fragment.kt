@@ -1,52 +1,37 @@
-package cr.una.buildify.carga_archivos
-
+package cr.una.buildify.ui.carga_archivos
 
 import android.app.Activity
 import android.app.ProgressDialog
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.pdf.PdfRenderer
 import android.net.Uri
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.os.Environment
-import android.os.ParcelFileDescriptor
-import android.provider.MediaStore
-import android.util.Base64
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.IntentSenderRequest
 import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
-import android.webkit.CookieManager
-import android.webkit.WebSettings
-import android.webkit.WebView
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.result.contract.ActivityResultContracts.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.navigation.Navigation
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import cr.una.buildify.R
-import java.io.ByteArrayOutputStream
-import java.io.File
-
-
+import cr.una.buildify.databinding.FragmentCargarDocumentosBinding
+import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
+import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 lateinit var cd_documentos: CardView
 lateinit var btn_back_doc: Button
 lateinit var btn_save_doc: Button
-lateinit var tv_documento_cargado:TextView
-lateinit var tv_archivo:TextView
+lateinit var tv_documento_cargado: TextView
+lateinit var tv_archivo: TextView
 lateinit var et_filename_doc: EditText
 private lateinit var pdfUri: Uri
 private lateinit var storage_doc: FirebaseStorage
@@ -54,41 +39,57 @@ private lateinit var storage_doc: FirebaseStorage
 // Define un código de solicitud para el Intent de selección de archivo
 val PICK_PDF_REQUEST_DOC = 1
 
-@Suppress("DEPRECATION")
-class Cargar_Documentos : AppCompatActivity() {
+class Cargar_Documentos_Fragment : Fragment() {
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.carga_documentos)
+    private var _binding: FragmentCargarDocumentosBinding? = null
 
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
 
-            cd_documentos = findViewById(R.id.cd_documentos)
-            btn_save_doc = findViewById(R.id.btn_save_doc)
-            tv_documento_cargado = findViewById(R.id.tv_documento_cargado)
-            tv_archivo = findViewById(R.id.tv_archivo)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        val homeViewModel =
+            ViewModelProvider(this).get(DirectorProyectoMainViewModel::class.java)
 
-            btn_back_doc = findViewById(R.id.btn_back_doc)
-            btn_back_doc.setOnClickListener {
-                volver()
-            }
+        _binding = FragmentCargarDocumentosBinding.inflate(inflater, container, false)
+        val root: View = binding.root
 
-            storage_doc = FirebaseStorage.getInstance()
-            et_filename_doc = findViewById(R.id.name_document_documentos)
+        return root
+    }
 
-            btn_save_doc.setOnClickListener {
-                val text = et_filename_doc.text.toString()
-                if (text.isEmpty()) {
-                    Toast.makeText(this, "Ingresa un nombre de archivo", Toast.LENGTH_SHORT).show()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        cd_documentos = binding.cdDocumentos
+        btn_save_doc = binding.btnSaveDoc
+        tv_documento_cargado = binding.tvDocumentoCargado
+        tv_archivo = binding.tvArchivo
+
+        btn_back_doc = binding.btnBackDoc
+        btn_back_doc.setOnClickListener {
+            volver(view)
+        }
+
+        storage_doc = FirebaseStorage.getInstance()
+        et_filename_doc = binding.nameDocumentDocumentos
+
+       btn_save_doc.setOnClickListener {
+            val text = et_filename_doc.text.toString()
+            if (text.isEmpty()) {
+                Toast.makeText(activity, "Ingresa un nombre de archivo", Toast.LENGTH_SHORT).show()
+            } else {
+                // Llamar a la función savePdf() pasando pdfUri
+                if (pdfUri != null) {
+                    savePdf(pdfUri!!, text) // Asegúrate de que pdfUri no sea nulo antes de llamar a savePdf
                 } else {
-                    // Llamar a la función savePdf() pasando pdfUri
-                    if (pdfUri != null) {
-                        savePdf(pdfUri!!, text) // Asegúrate de que pdfUri no sea nulo antes de llamar a savePdf
-                    } else {
-                        Toast.makeText(this, "Selecciona un archivo PDF", Toast.LENGTH_SHORT).show()
-                    }
+                    Toast.makeText(activity, "Selecciona un archivo PDF", Toast.LENGTH_SHORT).show()
                 }
             }
-            cd_documentos.setOnClickListener {
+        }
+        cd_documentos.setOnClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
                 type = "application/pdf"
@@ -96,8 +97,7 @@ class Cargar_Documentos : AppCompatActivity() {
             startActivityForResult(intent, PICK_PDF_REQUEST_DOC)
         }
 
-        }
-
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_PDF_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
@@ -119,7 +119,7 @@ class Cargar_Documentos : AppCompatActivity() {
         val fileName = "$text.pdf"
         val storageRef: StorageReference = storage_doc.reference.child("Permisos Usuarios/$fileName")
 
-        val progressDialog = ProgressDialog(this)
+        val progressDialog = ProgressDialog(activity)
         progressDialog.setMessage("Cargando PDF...")
         progressDialog.setCancelable(false)
         progressDialog.show()
@@ -129,7 +129,7 @@ class Cargar_Documentos : AppCompatActivity() {
         uploadTask
             .addOnSuccessListener {
                 progressDialog.dismiss()
-                Toast.makeText(this, "PDF cargado exitosamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "PDF cargado exitosamente", Toast.LENGTH_SHORT).show()
 
                 // Crear un objeto imageInfo con la información a guardar
                 val imageInfo = hashMapOf(
@@ -143,19 +143,26 @@ class Cargar_Documentos : AppCompatActivity() {
                 db.collection("Carga_Documentos_Documentos")
                     .add(imageInfo)
                     .addOnSuccessListener {
-                        Toast.makeText(this, "PDF y datos guardados exitosamente", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "PDF y datos guardados exitosamente", Toast.LENGTH_SHORT).show()
                     }
             }
 
             .addOnFailureListener { exception ->
                 progressDialog.dismiss()
                 Log.e("Cargar_Documentos", "Error al cargar el PDF: $exception")
-                Toast.makeText(this, "Error al cargar el PDF", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Error al cargar el PDF", Toast.LENGTH_SHORT).show()
             }
     }
 
-    private fun volver(){
-        val volver = Intent(this, Cargar_Archivos::class.java)
-        startActivity(volver)
+    private fun volver(view: View?){
+        if (view != null) {
+            Navigation.findNavController(view).navigate(R.id.cargar_Archivos_Fragment)
+        }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }
