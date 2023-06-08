@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "#e3e3e3"
+    tools:context=".director_proyecto.Director_Proyecto_Home">
+
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/background_view" />
+
+    <TextView
+        android:id="@+id/txtTituloMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="80dp"
+        android:textSize="34sp"
+        app:fontFamily="@font/montserrat_extrabold"
+        android:text="Menú Principal" />
+
+    <ImageView
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="24dp"
+        android:layout_height="28dp"
+        android:layout_marginLeft="380dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/salir" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/view_top"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="-80dp"
+        android:rowCount="5"
+        android:columnCount="2"
+        tools:ignore="ExtraText">
+
+        <!-- Crear Proyectos -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnCrearProyecto"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="#e3e3e3"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/crearproyecto" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="Crear
+                    Proyectos"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/montserrat_extrabold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Registro de personal y evaluadores-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "0"
+            android:layout_column = "1"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/annadirpersonal" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Registro de personal y evaluadores"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Registro de Documentos-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "1"
+            android:layout_column = "0"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/nuevodocumento" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Registrar
+                    Documentos"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Registrar Evidencia de Avance-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "1"
+            android:layout_column = "1"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/registroavance" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Registro de
+                    Avance"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Visualizar Proyectos-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvVisualizarProyectos"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="#e3e3e3"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="65dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/visualizarproyecto" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="Visualizar
+                    Proyectos"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/montserrat_extrabold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Crear Cronograma-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "2"
+            android:layout_column = "1"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cronograma" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Crear
+                    Cronograma"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Crear Tabla de Costos-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "3"
+            android:layout_column = "0"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/tablacostos" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Crear Tabla
+                    de Costos"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Solictud detalles de obra-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "3"
+            android:layout_column = "1"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/detalleobra" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Solicitud detalles
+                    de obra"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Servicios Independientes-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardViewServicios"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "4"
+            android:layout_column = "0"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/serviciosindependientes" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Servicios
+                    Independientes"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Incidentes-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/CardViewIncidentes"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:layout_columnWeight = "1"
+            android:layout_rowWeight = "1"
+            android:layout_row = "4"
+            android:layout_column = "1"
+            android:layout_marginBottom = "15dp"
+            android:layout_marginRight = "15dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/incidentes" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text = "Gestión de Incidentes"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    app:fontFamily="@font/montserrat_extrabold"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+</RelativeLayout>

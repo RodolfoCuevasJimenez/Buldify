@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tipoProyecto">
+        <item>Bodega</item>
+        <item>Edificio</item>
+        <item>Local comercial</item>
+        <item>Muro</item>
+        <item>Parqueo</item>
+        <item>Piscina</item>
+        <item>Plaza</item>
+        <item>Urbanización</item>
+        <item>Vivienda</item>
+        <item>Acera</item>
+    </string-array>
+</resources>

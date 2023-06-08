@@ -1,9 +1,14 @@
 package cr.una.buildify.iniciosesion
 
+import android.widget.*
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -15,7 +20,7 @@ import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
-import cr.una.buildify.R
+
 import cr.una.buildify.director_proyecto_drawer
 import cr.una.buildify.ui.duenno_obra.duenno_obra_drawer
 import cr.una.buildify.ui.evaluador_obra.Evaluador_Obra_drawer
@@ -24,6 +29,10 @@ import cr.una.buildify.ui.trabajador_independiente.trabajador_independiente_main
 import cr.una.buildify.ui.usuario_invitado.Usuario_Invitado_Drawer
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import cr.una.buildify.MainActivity
+import cr.una.buildify.ProviderType
+import cr.una.buildify.R
+import cr.una.buildify.director_proyecto.Director_Proyecto_Home
 
 
 lateinit var btnRegistrar:Button
@@ -47,12 +56,11 @@ class inicioSesion : AppCompatActivity() {
         //Botón de registrar
         btnRegistrar = findViewById(R.id.btnRegistrar)
         btnRegistrar.setOnClickListener{
-            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty() && findViewById<AutoCompleteTextView>(R.id.cmbRol).text.isNotEmpty()){
+            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                         if (it.isSuccessful){
-                            postUsuario(findViewById<TextView>(R.id.inputEmail).text.toString(),findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
-                            navegarPrincipal(it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
+                            navegarPrincipal(it.result?.user?.uid?:"", it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                         }
                         else{
                             mostrarAlerta()
@@ -68,11 +76,11 @@ class inicioSesion : AppCompatActivity() {
         //Botón de acceder
         btnIngresar = findViewById(R.id.btnIngresar)
         btnIngresar.setOnClickListener{
-            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty() && findViewById<AutoCompleteTextView>(R.id.cmbRol).text.isNotEmpty()){
+            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty()){
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
-                        navegarPrincipal(it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
+                        navegarPrincipal(it.result?.user?.uid?:"", it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                     }
                     else{
                         mostrarAlerta()
@@ -142,11 +150,13 @@ class inicioSesion : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun navegarPrincipal(email : String,tipo : String){
+    private fun navegarPrincipal(uid: String,email : String,tipo : String){
         var paginaPrincipal: Intent? = null
         when(tipo){
             "Director de Proyecto" ->  paginaPrincipal = Intent(this,director_proyecto_drawer::class.java).apply {
-                                                            putExtra("Email",email)
+                putExtra("UID", uid)
+                putExtra("Email",email)
+                putExtra("Email",email)
                                                             putExtra("Tipo",tipo)
                                                             }
             "Dueño de la Obra" -> paginaPrincipal = Intent(this, duenno_obra_drawer::class.java).apply {
@@ -193,7 +203,7 @@ class inicioSesion : AppCompatActivity() {
 
                     FirebaseAuth.getInstance().signInWithCredential(credencial).addOnCompleteListener {
                         if (it.isSuccessful){
-                            navegarPrincipal(cuenta.email?:"null",tipo)
+                            navegarPrincipal(cuenta.id?:"", cuenta.email?:"null", findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                         }
                         else{
                             mostrarAlerta()
