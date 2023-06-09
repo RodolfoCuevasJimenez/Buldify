@@ -17,11 +17,11 @@
         android:id="@+id/txtTituloMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        android:text="Menú Principal"
         android:textSize="34sp"
-        app:fontFamily="@font/montserrat_extrabold"
-        android:text="Menú Principal" />
+        app:fontFamily="@font/montserrat_extrabold" />
 
     <ImageView
         android:id="@+id/btnCerrarSesion"
@@ -135,7 +135,9 @@
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdRegistroDocumentos"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"

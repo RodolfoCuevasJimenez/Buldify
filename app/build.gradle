@@ -53,6 +53,10 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     //Dependencias de Firebase
+    implementation platform("com.google.firebase:firebase-bom:32.0.0")
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.2.2'
+    implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
+    implementation 'com.google.android.gms:play-services-auth:20.5.0'
     implementation platform('com.google.firebase:firebase-bom:31.4.0')
     implementation 'com.google.firebase:firebase-analytics-ktx:21.2.1'
     implementation 'com.google.firebase:firebase-auth-ktx:21.2.0'
@@ -67,6 +71,13 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'androidx.activity:activity:1.6.1'///////////Para imagenes
+    implementation 'androidx.activity:activity-ktx:1.4.0'///PARA PDF
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.google.firebase:firebase-storage:20.1.0'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.2.0'
+
 
 
 }

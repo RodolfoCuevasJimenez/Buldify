@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clProyecto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/teal_200"
+    android:backgroundTint="@color/teal_200">
+
+    <LinearLayout
+        android:id="@+id/llServicios"
+        android:layout_width="385dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/forma"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clServicios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/forma">
+
+            <TextView
+                android:id="@+id/tvNombreTrabajador"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvCorreoTrabajdor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="104dp"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvNombreTrabajador"
+                app:layout_constraintTop_toBottomOf="@+id/tvNombreTrabajador"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvCorreoTrabajador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/tvCorreoTrabajdor"
+                app:layout_constraintTop_toBottomOf="@+id/tvCorreoTrabajdor" />
+
+            <TextView
+                android:id="@+id/tvCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/tvCorreoTrabajador"
+                app:layout_constraintTop_toBottomOf="@+id/tvCorreoTrabajador" />
+
+            <TextView
+                android:id="@+id/tvDescripcion"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvCliente"
+                app:layout_constraintTop_toBottomOf="@+id/tvCliente" />
+
+            <ImageButton
+                android:id="@+id/ibtnEquipo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/white"
+                android:contentDescription="@string/btnEditarEquipo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_editar"
+                app:tint="@color/iconoapp_background"
+                tools:ignore="ImageContrastCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

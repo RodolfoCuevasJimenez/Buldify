@@ -1,5 +1,8 @@
 package cr.una.buildify.iniciosesion
 
+import android.widget.*
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +18,17 @@ import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
+
+import cr.una.buildify.director_proyecto_drawer
+import cr.una.buildify.ui.duenno_obra.duenno_obra_drawer
+import cr.una.buildify.ui.evaluador_obra.Evaluador_Obra_drawer
+import cr.una.buildify.ui.trabajador_independiente.trabajador_independiente_drawer
+import cr.una.buildify.ui.trabajador_independiente.trabajador_independiente_main
+import cr.una.buildify.ui.usuario_invitado.Usuario_Invitado_Drawer
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import cr.una.buildify.MainActivity
+import cr.una.buildify.ProviderType
 import cr.una.buildify.R
 import cr.una.buildify.director_proyecto_drawer
 import cr.una.buildify.ui.duenno_obra.duenno_obra_drawer
@@ -49,8 +63,7 @@ class inicioSesion : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                         if (it.isSuccessful){
-                            postUsuario(findViewById<TextView>(R.id.inputEmail).text.toString(),findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
-                            navegarPrincipal(it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
+                            navegarPrincipal(it.result?.user?.uid?:"", it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                         }
                         else{
                             mostrarAlerta()
@@ -70,7 +83,7 @@ class inicioSesion : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
-                        navegarPrincipal(it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
+                        navegarPrincipal(it.result?.user?.uid?:"", it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                     }
                     else{
                         mostrarAlerta()
@@ -110,13 +123,16 @@ class inicioSesion : AppCompatActivity() {
     }
 
     private fun postUsuario(email: String,tipo: String){
+        val idUsuario = findViewById<TextView>(R.id.inputEmail).text.toString() // Obtener el ID del usuario desde el TextView
+        val tipo = findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString() // Obtener el tipo de usuario desde el AutoCompleteTextView
+
         val usuario = hashMapOf(
-            "idUsuario" to findViewById<TextView>(R.id.inputEmail).text.toString(),
-            "tipo" to findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString()
+            "idUsuario" to idUsuario,
+            "tipo" to tipo
         )
 
-        baseDatos.collection("Usuario")
-            .document()
+        baseDatos.collection("Usuarios")
+            .document(idUsuario)
             .set(usuario)
             .addOnSuccessListener {
                 val toast = Toast.makeText(this,"Usuario agregado correctamente",Toast.LENGTH_SHORT)
@@ -137,11 +153,13 @@ class inicioSesion : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun navegarPrincipal(email : String,tipo : String){
+    private fun navegarPrincipal(uid: String,email : String,tipo : String){
         var paginaPrincipal: Intent? = null
         when(tipo){
             "Director de Proyecto" ->  paginaPrincipal = Intent(this,director_proyecto_drawer::class.java).apply {
-                                                            putExtra("Email",email)
+                putExtra("UID", uid)
+                putExtra("Email",email)
+                putExtra("Email",email)
                                                             putExtra("Tipo",tipo)
                                                             }
             "Dueño de la Obra" -> paginaPrincipal = Intent(this, duenno_obra_drawer::class.java).apply {
@@ -188,7 +206,7 @@ class inicioSesion : AppCompatActivity() {
 
                     FirebaseAuth.getInstance().signInWithCredential(credencial).addOnCompleteListener {
                         if (it.isSuccessful){
-                            navegarPrincipal(cuenta.email?:"null",tipo)
+                            navegarPrincipal(cuenta.id?:"", cuenta.email?:"null", findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                         }
                         else{
                             mostrarAlerta()
