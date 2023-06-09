@@ -1,6 +1,49 @@
 <resources>
     <string name="app_name">Buildify</string>
     <string name="prefs_file">cr.una.buildify.PREFERENCES_FILE_KEY</string>
+    <string name="btnBuscar">Buscar</string>
+    <string name="hintBusqueda">Escriba su búsqueda</string>
+    <string name="direccion">Dirección</string>
+    <string name="nombrePersona">Encargado</string>
+    <string name="telefono">Teléfono</string>
+    <string name="correo">Correo Electrónico</string>
+    <string name="fecha">Fecha</string>
+    <string name="observaciones">Observaciones</string>
+    <string name="descripcionV">Descripción</string>
+    <string name="etapa">Etapa</string>
+    <string name="btnGuardar">Guardar observaciones</string>
+    <string name="tituloServicio">Título</string>
+    <string name="descripcionServicio">Descripción</string>
+    <string name="tipo_de_servicio">Tipo de servicio</string>
+    <string name="nombre_de_la_persona">Nombre de la persona</string>
+    <string name="telefonoPersona">Teléfono</string>
+    <string name="direccionPersona">Dirección</string>
+    <string name="correo_electronico">Correo Electrónico</string>
+    <string name="guardar_servicio">Guardar servicio</string>
+    <string name="datos">Por favor ingrese los datos del servicio</string>
+    <!-- Pantalla de Creación de proyectos -->
+    <string name="TituloCrearProyecto">Nuevo Proyecto</string>
+    <string name="hintNombreProyecto">Nombre del proyecto</string>
+    <string name="hintPresupuesto">Presupuesto en la construcción</string>
+    <string name="hintDescripcion">Descripción</string>
+    <string name="btnCrearProyecto">Crear Proyecto</string>
+    <!-- Pantalla de visualización de proyectos-->
+    <string name="tvTipoProyecto">Tipo de proyecto: </string>
+    <string name="tvDescripcionProyecto">Descripción:</string>
+    <string name="tvPresupuestoProyecto">Presupuesto en la construcción: </string>
+    <string name="tvCliente">Cliente: </string>
+    <string name="btnEditarEquipo">Editar equipo de trabajo</string>
+    <string name="busquedaProyecto">Buscar proyecto</string>
+    <string name="btnEditar">Editar</string>
+    <string name="btnBorrar">Borrar</string>
+    <string name="btnAgregar">Agregar</string>
+    <!-- Pantalla de Adicion/Edicion del trabajador -->
+    <string name="TituloFormularioTrabajador">Agregar Trabajador</string>
+    <string name="hintNombreTrabajador">Nombre del trabajador</string>
+    <string name="hintRolTrabajador">Rol del trabajador</string>
+    <string name="hintCorreoTrabajador">Correo electrónico</string>
+    <string name="btnCancelar">Cancelar</string>
+    <string name="buscar_trabajador">Buscar trabajador</string>
     <string name="title_activity_director_proyecto_drawer">director_proyecto_drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -25,4 +68,29 @@
     <string name="title_activity_trabajador_independiente_drawer">trabajador_independiente_drawer
     </string>
     <string name="title_activity_usuario_invitado_drawer">usuario_invitado_drawer</string>
+
+    <string name="Title_Upload">Registrar Documentos a la Preconstrucción</string>
+    <string name="Title_Upload2">Registrar Documentos de Permisos</string>
+    <string name="Title_Upload3">Registrar Evidencia del Progreso</string>
+    <string name="Preconstruction">Preconstrucción</string>
+    <string name="Documentation">Documentos</string>
+    <string name="Progress">Progreso</string>
+    <string name="Type">Tipo de Documento</string>
+    <string name="Name">Nombre del Documento</string>
+    <string name="Archivo">Archivo</string>
+    <string name="title_activity_cargar_archivos">cargar_archivos</string>
+    <string name="title_document_type">Tipo de Documento</string>
+    <string name="title_document_name">Nombre del Documento</string>
+    <string name="title_archive">Archivo</string>
+    <string name="save">Guardar</string>
+    <string name="back">Volver</string>
+    <string name="render">Renders</string>
+    <string name="plans">Planos</string>
+    <string name="virtual">Recorridos Virtuales</string>
+    <string name="permissions">Permisos</string>
+    <string name="evidence">Evidencia del Progreso</string>
+    <string name="newArchive">Archivo Cargado</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
