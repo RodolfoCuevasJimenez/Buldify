@@ -25,4 +25,15 @@
     <string name="title_activity_trabajador_independiente_drawer">trabajador_independiente_drawer
     </string>
     <string name="title_activity_usuario_invitado_drawer">usuario_invitado_drawer</string>
+
+    <string name="window_datepicker_btn_hora">Seleccionar hora</string>
+    <string name="lbl_date_selected">Fecha seleccionada:</string>
+    <string name="txt_task_name">Nombre de la tarea</string>
+    <string name="txt_task_desc">Descripcion de la tarea</string>
+    <string name="txt_task_date_ini">Ingrese hora de inicio</string>
+    <string name="txt_task_date_fin">Ingrese hora de finalización</string>
+    <string name="lbl_proy_asignado">Proyecto asignado</string>
+    <string name="btn_add_task">Crear tarea</string>
+
+
 </resources>

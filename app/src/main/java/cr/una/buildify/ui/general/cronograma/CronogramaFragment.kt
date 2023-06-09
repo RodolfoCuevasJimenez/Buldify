@@ -6,22 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CalendarView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentCronogramaBinding
-import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
-import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 import cr.una.buildify.ui.general.cronograma.Adapters.TareaCronogramaAdapter
-import cr.una.buildify.ui.general.cronograma.modelo.ListaTareasCronograma
 import cr.una.buildify.ui.general.cronograma.modelo.TareaCronograma
+import java.time.LocalDate
 import java.util.Date
 
 class CronogramaFragment : Fragment() {
 
     private var _binding: FragmentCronogramaBinding? = null
+    private var dateSelected: LocalDate? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -61,6 +60,7 @@ class CronogramaFragment : Fragment() {
         )
 
         InitCalendarOptions(view,cronoAdapater)
+        SetEscuchaEventos(view)
 
 //        Navigation.findNavController(view).navigate(R.id.nav_view)
 
@@ -85,7 +85,23 @@ class CronogramaFragment : Fragment() {
             TareaCronograma("test 3","tarea de prueba 2",Date(), Date(), true),
             TareaCronograma("test 4","tarea de prueba 2",Date(), Date(), false)
             )
-            Navigation.findNavController(view).navigate(R.id.nav_add_task)
+
+            dateSelected = LocalDate.of(year, (month + 1), dayOfMonth)
         }
     }
+
+    /**
+     * Metodo para asignar los eventos a los elementos de la vista
+     * @param [view] La vista del fragment
+     */
+    fun SetEscuchaEventos(view: View){
+        val btnViewAddTask = view.findViewById<FloatingActionButton>(R.id.btn_view_add_task)
+        btnViewAddTask.setOnClickListener {
+            val calendarView : CalendarView = view.findViewById(R.id.calendarView)
+            val bundle = Bundle()
+            bundle.putString("fechaSeleccionada", dateSelected.toString())
+            Navigation.findNavController(view).navigate(R.id.nav_add_task, bundle)
+        }
+    }
+
 }
