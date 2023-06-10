@@ -65,7 +65,7 @@ class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private va
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Eliminar Trabajador")
         builder.setMessage("¿Seguro que desea eliminar al trabajador?")
-        builder.setPositiveButton("Aceptar") { dialog, which ->
+        builder.setPositiveButton("Aceptar") { _, _ ->
             val db = FirebaseFirestore.getInstance()
             val coleccion = db.collection("Proyectos")
             val documento = coleccion.document(UID)
