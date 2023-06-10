@@ -23,6 +23,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <activity
             android:name=".ui.usuario_invitado.Usuario_Invitado_Drawer"
             android:exported="false"
@@ -40,16 +41,29 @@
             android:label="@string/title_activity_evaluador_obra_drawer"
             android:theme="@style/Theme.Buildify.NoActionBar" />
         <activity
-            android:name=".ui.duenno_obra.duenno_obra_drawer"
-            android:exported="false"
-            android:label="@string/title_activity_duenno_obra_drawer"
-            android:theme="@style/Theme.Buildify.NoActionBar" />
-        <activity
             android:name=".director_proyecto_drawer"
             android:exported="false"
             android:label="@string/title_activity_director_proyecto_drawer"
             android:theme="@style/Theme.Buildify.NoActionBar" />
         <activity
+            android:name=".ui.duenno_obra.duenno_obra_drawer"
+            android:exported="false"
+            android:label="@string/title_activity_duenno_obra_drawer"
+            android:theme="@style/Theme.Buildify.NoActionBar" />
+        <activity
+            android:name=".iniciosesion.inicioSesion"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".editarEquipo.FormularioTrabajador"
+            android:exported="false" />
+
             android:name=".iniciosesion.inicioSesion"
             android:exported="true" >
             <intent-filter>
@@ -76,8 +90,10 @@
             android:exported="true"
             android:windowSoftInputMode="adjustNothing" />
         <activity
-            android:name=".servicios.BuscarServicios"
+            android:name=".editarEquipo.EditarEquipoDeTrabajo"
             android:exported="true"
+            android:windowSoftInputMode="adjustNothing" />
+
             android:windowSoftInputMode="adjustNothing" >
 
 

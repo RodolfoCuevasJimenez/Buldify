@@ -32,7 +32,6 @@ import com.google.firebase.ktx.Firebase
 import cr.una.buildify.MainActivity
 import cr.una.buildify.ProviderType
 import cr.una.buildify.R
-import cr.una.buildify.director_proyecto.Director_Proyecto_Home
 
 
 lateinit var btnRegistrar:Button
@@ -56,10 +55,11 @@ class inicioSesion : AppCompatActivity() {
         //Botón de registrar
         btnRegistrar = findViewById(R.id.btnRegistrar)
         btnRegistrar.setOnClickListener{
-            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty()){
+            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty() && findViewById<TextView>(R.id.cmbRol).text.isNotEmpty()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                         if (it.isSuccessful){
+                            postUsuario(it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                             navegarPrincipal(it.result?.user?.uid?:"", it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                         }
                         else{
@@ -76,7 +76,7 @@ class inicioSesion : AppCompatActivity() {
         //Botón de acceder
         btnIngresar = findViewById(R.id.btnIngresar)
         btnIngresar.setOnClickListener{
-            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty()){
+            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty() && findViewById<TextView>(R.id.cmbRol).text.isNotEmpty()){
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
@@ -90,20 +90,6 @@ class inicioSesion : AppCompatActivity() {
             }
             else{
                 mostrarAlerta()
-            }
-        }
-
-        //Botón de inicio de sesión con google
-        btnGoogle = findViewById(R.id.txtSesionGoogle)
-        btnGoogle.setOnClickListener{
-            // Configuración
-            val googleConf : GoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build()
-            val googleCliente: GoogleSignInClient? = GoogleSignIn.getClient(this,googleConf)
-            googleCliente?.signOut()
-            if (googleCliente != null) {
-                startActivityForResult(googleCliente.signInIntent,GOOGLE_SING_IN)
             }
         }
 
@@ -154,9 +140,8 @@ class inicioSesion : AppCompatActivity() {
         var paginaPrincipal: Intent? = null
         when(tipo){
             "Director de Proyecto" ->  paginaPrincipal = Intent(this,director_proyecto_drawer::class.java).apply {
-                putExtra("UID", uid)
-                putExtra("Email",email)
-                putExtra("Email",email)
+                                                            putExtra("UID", uid)
+                                                            putExtra("Email",email)
                                                             putExtra("Tipo",tipo)
                                                             }
             "Dueño de la Obra" -> paginaPrincipal = Intent(this, duenno_obra_drawer::class.java).apply {
