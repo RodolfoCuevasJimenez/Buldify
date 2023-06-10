@@ -30,7 +30,7 @@ class solicitudDetalleAdapter(private val dataList: MutableList<solicitudDetalle
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.activity_diector_visualizar_solicitud_detalle, parent, false)
+            .inflate(R.layout.fragment_visualizacion_solicitud_detalle, parent, false)
         val itemBorder = ContextCompat.getDrawable(parent.context, R.drawable.item_border)
         view.background = itemBorder
         return ViewHolder(view)

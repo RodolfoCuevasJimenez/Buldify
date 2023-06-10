@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".solicitud_Detalle.VisualizacionSolicitudDetalleFragment"
     android:background="@color/teal_200">
-
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
@@ -42,7 +40,5 @@
             android:layout_height="365dp"
             android:layout_marginTop="0dp" />
     </LinearLayout>
-
-
 
 </FrameLayout>
