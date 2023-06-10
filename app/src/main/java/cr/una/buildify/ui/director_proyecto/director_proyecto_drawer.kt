@@ -39,8 +39,9 @@ class director_proyecto_drawer : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.director_Proyecto_Main,R.id.cargar_Archivos_Fragment,R.id.cargar_Progreso,
-                R.id.visualizacion_inc_eva_obs_Fragment,R.id.buscarServicioFragment
+                R.id.director_Proyecto_Main,R.id.cargar_Archivos_Fragment,R.id.cargar_Progreso_Fragment,
+                R.id.visualizacion_inc_eva_obs_Fragment,R.id.buscarServicioFragment,R.id.crearProyectoFragment,
+                R.id.visualizacionProyectosFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

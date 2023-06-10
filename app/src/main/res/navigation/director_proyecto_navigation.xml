@@ -11,9 +11,7 @@
         android:name="cr.una.buildify.ui.director_proyecto.Director_Proyecto_Main"
         android:label="fragment_director__proyecto__main"
         tools:layout="@layout/fragment_director__proyecto__main" >
-        <action
-            android:id="@+id/action_director_Proyecto_Main_to_cargar_Progreso"
-            app:destination="@id/cargar_Progreso" />
+
         <action
             android:id="@+id/action_director_Proyecto_Main_to_cargar_Archivos_Fragment2"
             app:destination="@id/cargar_Archivos_Fragment" />
@@ -23,6 +21,15 @@
         <action
             android:id="@+id/action_director_Proyecto_Main_to_buscarServicioFragment"
             app:destination="@id/buscarServicioFragment" />
+        <action
+            android:id="@+id/action_director_Proyecto_Main_to_crearProyectoFragment"
+            app:destination="@id/crearProyectoFragment" />
+        <action
+            android:id="@+id/action_director_Proyecto_Main_to_visualizacionProyectosFragment"
+            app:destination="@id/visualizacionProyectosFragment" />
+        <action
+            android:id="@+id/action_director_Proyecto_Main_to_cargar_Progreso_Fragment"
+            app:destination="@id/cargar_Progreso_Fragment" />
     </fragment>
 
     <fragment
@@ -36,9 +43,6 @@
         <action
             android:id="@+id/action_cargar_Archivos_Fragment_to_cargar_Documentos_Fragment"
             app:destination="@id/cargar_Documentos_Fragment" />
-        <action
-            android:id="@+id/action_cargar_Archivos_Fragment_to_cargar_Progreso"
-            app:destination="@id/cargar_Progreso" />
     </fragment>
     <fragment
         android:id="@+id/cargar_Planos_Fragment"
@@ -98,4 +102,19 @@
         android:name="cr.una.buildify.servicios.buscarServicioFragment"
         android:label="fragment_buscar_servicio"
         tools:layout="@layout/fragment_buscar_servicio" />
+    <fragment
+        android:id="@+id/crearProyectoFragment"
+        android:name="cr.una.buildify.creacionProyecto.CrearProyectoFragment"
+        android:label="fragment_crear_proyecto"
+        tools:layout="@layout/fragment_crear_proyecto" />
+    <fragment
+        android:id="@+id/visualizacionProyectosFragment"
+        android:name="cr.una.buildify.visualizacionDeProyectos.VisualizacionProyectosFragment"
+        android:label="fragment_visualizacion_proyectos"
+        tools:layout="@layout/fragment_visualizacion_proyectos" />
+    <fragment
+        android:id="@+id/cargar_Progreso_Fragment"
+        android:name="cr.una.buildify.carga_archivos.Cargar_Progreso_Fragment"
+        android:label="fragment_cargar_progreso"
+        tools:layout="@layout/fragment_cargar_progreso" />
 </navigation>

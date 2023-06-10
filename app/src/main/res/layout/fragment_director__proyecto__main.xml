@@ -54,7 +54,8 @@
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdCrearProyecto">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -83,7 +84,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        //Registro de personal y evaluadores
+        //Registro de Documentos
         <androidx.cardview.widget.CardView
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -92,45 +93,6 @@
             android:layout_rowWeight = "1"
             android:layout_row = "0"
             android:layout_column = "1"
-            android:layout_marginBottom = "15dp"
-            android:layout_marginRight = "15dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                >
-
-                <ImageView
-                    android:layout_width="68dp"
-                    android:layout_height="63dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/annadirpersonal" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text = "Registro de personal y evaluadores"
-                    android:clickable = "true"
-                    android:textSize="15sp"
-                    android:gravity="center"
-                    app:fontFamily="@font/montserrat_extrabold"
-                    android:layout_gravity="center_horizontal"
-                    />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        //Registro de Documentos
-        <androidx.cardview.widget.CardView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#e3e3e3"
-            android:layout_columnWeight = "1"
-            android:layout_rowWeight = "1"
-            android:layout_row = "1"
-            android:layout_column = "0"
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
@@ -172,11 +134,12 @@
             android:layout_columnWeight = "1"
             android:layout_rowWeight = "1"
             android:layout_row = "1"
-            android:layout_column = "1"
+            android:layout_column = "0"
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdRegistroAvance">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -210,12 +173,13 @@
             android:background="#e3e3e3"
             android:layout_columnWeight = "1"
             android:layout_rowWeight = "1"
-            android:layout_row = "2"
-            android:layout_column = "0"
+            android:layout_row = "1"
+            android:layout_column = "1"
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdVisualizarProy">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -250,7 +214,7 @@
             android:layout_columnWeight = "1"
             android:layout_rowWeight = "1"
             android:layout_row = "2"
-            android:layout_column = "1"
+            android:layout_column = "0"
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
@@ -288,8 +252,8 @@
             android:background="#e3e3e3"
             android:layout_columnWeight = "1"
             android:layout_rowWeight = "1"
-            android:layout_row = "3"
-            android:layout_column = "0"
+            android:layout_row = "2"
+            android:layout_column = "1"
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
@@ -328,7 +292,7 @@
             android:layout_columnWeight = "1"
             android:layout_rowWeight = "1"
             android:layout_row = "3"
-            android:layout_column = "1"
+            android:layout_column = "0"
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
@@ -366,8 +330,8 @@
             android:background="#e3e3e3"
             android:layout_columnWeight = "1"
             android:layout_rowWeight = "1"
-            android:layout_row = "4"
-            android:layout_column = "0"
+            android:layout_row = "3"
+            android:layout_column = "1"
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
@@ -408,7 +372,7 @@
             android:layout_columnWeight = "1"
             android:layout_rowWeight = "1"
             android:layout_row = "4"
-            android:layout_column = "1"
+            android:layout_column = "0"
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"

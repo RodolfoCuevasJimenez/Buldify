@@ -51,11 +51,6 @@ class Cargar_Archivos_Fragment : Fragment() {
         btn_Documentos.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.cargar_Documentos_Fragment)
         }
-
-        btn_Progreso = binding.btnProgreso
-        btn_Progreso.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.cargar_Progreso)
-        }
     }
     override fun onDestroyView() {
         super.onDestroyView()

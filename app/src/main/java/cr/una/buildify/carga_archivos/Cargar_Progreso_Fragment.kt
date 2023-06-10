@@ -205,7 +205,7 @@ class Cargar_Progreso_Fragment : Fragment() {
 
     private fun volver(view: View?){
         if (view != null) {
-            Navigation.findNavController(view).navigate(R.id.cargar_Archivos_Fragment)
+            Navigation.findNavController(view).navigate(R.id.director_Proyecto_Main)
         }
     }
 
