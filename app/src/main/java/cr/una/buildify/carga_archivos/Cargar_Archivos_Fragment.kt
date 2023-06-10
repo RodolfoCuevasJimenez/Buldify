@@ -1,4 +1,4 @@
-package cr.una.buildify.ui.carga_archivos
+package cr.una.buildify.carga_archivos
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -56,6 +56,10 @@ class Cargar_Archivos_Fragment : Fragment() {
         btn_Progreso.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.cargar_Progreso)
         }
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

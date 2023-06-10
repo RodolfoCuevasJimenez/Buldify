@@ -1,4 +1,4 @@
-package cr.una.buildify.ui.carga_archivos
+package cr.una.buildify.carga_archivos
 
 import android.app.Activity
 import android.app.ProgressDialog
@@ -24,7 +24,6 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentCargarDocumentosBinding
-import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 lateinit var cd_documentos: CardView

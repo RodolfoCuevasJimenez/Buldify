@@ -1,4 +1,4 @@
-package cr.una.buildify.ui.carga_archivos
+package cr.una.buildify.carga_archivos
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -15,7 +15,6 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -23,7 +22,6 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentCargarRendersBinding
-import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 private lateinit var btn_save: Button

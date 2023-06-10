@@ -15,7 +15,7 @@
             android:title="Crear Servicios" />
 
         <item
-            android:id="@+id/nav_postularse"
+            android:id="@+id/registrarServicioFragment"
             android:icon="@drawable/serviciosindependientes"
             android:title="Postularse a Servicio" />
 

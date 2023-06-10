@@ -1,4 +1,4 @@
-package cr.una.buildify.ui.carga_archivos
+package cr.una.buildify.carga_archivos
 
 import android.app.Activity
 import android.app.ProgressDialog

@@ -41,6 +41,16 @@ class Director_Proyecto_Main : Fragment() {
             Navigation.findNavController(view).navigate(R.id.cargar_Archivos_Fragment)
         }
 
+        val crdIncidentes = binding.crdGestionIncidentes
+        crdIncidentes.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.visualizacion_inc_eva_obs_Fragment)
+        }
+
+        val crdServiciosInd = binding.crdServiciosInd
+        crdServiciosInd.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.buscarServicioFragment)
+        }
+
     }
 
     override fun onDestroyView() {
