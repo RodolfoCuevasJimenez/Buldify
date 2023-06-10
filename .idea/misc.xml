@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/reyes/Desktop/integracion Globales/Buldify/app/src/main/res/drawable-v24/item_border.xml" value="0.1" />
+        <entry key="..\:/Users/reyes/Desktop/integracion Globales/Buldify/app/src/main/res/drawable-v24/search.xml" value="0.1" />
+        <entry key="..\:/Users/reyes/Desktop/integracion Globales/Buldify/app/src/main/res/layout/activity_diector_tablacosto.xml" value="0.25" />
+        <entry key="..\:/Users/reyes/Desktop/integracion Globales/Buldify/app/src/main/res/layout/activity_diector_visualizar_solicitud_detalle.xml" value="0.25" />
+        <entry key="..\:/Users/reyes/Desktop/integracion Globales/Buldify/app/src/main/res/layout/activity_director_proyecto_solicitud_detalle.xml" value="0.1" />
+        <entry key="..\:/Users/reyes/Desktop/integracion Globales/Buldify/app/src/main/res/layout/fragment_titulo_solicitud.xml" value="0.3179347826086957" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
