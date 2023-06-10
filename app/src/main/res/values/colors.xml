@@ -11,4 +11,5 @@
     <color name="backgroundColor">#FFFFFF</color>
     <color name="textColor">#000000</color>
     <color name="buttonColor">#FFA82A</color>
+    <color name="gris">#191919</color>
 </resources>

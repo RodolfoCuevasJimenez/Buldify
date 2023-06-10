@@ -12,25 +12,28 @@
         android:roundIcon="@mipmap/iconoapp_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Buildify"
-        tools:targetApi="31" >
-        <activity
-            android:name=".trabajador_independiente.RegistrarServicio"
-            android:exported="false" />
-        <activity
-            android:name=".editarEquipo.FormularioTrabajador"
-            android:exported="false" />
-        <activity
-            android:name=".usuario_invitado.Usuario_Invitado_Home"
-            android:exported="false" />
-        <activity
-            android:name=".trabajador_independiente.Trabajador_Independiente_Home"
-            android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        tools:targetApi="31">
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="cr.una.buildify.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <activity
+            android:name=".ui.usuario_invitado.Usuario_Invitado_Drawer"
+            android:exported="false"
+            android:label="@string/title_activity_usuario_invitado_drawer"
+            android:theme="@style/Theme.Buildify.NoActionBar" />
+
+        <activity
+            android:name=".ui.trabajador_independiente.trabajador_independiente_drawer"
+            android:exported="false"
+            android:label="@string/title_activity_trabajador_independiente_drawer"
+            android:theme="@style/Theme.Buildify.NoActionBar" />
         <activity
             android:name=".ui.evaluador_obra.Evaluador_Obra_drawer"
             android:exported="false"
@@ -42,39 +45,40 @@
             android:label="@string/title_activity_duenno_obra_drawer"
             android:theme="@style/Theme.Buildify.NoActionBar" />
         <activity
-            android:name=".director_proyecto.Director_Proyecto_Home"
+            android:name=".director_proyecto_drawer"
+            android:exported="false"
+            android:label="@string/title_activity_director_proyecto_drawer"
+            android:theme="@style/Theme.Buildify.NoActionBar" />
+
+        <activity
+            android:name=".solicitud_Detalle.solicitudDetalleActivity"
             android:exported="true" />
         <activity
-            android:name=".creacionProyecto.CrearProyecto"
+            android:name=".tabla_costo.tablaCostoActivity"
             android:exported="true" />
         <activity
-            android:name=".visualizacionDeProyectos.VisualizacionDeProyectos"
-            android:exported="true"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity
-            android:name=".editarEquipo.EditarEquipoDeTrabajo"
-            android:exported="true"
-            android:windowSoftInputMode="adjustNothing" />
+            android:name=".solicitud_Detalle.VisualizarSolicitudDetalle"
+            android:exported="true" />
         <activity
             android:name=".iniciosesion.inicioSesion"
             android:exported="true" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".visualizacionInc_eva_obs.Visualizacion_inc_eva_obs"
-            android:clearTaskOnLaunch="true"
-            android:exported="true"
-            android:finishOnTaskLaunch="true"
-            android:launchMode="singleTop"
-            android:stateNotNeeded="true" />
+            android:name=".editarEquipo.FormularioTrabajador"
+            android:exported="false" />
+
         <activity
-            android:name=".servicios.BuscarServicios"
+            android:name=".editarEquipo.EditarEquipoDeTrabajo"
             android:exported="true"
             android:windowSoftInputMode="adjustNothing" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true" />
