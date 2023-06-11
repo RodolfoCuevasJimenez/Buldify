@@ -45,6 +45,41 @@ class Director_Proyecto_Main : Fragment() {
             Navigation.findNavController(view).navigate(R.id.cargar_Archivos_Fragment)
         }
 
+        val crdIncidentes = binding.crdGestionIncidentes
+        crdIncidentes.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.visualizacion_inc_eva_obs_Fragment)
+        }
+
+        val crdServiciosInd = binding.crdServiciosInd
+        crdServiciosInd.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.buscarServicioFragment)
+        }
+
+        val crdCrearProyecto = binding.crdCrearProyecto
+        crdCrearProyecto.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.crearProyectoFragment)
+        }
+
+        val crdVisualizarProyecto = binding.crdVisualizarProy
+        crdVisualizarProyecto.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.visualizacionProyectosFragment)
+        }
+
+        val crdAvance = binding.crdRegistroAvance
+        crdAvance.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.cargar_Progreso_Fragment)
+        }
+
+        val crdTablaCostos = binding.crdTablaCostos
+        crdTablaCostos.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.tablaCostosFragment)
+        }
+
+        val crdDetalle = binding.crdDetallesObra
+        crdDetalle.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.visualizacionSolicitudDetalleFragment)
+        }
+
     }
 
     override fun onDestroyView() {

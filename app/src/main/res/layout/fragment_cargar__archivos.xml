@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.carga_archivos.Cargar_Archivos_Fragment">
+    tools:context=".carga_archivos.Cargar_Archivos_Fragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -111,45 +111,6 @@
                         android:layout_gravity="center_horizontal"
                         android:gravity="center"
                         android:text="@string/Documentation"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/btn_Progreso"
-                android:layout_width="351dp"
-                android:layout_height="110dp"
-                android:layout_row="1"
-                android:layout_rowWeight="1"
-                android:layout_column="1"
-                android:layout_columnWeight="1"
-                android:layout_marginBottom="15dp"
-                android:background="#e3e3e3"
-                android:clickable="true"
-                app:cardBackgroundColor="#FFAB1E"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:baselineAligned="false"
-                    android:foregroundGravity="center"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        app:srcCompat="@drawable/work_in_progress" />
-
-                    <TextView
-                        android:layout_width="207dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center"
-                        android:text="@string/Progress"
                         android:textSize="22sp"
                         android:textStyle="bold" />
                 </LinearLayout>

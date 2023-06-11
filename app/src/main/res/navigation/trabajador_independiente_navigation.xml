@@ -9,5 +9,14 @@
         android:id="@+id/trabajador_independiente_main"
         android:name="cr.una.buildify.ui.trabajador_independiente.trabajador_independiente_main"
         android:label="fragment_trabajador_independiente_main"
-        tools:layout="@layout/fragment_trabajador_independiente_main" />
+        tools:layout="@layout/fragment_trabajador_independiente_main" >
+        <action
+            android:id="@+id/action_trabajador_independiente_main_to_registrarServicioFragment"
+            app:destination="@id/registrarServicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrarServicioFragment"
+        android:name="cr.una.buildify.servicios.RegistrarServicioFragment"
+        android:label="fragment_registrar_servicio"
+        tools:layout="@layout/fragment_registrar_servicio" />
 </navigation>

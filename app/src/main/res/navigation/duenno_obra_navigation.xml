@@ -9,5 +9,38 @@
         android:id="@+id/duenno_Obra_Main"
         android:name="cr.una.buildify.ui.duenno_obra.Duenno_Obra_Main"
         android:label="fragment_duenno__obra__main"
-        tools:layout="@layout/fragment_duenno__obra__main" />
+        tools:layout="@layout/fragment_duenno__obra__main" >
+        <action
+            android:id="@+id/action_duenno_Obra_Main_to_buscarServicioFragment3"
+            app:destination="@id/buscarServicioFragment3" />
+        <action
+            android:id="@+id/action_duenno_Obra_Main_to_solicitudDetalleFragment"
+            app:destination="@id/solicitudDetalleFragment" />
+        <action
+            android:id="@+id/action_duenno_Obra_Main_to_tablaCostosFragment2"
+            app:destination="@id/tablaCostosFragment2" />
+        <action
+            android:id="@+id/action_duenno_Obra_Main_to_visualizacion_inc_eva_obs_Fragment2"
+            app:destination="@id/visualizacion_inc_eva_obs_Fragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/buscarServicioFragment3"
+        android:name="cr.una.buildify.servicios.buscarServicioFragment"
+        android:label="fragment_buscar_servicio"
+        tools:layout="@layout/fragment_buscar_servicio" />
+    <fragment
+        android:id="@+id/solicitudDetalleFragment"
+        android:name="cr.una.buildify.solicitud_Detalle.solicitudDetalleFragment"
+        android:label="fragment_solicitud_detalle"
+        tools:layout="@layout/fragment_solicitud_detalle" />
+    <fragment
+        android:id="@+id/tablaCostosFragment2"
+        android:name="cr.una.buildify.tabla_costo.tablaCostosFragment"
+        android:label="fragment_tabla_costos"
+        tools:layout="@layout/fragment_tabla_costos" />
+    <fragment
+        android:id="@+id/visualizacion_inc_eva_obs_Fragment2"
+        android:name="cr.una.buildify.visualizacionInc_eva_obs.Visualizacion_inc_eva_obs_Fragment"
+        android:label="fragment_visualizacion_inc_eva_obs_"
+        tools:layout="@layout/fragment_visualizacion_inc_eva_obs_" />
 </navigation>

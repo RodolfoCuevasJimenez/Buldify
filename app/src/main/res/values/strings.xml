@@ -102,4 +102,9 @@
     <string name="btn_add_task">Crear tarea</string>
 
 
+
+
+
+    <string name="titulovisualizarDetalle">Visualizar Solicitud Detalle de Obra</string>
+
 </resources>

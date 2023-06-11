@@ -38,7 +38,9 @@ class duenno_obra_drawer : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow , R.id.duenno_Obra_Main
+                R.id.duenno_Obra_Main,R.id.buscarServicioFragment3,R.id.cargar_Archivos_Fragment2,
+                R.id.solicitudDetalleFragment, R.id.tablaCostosFragment2,R.id.visualizacion_inc_eva_obs_Fragment2
+
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

@@ -54,7 +54,8 @@
             android:layout_marginBottom="15dp"
             android:background="#e3e3e3"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdServiciosInd">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,7 +82,6 @@
         </androidx.cardview.widget.CardView>
 
         //Registrar documentos
-
         <androidx.cardview.widget.CardView
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -93,7 +93,8 @@
             android:layout_marginBottom="15dp"
             android:background="#e3e3e3"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdCargarArchivos">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -132,7 +133,8 @@
             android:layout_marginBottom="15dp"
             android:background="#e3e3e3"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdSolicitarDetalle">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -211,7 +213,8 @@
             android:layout_marginBottom="15dp"
             android:background="#e3e3e3"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdTablaCostos">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -367,7 +370,8 @@
             android:layout_marginBottom="15dp"
             android:background="#e3e3e3"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdIncidentes">
 
             <LinearLayout
                 android:layout_width="match_parent"
