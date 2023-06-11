@@ -6,17 +6,17 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_servicios_independientes"
+            android:id="@+id/buscarServicioFragment3"
             android:icon="@drawable/serviciosindependientes"
             android:title="Servicios Independientes" />
 
         <item
-            android:id="@+id/nav_registrar_documentos"
+            android:id="@+id/cargar_Archivos_Fragment2"
             android:icon="@drawable/nuevodocumento"
             android:title="Registrar Documentos" />
 
         <item
-            android:id="@+id/nav_solicitar_detalles"
+            android:id="@+id/solicitudDetalleFragment"
             android:icon="@drawable/detalleobra"
             android:title="Solicitar Detalle Obra" />
 
@@ -26,7 +26,7 @@
             android:title="Visualizar Cronograma" />
 
         <item
-            android:id="@+id/nav_visualizar_tabla_costos"
+            android:id="@+id/tablaCostosFragment2"
             android:icon="@drawable/tablacostos"
             android:title="Visualizar Tabla Costos" />
 
@@ -46,7 +46,7 @@
             android:title="Registrar Personal" />
 
         <item
-            android:id="@+id/nav_incidentes"
+            android:id="@+id/visualizacion_inc_eva_obs_Fragment2"
             android:icon="@drawable/incidentes"
             android:title="Gestión de Incidentes" />
 
