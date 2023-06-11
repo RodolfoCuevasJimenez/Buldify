@@ -30,6 +30,12 @@
         <action
             android:id="@+id/action_director_Proyecto_Main_to_cargar_Progreso_Fragment"
             app:destination="@id/cargar_Progreso_Fragment" />
+        <action
+            android:id="@+id/action_director_Proyecto_Main_to_tablaCostosFragment"
+            app:destination="@id/tablaCostosFragment" />
+        <action
+            android:id="@+id/action_director_Proyecto_Main_to_visualizacionSolicitudDetalleFragment"
+            app:destination="@id/visualizacionSolicitudDetalleFragment" />
     </fragment>
 
     <fragment
@@ -117,4 +123,14 @@
         android:name="cr.una.buildify.carga_archivos.Cargar_Progreso_Fragment"
         android:label="fragment_cargar_progreso"
         tools:layout="@layout/fragment_cargar_progreso" />
+    <fragment
+        android:id="@+id/tablaCostosFragment"
+        android:name="cr.una.buildify.tabla_costo.tablaCostosFragment"
+        android:label="fragment_tabla_costos"
+        tools:layout="@layout/fragment_tabla_costos" />
+    <fragment
+        android:id="@+id/visualizacionSolicitudDetalleFragment"
+        android:name="cr.una.buildify.solicitud_Detalle.VisualizacionSolicitudDetalleFragment"
+        android:label="fragment_visualizacion_solicitud_detalle"
+        tools:layout="@layout/fragment_visualizacion_solicitud_detalle" />
 </navigation>

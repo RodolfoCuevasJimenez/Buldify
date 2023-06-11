@@ -8,5 +8,22 @@
         android:id="@+id/usuario_invitado_main"
         android:name="cr.una.buildify.ui.usuario_invitado.usuario_invitado_main"
         android:label="fragment_usuario_invitado_main"
-        tools:layout="@layout/fragment_usuario_invitado_main" />
+        tools:layout="@layout/fragment_usuario_invitado_main" >
+        <action
+            android:id="@+id/action_usuario_invitado_main_to_buscarServicioFragment2"
+            app:destination="@id/buscarServicioFragment2" />
+        <action
+            android:id="@+id/action_usuario_invitado_main_to_tablaCostosFragment3"
+            app:destination="@id/tablaCostosFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/buscarServicioFragment2"
+        android:name="cr.una.buildify.servicios.buscarServicioFragment"
+        android:label="fragment_buscar_servicio"
+        tools:layout="@layout/fragment_buscar_servicio" />
+    <fragment
+        android:id="@+id/tablaCostosFragment3"
+        android:name="cr.una.buildify.tabla_costo.tablaCostosFragment"
+        android:label="fragment_tabla_costos"
+        tools:layout="@layout/fragment_tabla_costos" />
 </navigation>

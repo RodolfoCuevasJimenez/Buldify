@@ -11,7 +11,7 @@ import cr.una.buildify.solicitud_Detalle.solicitudDetalle
 class tablaCostoAdapter(private val tablaCosto: MutableList<tablaCosto>) : RecyclerView.Adapter<tablaCostoAdapter.TablaCostoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TablaCostoViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_diector_tablacosto, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_tabla_costos, parent, false)
         return TablaCostoViewHolder(view)
     }
 

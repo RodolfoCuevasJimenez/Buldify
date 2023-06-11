@@ -257,7 +257,8 @@
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdTablaCostos">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -296,7 +297,8 @@
             android:layout_marginBottom = "15dp"
             android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdDetallesObra">
 
             <LinearLayout
                 android:layout_width="match_parent"

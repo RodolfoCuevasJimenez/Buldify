@@ -36,8 +36,8 @@ class trabajador_independiente_main : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val crdServiciosInd = binding.crdServiciosInd
-        crdServiciosInd.setOnClickListener(){
+        val crdRegistarServ = binding.crdRegistarServicio
+        crdRegistarServ.setOnClickListener(){
             Navigation.findNavController(view).navigate(R.id.registrarServicioFragment)
         }
 

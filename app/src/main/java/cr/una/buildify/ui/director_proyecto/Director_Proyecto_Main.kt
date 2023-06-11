@@ -66,6 +66,16 @@ class Director_Proyecto_Main : Fragment() {
             Navigation.findNavController(view).navigate(R.id.cargar_Progreso_Fragment)
         }
 
+        val crdTablaCostos = binding.crdTablaCostos
+        crdTablaCostos.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.tablaCostosFragment)
+        }
+
+        val crdDetalle = binding.crdDetallesObra
+        crdDetalle.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.visualizacionSolicitudDetalleFragment)
+        }
+
     }
 
     override fun onDestroyView() {

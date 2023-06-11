@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
 import cr.una.buildify.databinding.FragmentDuennoObraMainBinding
@@ -35,7 +36,25 @@ class Duenno_Obra_Main : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val crdServicios = binding.crdServiciosInd
+        crdServicios.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.buscarServicioFragment3)
+        }
 
+        val crdSolicitud = binding.crdSolicitarDetalle
+        crdSolicitud.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.solicitudDetalleFragment)
+        }
+
+        val crdTabla = binding.crdTablaCostos
+        crdTabla.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.tablaCostosFragment2)
+        }
+
+        val crdIncidentes = binding.crdIncidentes
+        crdIncidentes.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.visualizacion_inc_eva_obs_Fragment2)
+        }
 
     }
 

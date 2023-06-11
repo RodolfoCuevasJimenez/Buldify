@@ -30,12 +30,12 @@
             android:title="Crear Cronograma" />
 
         <item
-            android:id="@+id/nav_crear_tabla_costos"
+            android:id="@+id/tablaCostosFragment"
             android:icon="@drawable/tablacostos"
             android:title="Crear Tabla Costos" />
 
         <item
-            android:id="@+id/nav_detalles_obra"
+            android:id="@+id/visualizacionSolicitudDetalleFragment"
             android:icon="@drawable/detalleobra"
             android:title="Detalles de Obra" />
 
