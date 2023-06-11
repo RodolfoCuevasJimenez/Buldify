@@ -5,7 +5,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_servicios_independientes"
+            android:id="@+id/buscarServicioFragment2"
             android:icon="@drawable/serviciosindependientes"
             android:title="Servicios Independientes" />
 
@@ -20,7 +20,7 @@
             android:title="Visualizar Cronograma" />
 
         <item
-            android:id="@+id/nav_visualizar_tabla_costos"
+            android:id="@+id/tablaCostosFragment3"
             android:icon="@drawable/tablacostos"
             android:title="Visualizar Tabla Costos" />
 

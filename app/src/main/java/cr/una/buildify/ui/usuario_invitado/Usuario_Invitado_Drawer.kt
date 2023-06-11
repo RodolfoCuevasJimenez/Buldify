@@ -39,7 +39,7 @@ class Usuario_Invitado_Drawer : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.usuario_invitado_main
+                R.id.usuario_invitado_main,R.id.buscarServicioFragment2,R.id.tablaCostosFragment3
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
