@@ -27,8 +27,6 @@ import cr.una.buildify.ui.trabajador_independiente.trabajador_independiente_main
 import cr.una.buildify.ui.usuario_invitado.Usuario_Invitado_Drawer
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import cr.una.buildify.MainActivity
-import cr.una.buildify.ProviderType
 import cr.una.buildify.R
 
 
