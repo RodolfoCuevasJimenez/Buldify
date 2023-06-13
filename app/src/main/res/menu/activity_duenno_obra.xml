@@ -6,6 +6,11 @@
     <group android:checkableBehavior="single">
 
         <item
+            android:id="@+id/duenno_Obra_Main"
+            android:icon="@drawable/menuprincipal"
+            android:title="Menú Principal" />
+
+        <item
             android:id="@+id/buscarServicioFragment3"
             android:icon="@drawable/serviciosindependientes"
             android:title="Servicios Independientes" />
@@ -31,12 +36,12 @@
             android:title="Visualizar Tabla Costos" />
 
         <item
-            android:id="@+id/nav_visualizar_documentos"
+            android:id="@+id/visualizarProgresoFragment"
             android:icon="@drawable/registroavance"
-            android:title="Visualizar Documentos" />
+            android:title="Visualizar Evidencia" />
 
         <item
-            android:id="@+id/nav_visualizar_tramites"
+            android:id="@+id/visualizarPlanosFragment"
             android:icon="@drawable/tramitesobra"
             android:title="Visualizar Tramites Obra" />
 

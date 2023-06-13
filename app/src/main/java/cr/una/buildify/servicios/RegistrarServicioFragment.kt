@@ -74,6 +74,7 @@ class RegistrarServicioFragment : Fragment() {
     }
 
     private fun guardar() {
+        // Verifica si cada campo del formulario es válido usando el método verificarCampo de la clase UtilesFormularios
         val camposValidos = UtilesFormularios.verificarCampo(etTituloServicio) &&
                 UtilesFormularios.verificarCampo(etDescripcion) &&
                 UtilesFormularios.verificarCampo(etTipoServicio) &&
@@ -121,6 +122,7 @@ class RegistrarServicioFragment : Fragment() {
                 Toast.makeText(requireContext(), "Se registró su servicio exitosamente", Toast.LENGTH_SHORT).show()
 
             }
+            //Muestra mensaje en caso de que falle agregar el servicio
             .addOnFailureListener { e ->
                 Log.w(ContentValues.TAG, "Error al agregar el documento", e)
                 Toast.makeText(requireContext(), "No se pudo registrar su servicio", Toast.LENGTH_SHORT).show()

@@ -25,7 +25,8 @@ private lateinit var btn_back: Button
 private lateinit var btn_previuos: ImageView
 private lateinit var videoView: VideoView
 private lateinit var storage_rec: FirebaseStorage
-private lateinit var videoUri: Uri
+private var videoUri: Uri? = null
+// Define un código de solicitud para el Intent de selección de archivo
 private val PICK_VIDEO_REQUEST_CODE = 2
 private lateinit var btn_save: Button
 private lateinit var et_filename_rec: EditText
@@ -54,29 +55,35 @@ class Cargar_Recorridos_Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Boton de regresar a la pantalla de Renders
         btn_previuos = binding.btnPrevious
         btn_previuos.setOnClickListener {
             navigatePrevious(view)
         }
 
-        btn_back = binding.back
+        //Boton de regresar al menu de cargar Archivos
+        btn_back = binding.backMenuRec
         btn_back.setOnClickListener {
             navigateBack(view)
         }
 
+        //Crea instancia de Firebase Storage para obtener la media
         storage_rec = FirebaseStorage.getInstance()
 
+        //Variables del layout
         btn_save = binding.save
         videoView = binding.videoView
         et_filename_rec = binding.nameDocumentRecorrido
         videoView.visibility = View.GONE
 
+        //Botón para abrir el selector de Media
         val btn_cargar_archivo = binding.btnCargarArchivos
         btn_cargar_archivo.setOnClickListener {
             openVideoChooser()
         }
 
         val btn_save = binding.save
+        //Boton guardar, guardar en Firebase la información del proyecto en Firebase Database y Storage la media
         btn_save.setOnClickListener {
             val text = et_filename_rec.text.toString()
             if (text.isEmpty()) {
@@ -93,22 +100,23 @@ class Cargar_Recorridos_Fragment : Fragment() {
     }
 
     private fun uploadVideoToFirebaseStorage(videoUri: Uri, fileName: String) {
+        //Extra de BD la información de donde se encuentre el video
         data class ImageInfo(
             val Ruta: String,
             val Nombre: String,
             val idProyecto: String
         )
 
-        val fileName = "$fileName.mp4"
-        val storageRef: StorageReference = storage_rec.reference.child("Recorridos Usuarios/$fileName")
+        val fileName = "$fileName.mp4"  //asignar la extension al archivo .mps para videos
+        val storageRef: StorageReference = storage_rec.reference.child("Recorridos Usuarios/$fileName") //Crea una referencia de Storage la Colección de donde se encuentran los recorridos
 
-        // Mostrar un ProgressDialog mientras se carga la imagen
+        // Mostrar un ProgressDialog mientras se carga el video
         val progressDialog = ProgressDialog(activity)
         progressDialog.setMessage("Cargando video...")
         progressDialog.setCancelable(false)
         progressDialog.show()
 
-        storageRef.putFile(videoUri)
+        storageRef.putFile(videoUri)//Carga la evidencia a Storage
             .addOnSuccessListener { taskSnapshot ->
                 progressDialog.dismiss()
                 videoView.setVideoURI(videoUri)
@@ -126,16 +134,17 @@ class Cargar_Recorridos_Fragment : Fragment() {
                 val db = Firebase.firestore
                 db.collection("Carga_Documentos_Recorridos")
                     .add(imageInfo)
-                    .addOnSuccessListener {
+                    .addOnSuccessListener {//Mensaje de que se guardo la información en Database
                         Toast.makeText(activity, "Video y datos guardados exitosamente", Toast.LENGTH_SHORT).show()
                     }
 
             }.addOnFailureListener { exception ->
-                progressDialog.dismiss()
+                progressDialog.dismiss()//Manejo de errores si existe un error
                 Toast.makeText(activity, "Error al obtener la URL de descarga", Toast.LENGTH_SHORT).show()
             }
 
     }
+    //Método para abrir un selector de videos
     private fun openVideoChooser() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(intent,PICK_VIDEO_REQUEST_CODE)
@@ -146,12 +155,13 @@ class Cargar_Recorridos_Fragment : Fragment() {
 
         if (requestCode == PICK_VIDEO_REQUEST_CODE && resultCode == AppCompatActivity.RESULT_OK && data != null) {
             videoUri = data.data!!
-            videoView.setVideoURI(videoUri)
-            videoView.visibility = View.VISIBLE
-            videoView.start()
+            videoView.setVideoURI(videoUri)// Asignar el valor de uri a videoUri
+            videoView.visibility = View.VISIBLE //Poner el texto "Archivo Cargado" visible
+            videoView.start()//Reproducir el video de una vez
         }
     }
 
+    //Método para regresar al menu Principal
     private fun navigateBack(view: View?) {
         if (view != null) {
             Navigation.findNavController(view).navigate(R.id.cargar_Archivos_Fragment)
@@ -159,6 +169,7 @@ class Cargar_Recorridos_Fragment : Fragment() {
 
     }
 
+    //Método para regresar a la pantalla de Renders
     private fun navigatePrevious(view: View?) {
         if (view != null) {
             Navigation.findNavController(view).navigate(R.id.cargar_Renders_Fragment)

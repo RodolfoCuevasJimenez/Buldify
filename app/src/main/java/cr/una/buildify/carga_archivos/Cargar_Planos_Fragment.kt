@@ -30,7 +30,7 @@ lateinit var archive: TextView
 lateinit var cargado: TextView
 private lateinit var btn_save: Button
 private lateinit var et_filename: EditText
-private lateinit var pdfUri: Uri
+private var pdfUri: Uri? = null
 private lateinit var storage: FirebaseStorage
 // Define un código de solicitud para el Intent de selección de archivo
 val PICK_PDF_REQUEST = 1
@@ -39,8 +39,6 @@ class Cargar_Planos_Fragment : Fragment() {
 
     private var _binding: FragmentCargarPlanosBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -54,37 +52,42 @@ class Cargar_Planos_Fragment : Fragment() {
         _binding = FragmentCargarPlanosBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+        //Botón para navegar a la siguiente pantalla de Renders
         btn_next_p =  binding.btnNextP
         btn_next_p.setOnClickListener {
             navegarSiguiente(view)
         }
 
-        button_back_p = binding.back
+        //Boton para volver a al menu de Cargar Archivos
+        button_back_p = binding.backMenuP
         button_back_p.setOnClickListener {
             volver(view)
         }
 
+        //Crea instancia de Firebase Storage para obtener la media
         storage = FirebaseStorage.getInstance()
+        //Variables del layout
         et_filename = binding.nameDocumentPlanos
         archive = binding.archive
         cargado = binding.cargado
-
         btn_save = binding.save
+
+        //Boton guardar, guardar en Firebase la información del proyecto en Firebase Database y Storage la media
         btn_save.setOnClickListener {
-            val text = et_filename.text.toString()
-            if (text.isEmpty()) {
-                Toast.makeText(activity, "Ingresa un nombre de archivo", Toast.LENGTH_SHORT).show()
-            } else {
-                // Llamar a la función savePdf() pasando pdfUri
-                if (pdfUri != null) {
-                    savePdf(pdfUri!!, text) // Asegúrate de que pdfUri no sea nulo antes de llamar a savePdf
-                } else {
+            btn_save.setOnClickListener {
+                val text = et_filename.text.toString()
+                if (text.isEmpty()) {
+                    Toast.makeText(activity, "Ingresa un nombre de archivo", Toast.LENGTH_SHORT).show()
+                } else if (pdfUri == null) {
                     Toast.makeText(activity, "Selecciona un archivo PDF", Toast.LENGTH_SHORT).show()
+                } else {
+                    savePdf(pdfUri!!, text)
                 }
             }
         }
 
-
+        //Hace uso de llamar a una aplicación tercera para abrir un pdf
         val btn_cargar_archivo = binding.btnCargarArchivo
         btn_cargar_archivo.setOnClickListener {
 
@@ -100,24 +103,25 @@ class Cargar_Planos_Fragment : Fragment() {
     }
 
     private fun savePdf(pdfUri: Uri, text: String) {
+        //Extra de BD la información de donde se encuentre la imagen
         data class ImageInfo(
             val Ruta: String,
             val Nombre: String,
             val idProyecto: String
         )
-        val fileName = "$text.pdf"
-        val storageRef: StorageReference = storage.reference.child("Planos Usuarios/$fileName")
+        val fileName = "$text.pdf" //asignar el tipo de archivo .pdf
+        val storageRef: StorageReference = storage.reference.child("Planos Usuarios/$fileName")//Crea una referencia de Storage la Colección de donde se encuentran los pdfs
 
-        val progressDialog = ProgressDialog(activity)
+        val progressDialog = ProgressDialog(activity)//Crea un dialog mientras se cargan los archivos
         progressDialog.setMessage("Cargando PDF...")
         progressDialog.setCancelable(false)
         progressDialog.show()
 
-        val uploadTask: UploadTask = storageRef.putFile(pdfUri)
+        val uploadTask: UploadTask = storageRef.putFile(pdfUri)//Carga el pdf a Storage
 
         uploadTask
             .addOnSuccessListener {
-                progressDialog.dismiss()
+                progressDialog.dismiss()//Mensaje para manejar el pdf cargado
                 Toast.makeText(activity, "PDF cargado exitosamente", Toast.LENGTH_SHORT).show()
 
                 // Crear un objeto imageInfo con la información a guardar
@@ -131,13 +135,13 @@ class Cargar_Planos_Fragment : Fragment() {
                 val db = Firebase.firestore
                 db.collection("Carga_Documentos_Planos")
                     .add(imageInfo)
-                    .addOnSuccessListener {
+                    .addOnSuccessListener {//Mensaje de que se guardo la información en Database
                         Toast.makeText(activity, "PDF y datos guardados exitosamente", Toast.LENGTH_SHORT).show()
                     }
             }
 
             .addOnFailureListener { exception ->
-                progressDialog.dismiss()
+                progressDialog.dismiss()//Manejo de errores si existe un error
                 Log.e("Cargar_Planos", "Error al cargar el PDF: $exception")
                 Toast.makeText(activity, "Error al cargar el PDF", Toast.LENGTH_SHORT).show()
             }
@@ -153,13 +157,13 @@ class Cargar_Planos_Fragment : Fragment() {
             }
         }
     }
-    private fun navegarSiguiente(view: View?) {
+    private fun navegarSiguiente(view: View?) { //Método para navegar a la siguiente pantalla de Renders
         if (view != null) {
             Navigation.findNavController(view).navigate(R.id.cargar_Renders_Fragment)
         }
     }
 
-    private fun volver(view: View?) {
+    private fun volver(view: View?) {//Método para regresar al menu de cargar Archivos
         if (view != null) {
             Navigation.findNavController(view).navigate(R.id.cargar_Archivos_Fragment)
         }

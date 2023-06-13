@@ -40,7 +40,6 @@ lateinit var autoCompleteTextView: AutoCompleteTextView
 @Suppress("DEPRECATION")
 class inicioSesion : AppCompatActivity() {
 
-    private val GOOGLE_SING_IN = 100
     private lateinit var baseDatos: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,7 +77,7 @@ class inicioSesion : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
                     findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
-                        navegarPrincipal(it.result?.user?.uid?:"", it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
+                        getUsuario(it.result?.user?.uid?:"", it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
                     }
                     else{
                         mostrarAlerta()
@@ -103,6 +102,17 @@ class inicioSesion : AppCompatActivity() {
         }
     }
 
+    private fun getUsuario(uid: String,email : String,tipo : String){
+        baseDatos = FirebaseFirestore.getInstance()
+        baseDatos.collection("Usuarios").document(email).get().addOnSuccessListener {
+            if(it.get("tipo").toString() == tipo){
+                navegarPrincipal(uid,email,tipo)
+            }
+            else{
+                mostrarAlerta()
+            }
+        }
+    }
     private fun postUsuario(email: String,tipo: String){
         val idUsuario = findViewById<TextView>(R.id.inputEmail).text.toString() // Obtener el ID del usuario desde el TextView
         val tipo = findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString() // Obtener el tipo de usuario desde el AutoCompleteTextView
@@ -171,7 +181,7 @@ class inicioSesion : AppCompatActivity() {
         }
     }*/
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == GOOGLE_SING_IN){
             val tarea : Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
@@ -198,6 +208,6 @@ class inicioSesion : AppCompatActivity() {
             }
 
         }
-    }
+    }*/
 
 }

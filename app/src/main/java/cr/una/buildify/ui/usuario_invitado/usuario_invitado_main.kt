@@ -1,5 +1,6 @@
 package cr.una.buildify.ui.usuario_invitado
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import androidx.navigation.Navigation
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentTrabajadorIndependienteMainBinding
 import cr.una.buildify.databinding.FragmentUsuarioInvitadoMainBinding
+import cr.una.buildify.iniciosesion.inicioSesion
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 class usuario_invitado_main : Fragment() {
@@ -46,7 +48,20 @@ class usuario_invitado_main : Fragment() {
         crdTablaCostos.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.tablaCostosFragment3)
         }
+        val crd_VisualizarDocumentos = binding.crdVisualizarDocumentos
+        crd_VisualizarDocumentos.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.visualizarPlanosFragment)
+        }
 
+        var cerrarSesion: Intent? = null
+        cerrarSesion = Intent(activity, inicioSesion::class.java)
+
+        val btnCerrarSesion = binding.btnCerrarSesion
+        btnCerrarSesion.setOnClickListener{
+            onDestroyView()
+            onDetach()
+            startActivity(cerrarSesion)
+        }
     }
 
     override fun onDestroyView() {

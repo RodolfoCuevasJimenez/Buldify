@@ -10,16 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import cr.una.buildify.R
-import cr.una.buildify.carga_archivos.btn_Documentos
-import cr.una.buildify.carga_archivos.btn_Preconstruccion
-import cr.una.buildify.carga_archivos.btn_Progreso
 import cr.una.buildify.creacionProyecto.Proyecto
-import cr.una.buildify.databinding.FragmentCargarArchivosBinding
 import cr.una.buildify.databinding.FragmentVisualizacionProyectosBinding
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
@@ -31,8 +25,6 @@ class VisualizacionProyectosFragment : Fragment() {
     private lateinit var db: FirebaseFirestore
     private var proyectosList: MutableList<Proyecto> = mutableListOf()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -53,25 +45,31 @@ class VisualizacionProyectosFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val uid = activity?.intent!!.getStringExtra("UID")
 
-
+        // Inicialización de vistas y asignación de listeners
         val etBusqueda: EditText = binding.etBusqueda
         val btnBusqueda: Button = binding.btnBusqueda
         rvProyectos = binding.rvProyectos
         rvProyectos.layoutManager = LinearLayoutManager(requireContext())
 
         db = FirebaseFirestore.getInstance()
+
+        // Filtrar servicios al cargar la vista
         if (uid != null) {
-            filterServices("", uid)
+            filtrarProyectos("", uid)
         }
+
         btnBusqueda.setOnClickListener{
             val busqueda = etBusqueda.text.toString().trim().lowercase()
+
+            // Filtrar proyectos al hacer clic en el botón de búsqueda
             if (uid != null) {
-                filterServices(busqueda, uid)
+                filtrarProyectos(busqueda, uid)
             }
         }
     }
 
-    private fun filterServices(busqueda: String, uid:String) {
+    private fun filtrarProyectos(busqueda: String, uid:String) {
+        // Consulta a Firestore para obtener los proyectos filtrados por el ID del director
         val proyectosRef = db.collection("Proyectos").whereEqualTo("idDirector", uid)
         proyectosRef.addSnapshotListener { snapshot, e ->
             if (e != null) {
@@ -81,14 +79,17 @@ class VisualizacionProyectosFragment : Fragment() {
 
             proyectosList = mutableListOf<Proyecto>()
             for (doc in snapshot?.documents ?: emptyList()) {
-
+                // Obtener el objeto Proyecto a partir de los documentos obtenidos
                 val proyecto = doc.toObject(Proyecto::class.java)
+
+                // Verificar si el proyecto no es nulo y cumple con el filtro de búsqueda
                 if (proyecto != null && proyecto.nombre.contains(busqueda, ignoreCase = true) && proyecto.idDirector.contains(uid, ignoreCase = true)) {
                     proyecto.id = doc.id
                     proyectosList.add(proyecto)
                 }
             }
 
+            // Asignar la lista de proyectos al adaptador y mostrarlos en el RecyclerView
             proyectosAdapter = ProyectosAdapter(proyectosList)
             rvProyectos.adapter = proyectosAdapter
         }

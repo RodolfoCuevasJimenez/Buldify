@@ -13,6 +13,8 @@ import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
+import cr.una.buildify.director_proyecto_drawer
+import cr.una.buildify.iniciosesion.inicioSesion
 
 class Director_Proyecto_Main : Fragment() {
 
@@ -21,6 +23,7 @@ class Director_Proyecto_Main : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,6 +81,16 @@ class Director_Proyecto_Main : Fragment() {
         val crdDetalle = binding.crdDetallesObra
         crdDetalle.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.visualizacionSolicitudDetalleFragment)
+        }
+
+        var cerrarSesion: Intent? = null
+        cerrarSesion = Intent(activity,inicioSesion::class.java)
+
+        val btnCerrarSesion = binding.btnCerrarSesion
+        btnCerrarSesion.setOnClickListener{
+            onDestroyView()
+            onDetach()
+            startActivity(cerrarSesion)
         }
 
     }
