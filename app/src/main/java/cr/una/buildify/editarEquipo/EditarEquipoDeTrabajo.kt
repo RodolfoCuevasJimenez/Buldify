@@ -28,22 +28,26 @@ class EditarEquipoDeTrabajo : AppCompatActivity() {
         setContentView(R.layout.activity_editar_equipo)
         val uidProyecto = intent.getStringExtra("UIDPROYECTO")!!
 
-
+        // Inicializar vistas
         val etBusqueda: EditText = findViewById(R.id.etBusqueda)
         val btnBusqueda: Button = findViewById(R.id.btnBusqueda)
-
         fabAgregar = findViewById(R.id.fabAgregar)
         rvProyectos = findViewById(R.id.rvProyectos)
         rvProyectos.layoutManager = LinearLayoutManager(this)
 
+        // Inicializar base de datos Firestore
         db = FirebaseFirestore.getInstance()
-        filterServices("", uidProyecto)
 
+        // Filtrar y mostrar el equipo inicial
+        filtrarEquipo("", uidProyecto)
+
+        // Configurar el botón de búsqueda
         btnBusqueda.setOnClickListener {
             val busqueda = etBusqueda.text.toString().trim().lowercase()
-            filterServices(busqueda, uidProyecto)
+            filtrarEquipo(busqueda, uidProyecto)
         }
 
+        // Configurar el botón de agregar trabajador
         fabAgregar.setOnClickListener {
             intent = Intent(this, FormularioTrabajador::class.java).apply {
                 putExtra("Tipo", "Agregar")
@@ -53,7 +57,7 @@ class EditarEquipoDeTrabajo : AppCompatActivity() {
         }
     }
 
-    private fun filterServices(busqueda: String, uidProyecto: String) {
+    private fun filtrarEquipo(busqueda: String, uidProyecto: String) {
         val trabajadoresRef = db.collection("Proyectos").document(uidProyecto)
         trabajadoresRef.addSnapshotListener { snapshot, e ->
             if (e != null) {
@@ -78,6 +82,7 @@ class EditarEquipoDeTrabajo : AppCompatActivity() {
                         }
                     }
                 }
+                // Crear y asignar el adaptador de trabajadores al RecyclerView
                 trabajadoresAdapter = TrabajadoresAdapter(trabajadoresList, this, uidProyecto)
                 rvProyectos.adapter = trabajadoresAdapter
             }

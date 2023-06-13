@@ -22,16 +22,19 @@ class ProyectosAdapter(private val proyectos: List<Proyecto>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: ProyectoViewHolder, position: Int) {
+        // Vincular los datos del proyecto a la vista correspondiente
         holder.bind(proyectos[position])
     }
 
     override fun getItemCount(): Int {
+        // Devolver el número total de proyectos en la lista
         return proyectos.size
     }
 
     class ProyectoViewHolder(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(proyecto: Proyecto) {
+            // Asignar los datos del proyecto a los elementos de la vista
             val presupuesto = "Presupuesto:" + proyecto.moneda + ((proyecto.presupuesto * 100.0).roundToInt() / 100.0).toString()
             val tipo = "Tipo: " + proyecto.tipo
             val cliente = "Cliente: "
@@ -40,11 +43,13 @@ class ProyectosAdapter(private val proyectos: List<Proyecto>) : RecyclerView.Ada
             itemView.findViewById<TextView>(R.id.tvCorreoTrabajador).text = presupuesto
             itemView.findViewById<TextView>(R.id.tvCliente).text = cliente
             itemView.findViewById<TextView>(R.id.tvDescripcion).text = proyecto.descripcion
-            itemView.findViewById<ImageButton>(R.id.ibtnEquipo).setOnClickListener(View.OnClickListener {
+
+            // Configurar el listener del botón para iniciar una actividad al hacer clic
+            itemView.findViewById<ImageButton>(R.id.ibtnEquipo).setOnClickListener {
                 context.startActivity(Intent(context, EditarEquipoDeTrabajo::class.java).apply {
                     putExtra("UIDPROYECTO", proyecto.id)
                 })
-            })
+            }
         }
     }
 }
