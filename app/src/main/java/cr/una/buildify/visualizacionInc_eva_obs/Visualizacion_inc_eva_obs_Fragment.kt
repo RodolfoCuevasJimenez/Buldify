@@ -13,7 +13,7 @@ import cr.una.buildify.databinding.FragmentVisualizacionIncEvaObsBinding
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 class Visualizacion_inc_eva_obs_Fragment : Fragment() {
-
+    //Inicializa y declara varias variables para su uso en la visualización de datos.
     private var _binding: FragmentVisualizacionIncEvaObsBinding? = null
     private lateinit var recyclerViewIncEvaObs: RecyclerView
     private lateinit var visualizacionAdapter: VisualizacionAdapter

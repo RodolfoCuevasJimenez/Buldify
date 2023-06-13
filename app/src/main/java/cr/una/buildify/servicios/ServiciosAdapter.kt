@@ -12,6 +12,7 @@ import cr.una.buildify.R
 class ServiciosAdapter(private val servicios: List<Servicio>) : RecyclerView.Adapter<ServiciosAdapter.ServicioViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServicioViewHolder {
+        // Infla el diseño de item_servicio en una nueva vista
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_servicio, parent, false)
         return ServicioViewHolder(view)
     }
@@ -23,10 +24,17 @@ class ServiciosAdapter(private val servicios: List<Servicio>) : RecyclerView.Ada
     override fun getItemCount(): Int {
         return servicios.size
     }
-
+    /**
+     * Clase que representa un ViewHolder para un elemento de datos de Servicio en el RecyclerView.
+     * @param itemView La vista raíz del elemento de datos.
+     */
     class ServicioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+        /**
+         * Vincula los datos del servicio al ViewHolder.
+         * @param servicio El objeto Servicio que se va a mostrar en el ViewHolder.
+         */
         fun bind(servicio: Servicio) {
+            // Asigna los valores del servicio a los elementos de la vista dentro del ViewHolder
             itemView.findViewById<TextView>(R.id.tvTituloServicio).text = servicio.titulo
             itemView.findViewById<TextView>(R.id.tvDescripcion).text = servicio.descripcion
             itemView.findViewById<TextView>(R.id.tvFecha).text = servicio.direccion
