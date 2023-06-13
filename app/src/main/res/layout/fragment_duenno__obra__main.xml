@@ -282,6 +282,7 @@
         //Visualizar tramites de la obra
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/crdVisualizarTramites"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_row="3"

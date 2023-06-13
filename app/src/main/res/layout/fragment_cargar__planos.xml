@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".carga_archivos.Cargar_Planos_Fragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -206,7 +207,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/back"
+                    android:id="@+id/back_menu_p"
                     android:layout_width="120dp"
                     android:layout_height="65dp"
                     android:layout_gravity="left"

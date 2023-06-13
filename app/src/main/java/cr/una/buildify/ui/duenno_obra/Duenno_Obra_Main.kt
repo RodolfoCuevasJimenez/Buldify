@@ -55,7 +55,10 @@ class Duenno_Obra_Main : Fragment() {
         crdIncidentes.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.visualizacion_inc_eva_obs_Fragment2)
         }
-
+        val crdVisualizarTramites = binding.crdVisualizarTramites
+        crdVisualizarTramites.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.visualizarPlanosFragment)
+        }
     }
 
     override fun onDestroyView() {

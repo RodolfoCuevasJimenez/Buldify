@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_duenno_Obra_Main_to_visualizacion_inc_eva_obs_Fragment2"
             app:destination="@id/visualizacion_inc_eva_obs_Fragment2" />
+        <action
+            android:id="@+id/action_duenno_Obra_Main_to_visualizarPlanosFragment"
+            app:destination="@id/visualizarPlanosFragment" />
     </fragment>
     <fragment
         android:id="@+id/buscarServicioFragment3"
@@ -43,4 +46,16 @@
         android:name="cr.una.buildify.visualizacionInc_eva_obs.Visualizacion_inc_eva_obs_Fragment"
         android:label="fragment_visualizacion_inc_eva_obs_"
         tools:layout="@layout/fragment_visualizacion_inc_eva_obs_" />
+    <fragment
+        android:id="@+id/visualizarPlanosFragment"
+        android:name="cr.una.buildify.ui.VisualizarArchivos.VisualizarPlanosFragment"
+        android:label="VisualizarPlanosFragment" >
+        <action
+            android:id="@+id/action_visualizarPlanosFragment_to_visualizarRecorridosFragment"
+            app:destination="@id/visualizarRecorridosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/visualizarRecorridosFragment"
+        android:name="cr.una.buildify.ui.VisualizarArchivos.VisualizarRecorridosFragment"
+        android:label="VisualizarRecorridosFragment" />
 </navigation>
