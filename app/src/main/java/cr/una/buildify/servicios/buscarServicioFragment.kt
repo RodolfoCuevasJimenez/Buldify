@@ -23,7 +23,7 @@ import cr.una.buildify.databinding.FragmentCargarArchivosBinding
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 class buscarServicioFragment : Fragment() {
-
+    //Inicializa y declara varias variables para su uso en la visualización de datos.
     private var _binding: FragmentBuscarServicioBinding? = null
     private lateinit var recyclerViewServicios: RecyclerView
     private lateinit var serviciosAdapter: ServiciosAdapter
@@ -50,6 +50,7 @@ class buscarServicioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Inicializa los elementos de la vista
         var btnBusqueda: Button
         var etBusqueda: EditText
         etBusqueda = binding.etBusqueda
@@ -57,22 +58,28 @@ class buscarServicioFragment : Fragment() {
         recyclerViewServicios = binding.rvServicios
         recyclerViewServicios.layoutManager = LinearLayoutManager(activity)
 
+        // Obtiene una instancia de FirebaseFirestore
         db = FirebaseFirestore.getInstance()
-
         filterServices("")
+        // Establece un listener de clic para el botón de búsqueda
         btnBusqueda.setOnClickListener{
             var tipo = etBusqueda.text.toString().trim().lowercase()
             filterServices(tipo)
         }
     }
+    /**
+     * Filtra los servicios según el tipo especificado.
+     * @param tipo El tipo de servicio por el cual filtrar.
+     */
     private fun filterServices(tipo: String) {
+        // Obtiene la referencia a la colección "Servicios" en la base de datos
         val serviciosRef = db.collection("Servicios")
         serviciosRef.addSnapshotListener { snapshot, e ->
             if (e != null) {
                 Log.w(ContentValues.TAG, "Error al obtener los servicios", e)
                 return@addSnapshotListener
             }
-
+            // Crea una lista mutable para almacenar los servicios filtrados
             serviciosList = mutableListOf<Servicio>()
             for (doc in snapshot?.documents ?: emptyList()) {
                 val servicio = doc.toObject(Servicio::class.java)
@@ -80,8 +87,9 @@ class buscarServicioFragment : Fragment() {
                     serviciosList.add(servicio)
                 }
             }
-
+            // Crea un adaptador de servicios usando la lista filtrada
             serviciosAdapter = ServiciosAdapter(serviciosList)
+            // Establece el adaptador en el recyclerViewServicios para mostrar los servicios filtrados
             recyclerViewServicios.adapter = serviciosAdapter
         }
     }
