@@ -60,7 +60,8 @@ class solicitudDetalleFragment : Fragment() {
         val detalleSolicitud = binding.etDetalleSolicitud
         btn_guardar = binding.btnAddSolicitud
 
-        //fin extraer datos deñ formulario
+
+/*Mapeamos los datos del formulario para prepararlos e ingresarlo en la colección*/
         btn_guardar.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 val id = idSolicitud.text.toString()
@@ -83,8 +84,8 @@ class solicitudDetalleFragment : Fragment() {
                     area, detail
                 )
 
-                // nombreSolicitud.setText(solicitud.area_solicitud)
 
+/*Seteamos los datos a la colección*/
                 db.collection("Solicitud_Detalle")
                     .document(id.toString())
                     .set(datosAGuardar)
@@ -97,8 +98,8 @@ class solicitudDetalleFragment : Fragment() {
                         ).show()
 
 
-                        //iTextViewPrecio.text= serviciosList.get(2).total
-//limpia los datos
+
+//limpia los campos del formulario
                         idSolicitud.text.clear()
                         nombreSolicitud.text.clear()
                         tipoSolicitud.text.clear()

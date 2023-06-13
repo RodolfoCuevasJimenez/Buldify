@@ -7,33 +7,35 @@
     android:background="@color/teal_200"
     tools:context=".solicitud_Detalle.solicitudDetalleFragment">
 
-    <TextView
-        android:id="@+id/txtTitulosolicitud"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="Registrar Solicitud Detalle de Obra"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        app:fontFamily="@font/montserrat_extrabold" />
+        android:background="@color/gris"
+        android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/btnCerrarSesion"
-        android:layout_width="24dp"
-        android:layout_height="28dp"
-        android:layout_marginLeft="380dp"
-        android:layout_marginTop="10dp"
-        app:srcCompat="@drawable/salir" />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Solicitud Detalle de Obra"
+            android:textColor="@color/backgroundColor"
+            android:textSize="34sp"
+            app:fontFamily="@font/montserrat_extrabold" />
+
+
+    </LinearLayout>
+
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/view_top"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginRight="22dp"
         android:background="@color/white"
         android:columnCount="2"
         android:rowCount="5">
@@ -77,7 +79,8 @@
                     android:padding="8dp"
                     android:textColor="@color/black"
 
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -145,7 +148,7 @@
                 <EditText
                     android:id="@+id/et_detalle_solicitud"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
+                    android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:textColor="@color/black"
 

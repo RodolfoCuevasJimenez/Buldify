@@ -1,7 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/reyes/Desktop/PROYECTO GLOBALES INTEGRADO/VERSION v2/Buldify/app/src/main/res/layout/activity_detail_tabla_costo.xml" value="0.1" />
+        <entry key="..\:/Users/reyes/Desktop/PROYECTO GLOBALES INTEGRADO/VERSION v2/Buldify/app/src/main/res/layout/activity_director_proyecto_solicitud_detalle.xml" value="0.1" />
+        <entry key="..\:/Users/reyes/Desktop/PROYECTO GLOBALES INTEGRADO/VERSION v2/Buldify/app/src/main/res/layout/fragment_solicitud_detalle.xml" value="0.1" />
+        <entry key="..\:/Users/reyes/Desktop/PROYECTO GLOBALES INTEGRADO/VERSION v2/Buldify/app/src/main/res/layout/fragment_tabla_costos.xml" value="0.1" />
+        <entry key="..\:/Users/reyes/Desktop/PROYECTO GLOBALES INTEGRADO/VERSION v2/Buldify/app/src/main/res/layout/fragment_titulo_solicitud.xml" value="0.1" />
+        <entry key="..\:/Users/reyes/Desktop/PROYECTO GLOBALES INTEGRADO/VERSION v2/Buldify/app/src/main/res/layout/fragment_visualizacion_solicitud_detalle.xml" value="0.1" />
         <entry key="..\:/Users/reyes/Desktop/integracion Globales/Buldify/app/src/main/res/drawable-v24/item_border.xml" value="0.1" />
         <entry key="..\:/Users/reyes/Desktop/integracion Globales/Buldify/app/src/main/res/drawable-v24/search.xml" value="0.1" />
         <entry key="..\:/Users/reyes/Desktop/integracion Globales/Buldify/app/src/main/res/layout/activity_diector_tablacosto.xml" value="0.25" />
