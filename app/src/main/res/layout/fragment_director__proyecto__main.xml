@@ -32,6 +32,7 @@
         app:srcCompat="@drawable/salir" />
 
     <GridLayout
+        android:id="@+id/grid_menu_dir_proyecto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/view_top"
@@ -208,6 +209,7 @@
 
         //Crear Cronograma
         <androidx.cardview.widget.CardView
+            android:id="@+id/btn_add_cronograma"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#e3e3e3"

@@ -133,4 +133,20 @@
         android:name="cr.una.buildify.solicitud_Detalle.VisualizacionSolicitudDetalleFragment"
         android:label="fragment_visualizacion_solicitud_detalle"
         tools:layout="@layout/fragment_visualizacion_solicitud_detalle" />
+        tools:layout="@layout/fragment_director__proyecto__main" />
+
+    <fragment
+        android:id="@+id/nav_crear_cronograma"
+        android:name="cr.una.buildify.ui.general.cronograma.CronogramaFragment"
+        android:label="Crear Cronograma"
+        tools:layout="@layout/fragment_cronograma"
+        />
+
+    <fragment
+        android:id="@+id/nav_add_task"
+        android:name="cr.una.buildify.ui.general.cronograma.FragmentAddTask"
+        android:label="Crear Tarea"
+        tools:layout="@layout/fragment_add_tarea"
+        />
+
 </navigation>

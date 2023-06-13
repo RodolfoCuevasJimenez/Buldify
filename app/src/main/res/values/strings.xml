@@ -92,6 +92,15 @@
     <string name="newArchive">Archivo Cargado</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="window_datepicker_btn_hora">Seleccionar hora</string>
+    <string name="lbl_date_selected">Fecha seleccionada:</string>
+    <string name="txt_task_name">Nombre de la tarea</string>
+    <string name="txt_task_desc">Descripcion de la tarea</string>
+    <string name="txt_task_date_ini">Ingrese hora de inicio</string>
+    <string name="txt_task_date_fin">Ingrese hora de finalización</string>
+    <string name="lbl_proy_asignado">Proyecto asignado</string>
+    <string name="btn_add_task">Crear tarea</string>
+
 
     <string name="name_visualization">Nombre</string>
     <string name="visualization_renders">Visualizar Renders del Proyecto</string>

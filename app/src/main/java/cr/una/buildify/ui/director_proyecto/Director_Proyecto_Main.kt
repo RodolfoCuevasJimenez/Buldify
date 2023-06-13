@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.GridLayout
+import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
@@ -33,6 +35,8 @@ class Director_Proyecto_Main : Fragment() {
 
         _binding = FragmentDirectorProyectoMainBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        setNavigationByButton(root)
 
         return root
     }
@@ -96,4 +100,20 @@ class Director_Proyecto_Main : Fragment() {
         _binding = null
     }
 
+    fun setNavigationByButton(view: View) {
+        val gridLay = view.findViewById<GridLayout>(R.id.grid_menu_dir_proyecto)
+        for (i in 1..gridLay.childCount) {
+            if (gridLay.getChildAt(i) is CardView) {
+                val cardView = gridLay.getChildAt(i) as CardView
+                cardView.setOnClickListener {
+                    when (cardView.id) {
+                        R.id.btn_add_cronograma -> {
+                            Navigation.findNavController(view).navigate(R.id.nav_crear_cronograma)
+                        }
+                    }
+
+                }
+            }
+        }
+    }
 }
