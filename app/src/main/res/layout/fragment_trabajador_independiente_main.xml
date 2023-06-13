@@ -43,40 +43,41 @@
         >
 
         //Calificaciones
+
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardCalificaciones"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
             android:background="#e3e3e3"
-            android:layout_columnWeight = "1"
-            android:layout_rowWeight = "1"
-            android:layout_row = "0"
-            android:layout_column = "0"
-            android:layout_marginBottom = "15dp"
-            android:layout_marginRight = "15dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="12dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:gravity="center"
-                >
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/calificaciones" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text = "Calificaciones"
-                    android:textSize="15sp"
-                    android:gravity="center"
-                    app:fontFamily="@font/montserrat_extrabold"
                     android:layout_gravity="center_horizontal"
-                    />
+                    android:gravity="center"
+                    android:text="Calificaciones"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/montserrat_extrabold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

@@ -2,7 +2,8 @@ package cr.una.buildify.servicios
 
 
 data class Servicio(
-        var idUsuario: String = "",
+        var id: String = "",
+        var idUsuario: String= "",
         var tipo: String = "",
         var titulo: String = "",
         var descripcion: String = "",
@@ -11,6 +12,6 @@ data class Servicio(
         var telefono: String = "",
         var correoElectronico: String = "",
         var calificaciones: ArrayList<Calificacion>? = ArrayList(),
-        var calificacionPromedio: Float = 0.0f
+        var calificacionGeneral: Float = 0.0f
 )
 

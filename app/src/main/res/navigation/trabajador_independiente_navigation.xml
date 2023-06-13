@@ -19,4 +19,9 @@
         android:name="cr.una.buildify.servicios.RegistrarServicioFragment"
         android:label="fragment_registrar_servicio"
         tools:layout="@layout/fragment_registrar_servicio" />
+    <fragment
+        android:id="@+id/calificacionesTrabajador"
+        android:name="cr.una.buildify.servicios.CalificacionesFragment"
+        android:label="fragment_registrar_servicio"
+        tools:layout="@layout/fragment_calificaciones" />
 </navigation>

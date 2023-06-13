@@ -183,7 +183,7 @@
                 tools:ignore="TextSizeCheck" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/ibCalificar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -191,8 +191,12 @@
                 android:backgroundTint="#00FFFFFF"
                 android:contentDescription="@string/calificar"
                 android:minHeight="48dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvCorreo"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tvDescripcion"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.005"
                 app:srcCompat="@drawable/ic_calificar"
                 app:tint="#FF9800"
                 tools:ignore="ImageContrastCheck" />

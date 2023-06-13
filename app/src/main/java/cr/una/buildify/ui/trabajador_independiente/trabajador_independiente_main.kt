@@ -40,6 +40,10 @@ class trabajador_independiente_main : Fragment() {
         crdServiciosInd.setOnClickListener(){
             Navigation.findNavController(view).navigate(R.id.registrarServicioFragment)
         }
+        val crdCalificaciones = binding.cardCalificaciones
+        crdCalificaciones.setOnClickListener(){
+            Navigation.findNavController(view).navigate(R.id.calificacionesTrabajador)
+        }
 
     }
 
