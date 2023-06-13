@@ -5,6 +5,11 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/usuario_invitado_main"
+            android:icon="@drawable/menuprincipal"
+            android:title="Menú Principal" />
+
+        <item
             android:id="@+id/buscarServicioFragment2"
             android:icon="@drawable/serviciosindependientes"
             android:title="Servicios Independientes" />

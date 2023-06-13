@@ -1,5 +1,6 @@
 package cr.una.buildify.ui.evaluador_obra
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +10,8 @@ import android.view.ViewGroup
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentDuennoObraMainBinding
 import cr.una.buildify.databinding.FragmentEvaluadorObraMainBinding
+import cr.una.buildify.director_proyecto_drawer
+import cr.una.buildify.iniciosesion.inicioSesion
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 class Evaluador_Obra_Main : Fragment() {
@@ -36,7 +39,15 @@ class Evaluador_Obra_Main : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var cerrarSesion: Intent? = null
+        cerrarSesion = Intent(activity, inicioSesion::class.java)
 
+        val btnCerrarSesion = binding.btnCerrarSesion
+        btnCerrarSesion.setOnClickListener{
+            onDestroyView()
+            onDetach()
+            startActivity(cerrarSesion)
+        }
     }
 
     override fun onDestroyView() {

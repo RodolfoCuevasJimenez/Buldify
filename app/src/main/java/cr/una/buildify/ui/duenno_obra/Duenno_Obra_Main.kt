@@ -1,5 +1,6 @@
 package cr.una.buildify.ui.duenno_obra
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,8 @@ import androidx.navigation.Navigation
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
 import cr.una.buildify.databinding.FragmentDuennoObraMainBinding
+import cr.una.buildify.director_proyecto_drawer
+import cr.una.buildify.iniciosesion.inicioSesion
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 class Duenno_Obra_Main : Fragment() {
@@ -63,6 +66,17 @@ class Duenno_Obra_Main : Fragment() {
         crdVisualizarEvidencia.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.visualizarProgresoFragment)
         }
+
+        var cerrarSesion: Intent? = null
+        cerrarSesion = Intent(activity,inicioSesion::class.java)
+
+        val btnCerrarSesion = binding.btnCerrarSesion
+        btnCerrarSesion.setOnClickListener{
+            onDestroyView()
+            onDetach()
+            startActivity(cerrarSesion)
+        }
+
     }
 
     override fun onDestroyView() {

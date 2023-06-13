@@ -6,6 +6,11 @@
     <group android:checkableBehavior="single">
 
         <item
+            android:id="@+id/duenno_Obra_Main"
+            android:icon="@drawable/menuprincipal"
+            android:title="Menú Principal" />
+
+        <item
             android:id="@+id/buscarServicioFragment3"
             android:icon="@drawable/serviciosindependientes"
             android:title="Servicios Independientes" />

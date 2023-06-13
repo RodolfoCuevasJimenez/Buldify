@@ -4,6 +4,12 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/trabajador_independiente_main"
+            android:icon="@drawable/menuprincipal"
+            android:title="Menú Principal" />
+
         <item
             android:id="@+id/nav_calificaciones"
             android:icon="@drawable/calificaciones"

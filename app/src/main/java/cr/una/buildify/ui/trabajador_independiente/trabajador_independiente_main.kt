@@ -1,5 +1,6 @@
 package cr.una.buildify.ui.trabajador_independiente
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import androidx.navigation.Navigation
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentEvaluadorObraMainBinding
 import cr.una.buildify.databinding.FragmentTrabajadorIndependienteMainBinding
+import cr.una.buildify.iniciosesion.inicioSesion
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 class trabajador_independiente_main : Fragment() {
@@ -39,6 +41,16 @@ class trabajador_independiente_main : Fragment() {
         val crdRegistarServ = binding.crdRegistarServicio
         crdRegistarServ.setOnClickListener(){
             Navigation.findNavController(view).navigate(R.id.registrarServicioFragment)
+        }
+
+        var cerrarSesion: Intent? = null
+        cerrarSesion = Intent(activity, inicioSesion::class.java)
+
+        val btnCerrarSesion = binding.btnCerrarSesion
+        btnCerrarSesion.setOnClickListener{
+            onDestroyView()
+            onDetach()
+            startActivity(cerrarSesion)
         }
 
     }
