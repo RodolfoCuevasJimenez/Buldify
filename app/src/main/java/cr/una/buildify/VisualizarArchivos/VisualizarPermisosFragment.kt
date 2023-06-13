@@ -23,12 +23,14 @@ import android.widget.Button
 import android.widget.Toast
 import android.widget.VideoView
 import androidx.appcompat.app.AlertDialog
+import androidx.navigation.Navigation
 
 class VisualizarPermisosFragment : Fragment(){
     private lateinit var recyclerView: RecyclerView
     private lateinit var permisosAdapter: PermisosAdapter
     private lateinit var db: FirebaseFirestore
     private var permisosDocumentos: MutableList<Permisos_Detalle> = mutableListOf()
+    private lateinit var btn_next: Button
 
     override fun onCreateView(
         inflater: LayoutInflater,

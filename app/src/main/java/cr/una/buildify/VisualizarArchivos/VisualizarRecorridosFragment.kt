@@ -23,12 +23,14 @@ import android.widget.Button
 import android.widget.Toast
 import android.widget.VideoView
 import androidx.appcompat.app.AlertDialog
+import androidx.navigation.Navigation
 
 class VisualizarRecorridosFragment : Fragment(), RecorridoAdapter.OnImageClickListener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var recorridoAdapter: RecorridoAdapter
     private lateinit var db: FirebaseFirestore
     private var recorridoDocumentos: MutableList<Recorrido_Detalle> = mutableListOf()
+    private lateinit var btn_next: Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,6 +46,12 @@ class VisualizarRecorridosFragment : Fragment(), RecorridoAdapter.OnImageClickLi
 
         // Obtener la referencia al RecyclerView en el diseño del fragmento
         recyclerView = view.findViewById(R.id.recycle_recorrido)
+
+        //Boton en el menu, redirige a renders visualizar
+        btn_next = view.findViewById(R.id.next)
+        btn_next.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.visualizarDocumentosFragment)
+        }
 
         // Crear una instancia del adaptador de Recorrido
         recorridoAdapter = RecorridoAdapter(recorridoDocumentos)

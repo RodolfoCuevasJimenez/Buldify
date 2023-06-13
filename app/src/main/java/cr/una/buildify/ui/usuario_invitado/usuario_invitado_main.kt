@@ -46,7 +46,10 @@ class usuario_invitado_main : Fragment() {
         crdTablaCostos.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.tablaCostosFragment3)
         }
-
+        val crd_VisualizarDocumentos = binding.crdVisualizarDocumentos
+        crd_VisualizarDocumentos.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.visualizarPlanosFragment)
+        }
     }
 
     override fun onDestroyView() {

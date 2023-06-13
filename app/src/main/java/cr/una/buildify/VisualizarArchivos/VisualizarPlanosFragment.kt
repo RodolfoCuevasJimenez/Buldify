@@ -1,40 +1,27 @@
 package cr.una.buildify.ui.VisualizarArchivos
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import cr.una.buildify.R
-import com.bumptech.glide.request.target.Target
-import android.net.Uri
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.Toast
-import android.widget.VideoView
-import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import cr.una.buildify.carga_archivos.btn_Documentos
 import cr.una.buildify.databinding.FragmentCargarArchivosBinding
-import cr.una.buildify.databinding.FragmentCargarProgresoBinding
-import cr.una.buildify.databinding.FragmentVisualizarPlanosBinding
-import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 class VisualizarPlanosFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var planosAdapter: PlanosAdapter
     private lateinit var db: FirebaseFirestore
     private var planosDocumentos: MutableList<Planos_Detalle> = mutableListOf()
-
+    private lateinit var btn_next: Button
     private var _binding: FragmentCargarArchivosBinding? = null
     private val binding get() = _binding!!
 
@@ -48,6 +35,12 @@ class VisualizarPlanosFragment : Fragment() {
             container,
             false
         )
+
+        //Boton en el menu, redirige a renders visualizar
+        btn_next = view.findViewById(R.id.next)
+        btn_next.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.visualizarRendersFragment)
+        }
 
         recyclerView = view.findViewById(R.id.recycle_planos)
         planosAdapter = PlanosAdapter(planosDocumentos)

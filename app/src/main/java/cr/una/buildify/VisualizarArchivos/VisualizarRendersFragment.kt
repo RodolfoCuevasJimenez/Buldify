@@ -6,9 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -25,6 +27,7 @@ class VisualizarRendersFragment : Fragment(), RenderAdapter.OnImageClickListener
     private lateinit var renderAdapter: RenderAdapter
     private lateinit var db: FirebaseFirestore
     private var renderDocumentos: MutableList<Render_Detalle> = mutableListOf()
+    private lateinit var btn_next: Button
 
     override fun onImageClick(imageUrl: String) {
         // Mostrar la imagen en un diálogo
@@ -79,6 +82,12 @@ class VisualizarRendersFragment : Fragment(), RenderAdapter.OnImageClickListener
     ): View? {
         // Inflar el diseño del fragmento
         val view = inflater.inflate(R.layout.fragment_visualizar_renders, container, false)
+
+        //Boton en el menu, redirige a renders visualizar
+        btn_next = view.findViewById(R.id.next)
+        btn_next.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.visualizaRecorridosFragment)
+        }
 
         // Obtener la referencia al RecyclerView
         recyclerView = view.findViewById(R.id.recycle_renders)

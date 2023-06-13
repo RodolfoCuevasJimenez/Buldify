@@ -25,7 +25,7 @@
             android:title="Visualizar Tabla Costos" />
 
         <item
-            android:id="@+id/nav_visualizar_documentos"
+            android:id="@+id/visualizarPlanosFragment"
             android:icon="@drawable/registroavance"
             android:title="Visualizar Documentos" />
 

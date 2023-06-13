@@ -31,12 +31,12 @@
             android:title="Visualizar Tabla Costos" />
 
         <item
-            android:id="@+id/nav_visualizar_documentos"
+            android:id="@+id/visualizarProgresoFragment"
             android:icon="@drawable/registroavance"
-            android:title="Visualizar Documentos" />
+            android:title="Visualizar Evidencia" />
 
         <item
-            android:id="@+id/nav_visualizar_tramites"
+            android:id="@+id/visualizarPlanosFragment"
             android:icon="@drawable/tramitesobra"
             android:title="Visualizar Tramites Obra" />
 

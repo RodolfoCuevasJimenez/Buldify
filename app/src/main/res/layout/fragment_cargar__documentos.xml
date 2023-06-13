@@ -57,7 +57,7 @@
                             android:layout_marginBottom="-3dp"
                             android:contentDescription='@string/plans'
                             android:scaleType="centerCrop"
-                            app:srcCompat="@drawable/documentos" />
+                            app:srcCompat="@drawable/_construccion" />
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
