@@ -66,6 +66,15 @@ class Duenno_Obra_Main : Fragment() {
         crdVisualizarEvidencia.setOnClickListener{
             Navigation.findNavController(view).navigate(R.id.visualizarProgresoFragment)
         }
+        val  crdVisualizarCronograma = binding.crdVisualizarCronograma
+        crdVisualizarCronograma.setOnClickListener{
+            val tipo = activity?.intent?.extras?.getString("Tipo")
+            val uid = activity?.intent?.extras?.getString("UID")
+            var bundle = Bundle()
+            bundle.putString("UID", uid)
+            bundle.putString("tipo", tipo)
+            Navigation.findNavController(view).navigate(R.id.nav_visualizar_cronograma, bundle)
+        }
 
         var cerrarSesion: Intent? = null
         cerrarSesion = Intent(activity,inicioSesion::class.java)

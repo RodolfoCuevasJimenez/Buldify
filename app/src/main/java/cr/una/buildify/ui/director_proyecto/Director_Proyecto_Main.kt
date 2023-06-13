@@ -108,7 +108,12 @@ class Director_Proyecto_Main : Fragment() {
                 cardView.setOnClickListener {
                     when (cardView.id) {
                         R.id.btn_add_cronograma -> {
-                            Navigation.findNavController(view).navigate(R.id.nav_crear_cronograma)
+                            val tipo = activity?.intent?.extras?.getString("Tipo")
+                            val uid = activity?.intent?.extras?.getString("UID")
+                            var bundle = Bundle()
+                            bundle.putString("UID", uid)
+                            bundle.putString("tipo", tipo)
+                            Navigation.findNavController(view).navigate(R.id.nav_crear_cronograma, bundle)
                         }
                     }
 

@@ -29,6 +29,7 @@ class TareaCronogramaAdapter :
 
     var parentView: View? = null
     var uid: String? = null
+    var tipo: String? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TareaCronogramaViewHolder {
         val view = LayoutInflater
@@ -44,13 +45,17 @@ class TareaCronogramaAdapter :
         holder.bind(tarea)
         this.tareaSeleccionad = tarea
 
-        holder.itemView.setOnClickListener {
-            var gson = Gson()
-            val bundle = Bundle()
-            bundle.putString("tarea", gson.toJson(tarea))
-            bundle.putString("uid", uid)
+        if(tipo?.lowercase() != "dueño de la obra") {
 
-            Navigation.findNavController(this.parentView!!).navigate(R.id.nav_add_task, bundle)
+            holder.itemView.setOnClickListener {
+                var gson = Gson()
+                val bundle = Bundle()
+                bundle.putString("tarea", gson.toJson(tarea))
+                bundle.putString("uid", uid)
+                bundle.putString("tipo", tipo)
+
+                Navigation.findNavController(this.parentView!!).navigate(R.id.nav_add_task, bundle)
+            }
         }
     }
 

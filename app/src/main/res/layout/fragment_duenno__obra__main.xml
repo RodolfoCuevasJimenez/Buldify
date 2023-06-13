@@ -173,7 +173,8 @@
             android:layout_marginBottom="15dp"
             android:background="#e3e3e3"
             app:cardCornerRadius="12dp"
-            app:cardElevation="12dp">
+            app:cardElevation="12dp"
+            android:id="@+id/crdVisualizarCronograma">
 
             <LinearLayout
                 android:layout_width="match_parent"
