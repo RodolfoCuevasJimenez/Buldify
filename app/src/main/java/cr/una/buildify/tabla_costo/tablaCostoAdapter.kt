@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.buildify.R
-import cr.una.buildify.solicitud_Detalle.solicitudDetalle
+
+
 
 class tablaCostoAdapter(private val tablaCosto: MutableList<tablaCosto>) : RecyclerView.Adapter<tablaCostoAdapter.TablaCostoViewHolder>() {
 
@@ -28,9 +29,10 @@ class tablaCostoAdapter(private val tablaCosto: MutableList<tablaCosto>) : Recyc
         fun bind(tablaCosto: tablaCosto) {
             itemView.findViewById<TextView>(R.id.columtv_prototipo).text = tablaCosto.prototipo
             itemView.findViewById<TextView>(R.id.columnatv_preciom2).text = tablaCosto.m2
-
             itemView.findViewById<TextView>(R.id.columnatv_precioTotal).text = tablaCosto.total
             itemView.findViewById<TextView>(R.id.columnatv_detalle).text = tablaCosto.fecha_actualizacion
+
+
 
         }
     }

@@ -4,6 +4,12 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/director_Proyecto_Main"
+            android:icon="@drawable/menuprincipal"
+            android:title="Menú Principal" />
+
         <item
             android:id="@+id/crearProyectoFragment"
             android:icon="@drawable/crearproyecto"

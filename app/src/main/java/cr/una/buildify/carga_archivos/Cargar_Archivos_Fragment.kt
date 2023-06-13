@@ -22,8 +22,6 @@ class Cargar_Archivos_Fragment : Fragment() {
 
     private var _binding: FragmentCargarArchivosBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -31,8 +29,7 @@ class Cargar_Archivos_Fragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(DirectorProyectoMainViewModel::class.java)
+        val homeViewModel = ViewModelProvider(this).get(DirectorProyectoMainViewModel::class.java)
 
         _binding = FragmentCargarArchivosBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -42,11 +39,12 @@ class Cargar_Archivos_Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Boton en el menu, Preconstrucción redirige a Cargar Planos
         btn_Preconstruccion = binding.btnPreconstruccion
         btn_Preconstruccion.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.cargar_Planos_Fragment)
         }
-
+        //Boton en el menu, Documentos redirige a Cargar Documentos/Permisos
         btn_Documentos = binding.btnDocumentos
         btn_Documentos.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.cargar_Documentos_Fragment)

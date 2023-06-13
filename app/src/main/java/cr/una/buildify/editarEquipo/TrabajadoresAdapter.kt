@@ -26,10 +26,12 @@ class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private va
     }
 
     override fun onBindViewHolder(holder: TrabajadorViewHolder, position: Int) {
+        // Vincular los datos del trabajador a la vista correspondiente
         holder.bind(trabajadores[position])
     }
 
     override fun getItemCount(): Int {
+        // Devolver el número total de trabajadores en la lista
         return trabajadores.size
     }
 
@@ -37,11 +39,14 @@ class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private va
 
         @SuppressLint("NotifyDataSetChanged")
         fun bind(trabajador: Trabajador) {
+            // Asignar los datos del trabajador a los elementos de la vista
             val correo = "Correo electrónico: \n" + trabajador.correo
             val rol = "Rol: " + trabajador.rol
             itemView.findViewById<TextView>(R.id.tvNombreTrabajador).text = trabajador.nombre
             itemView.findViewById<TextView>(R.id.tvRolTrabajador).text = rol
             itemView.findViewById<TextView>(R.id.tvCorreoTrabajador).text = correo
+
+            // Configurar los listeners de los botones para mostrar un diálogo o iniciar una actividad al hacer clic
             itemView.findViewById<ImageButton>(R.id.btnBorrarTrabajador).setOnClickListener {
                 mostrarDialog(adapterPosition)
             }
@@ -62,10 +67,12 @@ class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private va
 
     @SuppressLint("NotifyDataSetChanged")
     private fun mostrarDialog(posicion: Int) {
+        // Crear un diálogo de confirmación para eliminar al trabajador
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Eliminar Trabajador")
         builder.setMessage("¿Seguro que desea eliminar al trabajador?")
         builder.setPositiveButton("Aceptar") { dialog, which ->
+            // Obtener la referencia de Firestore y el documento correspondiente al proyecto actual
             val db = FirebaseFirestore.getInstance()
             val coleccion = db.collection("Proyectos")
             val documento = coleccion.document(UID)
@@ -75,6 +82,7 @@ class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private va
 
             documento.get()
                 .addOnSuccessListener { documentSnapshot ->
+                    // Obtener la lista de equipo del proyecto y crear una nueva lista sin el trabajador a eliminar
                     val equipo = documentSnapshot.get("equipo") as? List<HashMap<String, String>>
                     val nuevosTrabajadores = mutableListOf<HashMap<String, String>>()
 
@@ -85,8 +93,10 @@ class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private va
                         }
                     }
 
+                    // Actualizar el campo "equipo" en Firestore con la nueva lista de trabajadores
                     documento.update("equipo", nuevosTrabajadores)
                         .addOnSuccessListener {
+                            // Crear una nueva lista de trabajadores y notificar el cambio en los datos del adaptador
                             val nuevaListaTrabajadores = mutableListOf<Trabajador>()
                             nuevosTrabajadores.forEachIndexed { index, fila ->
                                 val nombre = fila["nombre"]!!
@@ -113,5 +123,5 @@ class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private va
         }
         builder.show()
     }
-
 }
+

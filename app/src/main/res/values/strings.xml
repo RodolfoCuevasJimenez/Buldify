@@ -93,7 +93,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-
+    <string name="name_visualization">Nombre</string>
+    <string name="visualization_renders">Visualizar Renders del Proyecto</string>
+    <string name="visualization_plans">Visualizar Planos del Proyecto</string>
+    <string name="visualization_virtual">Visualizar Recorridos Virtuales del Proyecto</string>
+    <string name="visualization_documentos">Visualizar Documentos del Proyecto</string>
+    <string name="visualization_progress">Visualizar Evidencia del Progreso del Proyecto</string>
+    <string name="title_visualization">Visualizar</string>
+    <string name="next">Siguiente</string>
 
 
     <string name="titulovisualizarDetalle">Visualizar Solicitud Detalle de Obra</string>

@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/llServicios"
         android:layout_width="385dp"
-        android:layout_height="257dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="8dp"
@@ -27,37 +27,33 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clServicios"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/forma">
 
             <TextView
                 android:id="@+id/tvTituloServicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.072"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.11"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
                 android:id="@+id/tvDescripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="104dp"
+                android:layout_marginTop="16dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tvTituloServicio"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/tvTituloServicio"
                 app:layout_constraintTop_toBottomOf="@+id/tvTituloServicio"
-                app:layout_constraintVertical_bias="0.112"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
@@ -109,17 +105,13 @@
                 android:id="@+id/tvFecha1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="72dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/direccion"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.075"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvDescripcion"
                 app:layout_constraintTop_toBottomOf="@+id/tvDescripcion"
-                app:layout_constraintVertical_bias="0.226"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
@@ -153,17 +145,17 @@
 
             <TextView
                 android:id="@+id/tvCorreo"
-                android:layout_width="218dp"
+                android:layout_width="0dp"
                 android:layout_height="34dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvObservaciones1"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.318"
-                app:layout_constraintStart_toEndOf="@+id/tvObservaciones1"
-                app:layout_constraintTop_toTopOf="@+id/tvObservaciones1"
-                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvObservaciones1"
+                app:layout_constraintTop_toBottomOf="@+id/tvObservaciones1"
+                app:layout_constraintVertical_bias="1.0"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
@@ -186,10 +178,10 @@
                 android:contentDescription="icono"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.957"
+                app:layout_constraintHorizontal_bias="0.954"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.052"
+                app:layout_constraintVertical_bias="0.064"
                 app:srcCompat="@drawable/maleta"
                 tools:ignore="HardcodedText,ImageContrastCheck" />
 
