@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CalendarView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,55 +15,47 @@ import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentCronogramaBinding
 import cr.una.buildify.ui.general.cronograma.Adapters.TareaCronogramaAdapter
 import cr.una.buildify.ui.general.cronograma.modelo.TareaCronograma
+import cr.una.buildify.ui.general.servicios.proyecto.ProyectoRepositorio
+import cr.una.buildify.ui.general.servicios.tarea.TareaRepositorio
 import java.time.LocalDate
-import java.util.Date
+import java.time.format.DateTimeFormatter
 
 class CronogramaFragment : Fragment() {
 
     private var _binding: FragmentCronogramaBinding? = null
-    private var dateSelected: LocalDate? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private lateinit var dateSelected: LocalDate
+    private val dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+    private var uid: String? = null
+    private val tareaRepositorio = TareaRepositorio()
+    private val proyectoRepositorio = ProyectoRepositorio()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        /*val homeViewModel =
-            ViewModelProvider(this).get(DirectorProyectoMainViewModel::class.java)
 
-        _binding = FragmentCronogramaBinding.inflate(inflater, container, false)
-        val root: View = binding.root*/
-        val view:View = inflater.inflate(R.layout.fragment_cronograma,container,false)
+        val view: View = inflater.inflate(R.layout.fragment_cronograma, container, false)
+
+        dateSelected = LocalDate.now()
+        uid = this.activity?.intent?.extras?.getString("UID")
+
 
         val recyclerViewCrono = view.findViewById<RecyclerView>(R.id.recyclerCrono)
         recyclerViewCrono.setHasFixedSize(true)
         recyclerViewCrono.layoutManager = LinearLayoutManager(view.context)
         val cronoAdapater = TareaCronogramaAdapter()
+        cronoAdapater.parentView = view
+        cronoAdapater.uid
+
         recyclerViewCrono.adapter = cronoAdapater
 
-        val listaPrueba = listOf<TareaCronograma>(TareaCronograma("tarea 1", "esta es una tarea de prueba",
-            Date(),Date(),false),
-            TareaCronograma("tarea 2", "esta es una tarea de prueba",
-                Date(),Date(),false),
-            TareaCronograma("tarea 3", "esta es una tarea de prueba",
-                Date(),Date(),false)
-        )
+        ObtenerListaTareas(cronoAdapater)
 
-        cronoAdapater.listaTareas = listOf(
-            TareaCronograma("test 1","tarea de prueba 1", Date(), Date(), true),
-            TareaCronograma("test 2","tarea de prueba 1",Date(), Date(), false),
-            TareaCronograma("test 3","tarea de prueba 1",Date(), Date(), true),
-            TareaCronograma("test 4","tarea de prueba 1",Date(), Date(), false)
-        )
-
-        InitCalendarOptions(view,cronoAdapater)
+        InitCalendarOptions(view, cronoAdapater)
         SetEscuchaEventos(view)
-
-//        Navigation.findNavController(view).navigate(R.id.nav_view)
 
         return view
     }
@@ -77,16 +70,12 @@ class CronogramaFragment : Fragment() {
      * @param [view] la vista del fragment
      * @param [cronoAdapater] el adaptador para el recycler view
      */
-    fun InitCalendarOptions(view:View, cronoAdapater:TareaCronogramaAdapter){
-        val calendarView : CalendarView = view.findViewById(R.id.calendarView)
+    fun InitCalendarOptions(view: View, cronoAdapater: TareaCronogramaAdapter) {
+        val calendarView: CalendarView = view.findViewById(R.id.calendarView)
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            cronoAdapater.listaTareas = listOf(TareaCronograma("test 1","tarea de prueba 2", Date(), Date(), true),
-            TareaCronograma("test 2","tarea de prueba 2",Date(), Date(), false),
-            TareaCronograma("test 3","tarea de prueba 2",Date(), Date(), true),
-            TareaCronograma("test 4","tarea de prueba 2",Date(), Date(), false)
-            )
-
             dateSelected = LocalDate.of(year, (month + 1), dayOfMonth)
+
+            ObtenerListaTareas(cronoAdapater)
         }
     }
 
@@ -94,14 +83,51 @@ class CronogramaFragment : Fragment() {
      * Metodo para asignar los eventos a los elementos de la vista
      * @param [view] La vista del fragment
      */
-    fun SetEscuchaEventos(view: View){
+    fun SetEscuchaEventos(view: View) {
         val btnViewAddTask = view.findViewById<FloatingActionButton>(R.id.btn_view_add_task)
         btnViewAddTask.setOnClickListener {
-            val calendarView : CalendarView = view.findViewById(R.id.calendarView)
             val bundle = Bundle()
             bundle.putString("fechaSeleccionada", dateSelected.toString())
+            bundle.putString("uid", uid)
             Navigation.findNavController(view).navigate(R.id.nav_add_task, bundle)
         }
     }
 
+    /**
+     * Funcion para obtener la lista de tareas por proyecto
+     * @author Nestor Pasos
+     * @param [cronoAdapter] Adapter del recycler view
+     */
+    fun ObtenerListaTareas(cronoAdapter: TareaCronogramaAdapter) {
+        val listTareas = mutableListOf<TareaCronograma>()
+        val listIds = mutableListOf<String>()
+
+        proyectoRepositorio
+            .getListaProyectos("BaMwGkQthvSraGc5egaj4o6pZFt2")
+            .addOnSuccessListener {
+                for (res in it) {
+                    listIds.add(res["id"].toString())
+                }
+
+                tareaRepositorio
+                    .listarTareas(listIds, dateSelected.format(dateFormatter))
+                    .addOnSuccessListener { result ->
+                        for (tarea in result) {
+                            listTareas.add(
+                                TareaCronograma(
+                                    tarea["titulo"].toString(),
+                                    tarea["descripcion"].toString(),
+                                    tarea["fecha"].toString(),
+                                    tarea["horaInicio"].toString(),
+                                    tarea["horaFin"].toString(),
+                                    tarea["estaCompleta"].toString().toBoolean(),
+                                    tarea["idProyecto"].toString()
+                                )
+                            )
+                        }
+
+                        cronoAdapter.listaTareas = listTareas.toList()
+                    }
+            }
+    }
 }

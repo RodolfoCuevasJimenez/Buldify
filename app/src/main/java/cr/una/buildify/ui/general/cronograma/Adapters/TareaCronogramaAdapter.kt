@@ -1,16 +1,21 @@
 package cr.una.buildify.ui.general.cronograma.Adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 import cr.una.buildify.R
-import cr.una.buildify.ui.general.cronograma.modelo.ListaTareasCronograma
 import cr.una.buildify.ui.general.cronograma.modelo.TareaCronograma
-import java.text.SimpleDateFormat
 
+/**
+ * Clase para recycler view de cronograma
+ * @author Nestor Pasos
+ */
 class TareaCronogramaAdapter :
     RecyclerView.Adapter<TareaCronogramaAdapter.TareaCronogramaViewHolder>() {
 
@@ -19,6 +24,11 @@ class TareaCronogramaAdapter :
             field = value
             notifyDataSetChanged()
         }
+
+    var tareaSeleccionad: TareaCronograma? = null
+
+    var parentView: View? = null
+    var uid: String? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TareaCronogramaViewHolder {
         val view = LayoutInflater
@@ -32,6 +42,16 @@ class TareaCronogramaAdapter :
     override fun onBindViewHolder(holder: TareaCronogramaViewHolder, position: Int) {
         val tarea = listaTareas[position]
         holder.bind(tarea)
+        this.tareaSeleccionad = tarea
+
+        holder.itemView.setOnClickListener {
+            var gson = Gson()
+            val bundle = Bundle()
+            bundle.putString("tarea", gson.toJson(tarea))
+            bundle.putString("uid", uid)
+
+            Navigation.findNavController(this.parentView!!).navigate(R.id.nav_add_task, bundle)
+        }
     }
 
     class TareaCronogramaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -45,10 +65,9 @@ class TareaCronogramaAdapter :
         fun bind(tarea: TareaCronograma) {
             title.text = tarea.titulo
             description.text = tarea.descripcion
-            val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm")
             fechaTask.text =
-                String.format("%s - %s", sdf.format(tarea.fechaInicio), sdf.format(tarea.fechaFin))
-            if (tarea.estaCompleta == true) {
+                String.format("%s - %s", tarea.horaInicio, tarea.horaFin)
+            if (tarea.estaCompleta) {
                 completoTask.text = "Completa"
                 completoTaskIcon.setImageResource(R.drawable.ic_finish)
             } else {
