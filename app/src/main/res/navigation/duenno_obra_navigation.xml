@@ -87,4 +87,11 @@
         android:name="cr.una.buildify.ui.VisualizarArchivos.VisualizarProgresoFragment"
         android:label="fragment_visualizar_progreso"
         tools:layout="@layout/fragment_visualizar_progreso" />
+
+    <fragment
+        android:id="@+id/nav_visualizar_cronograma"
+        android:name="cr.una.buildify.ui.general.cronograma.CronogramaFragment"
+        android:label="Visualizar Cronograma"
+        tools:layout="@layout/fragment_cronograma"
+        />
 </navigation>

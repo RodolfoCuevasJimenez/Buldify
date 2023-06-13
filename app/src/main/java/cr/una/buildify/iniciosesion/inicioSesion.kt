@@ -151,6 +151,7 @@ class inicioSesion : AppCompatActivity() {
                                                             putExtra("Tipo",tipo)
                                                             }
             "Dueño de la Obra" -> paginaPrincipal = Intent(this, duenno_obra_drawer::class.java).apply {
+                                                        putExtra("UID", uid)
                                                         putExtra("Email",email)
                                                         putExtra("Tipo",tipo)
                                                     }

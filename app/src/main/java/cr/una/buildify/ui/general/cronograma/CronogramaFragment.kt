@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.CalendarView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -19,6 +20,7 @@ import cr.una.buildify.ui.general.servicios.proyecto.ProyectoRepositorio
 import cr.una.buildify.ui.general.servicios.tarea.TareaRepositorio
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class CronogramaFragment : Fragment() {
 
@@ -28,6 +30,8 @@ class CronogramaFragment : Fragment() {
     private lateinit var dateSelected: LocalDate
     private val dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
     private var uid: String? = null
+    private var tipo: String? = null
+
     private val tareaRepositorio = TareaRepositorio()
     private val proyectoRepositorio = ProyectoRepositorio()
 
@@ -41,6 +45,11 @@ class CronogramaFragment : Fragment() {
 
         dateSelected = LocalDate.now()
         uid = this.activity?.intent?.extras?.getString("UID")
+        tipo = this.activity?.intent?.extras?.getString("Tipo")
+
+        if(tipo?.lowercase() == "dueño de la obra"){
+            view.findViewById<FloatingActionButton>(R.id.btn_view_add_task).visibility = View.GONE
+        }
 
 
         val recyclerViewCrono = view.findViewById<RecyclerView>(R.id.recyclerCrono)
@@ -48,7 +57,8 @@ class CronogramaFragment : Fragment() {
         recyclerViewCrono.layoutManager = LinearLayoutManager(view.context)
         val cronoAdapater = TareaCronogramaAdapter()
         cronoAdapater.parentView = view
-        cronoAdapater.uid
+        cronoAdapater.uid = this.uid
+        cronoAdapater.tipo = this.tipo
 
         recyclerViewCrono.adapter = cronoAdapater
 
@@ -103,7 +113,7 @@ class CronogramaFragment : Fragment() {
         val listIds = mutableListOf<String>()
 
         proyectoRepositorio
-            .getListaProyectos("BaMwGkQthvSraGc5egaj4o6pZFt2")
+            .getListaProyectos(uid.toString())
             .addOnSuccessListener {
                 for (res in it) {
                     listIds.add(res["id"].toString())
