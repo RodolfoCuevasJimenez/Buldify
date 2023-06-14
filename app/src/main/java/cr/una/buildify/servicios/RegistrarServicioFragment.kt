@@ -25,7 +25,6 @@ class RegistrarServicioFragment : Fragment() {
     private lateinit var etNombrePersona: EditText
     private lateinit var etTelefono: EditText
     private lateinit var etDireccion: EditText
-    private lateinit var etCorreoElectronico: EditText
     private lateinit var btnGuardar: Button
     lateinit var db: FirebaseFirestore
     private var _binding: FragmentRegistrarServicioBinding? = null

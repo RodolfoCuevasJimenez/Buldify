@@ -8,12 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import cr.una.buildify.databinding.FragmentCalificacionesBinding
-import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
+import cr.una.buildify.ui.trabajador_independiente.TrabajadorIndependienteMainViewModel
 
 
 class CalificacionesFragment : Fragment() {
@@ -29,7 +30,7 @@ class CalificacionesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val homeViewModel =
-            ViewModelProvider(this).get(DirectorProyectoMainViewModel::class.java)
+            ViewModelProvider(this).get(TrabajadorIndependienteMainViewModel::class.java)
 
         _binding = FragmentCalificacionesBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -42,10 +43,18 @@ class CalificacionesFragment : Fragment() {
         tvIdNombreTrabajador = binding.tvIdNombreTrabajador
         val tvCalificacionTrabajador: TextView
         tvCalificacionTrabajador=binding.tvCalificacionTrabajador
+        tvIdNombreTrabajador.text = activity?.intent!!.getStringExtra("Email")!!
+        if(serviciosList.isEmpty()){
+            tvCalificacionTrabajador.text="0"
+            Toast.makeText(context, "El trabajador no tiene servicios asociados", Toast.LENGTH_SHORT).show()
+        }else{
+            tvCalificacionTrabajador.text = calcCalificacion().toString()
+        }
         rvCalificaciones = binding.rvCalificaciones
         rvCalificaciones.layoutManager = LinearLayoutManager(activity)
         db = FirebaseFirestore.getInstance()
         filterServices()
+
     }
     private fun filterServices() {
         val idTrabajador= activity?.intent!!.getStringExtra("Email")!!
@@ -63,10 +72,13 @@ class CalificacionesFragment : Fragment() {
                     serviciosList.add(servicio)
                 }
             }
-
-            serviciosAdapter = ServiciosAdapter(serviciosList, db, activity?.intent!!.getStringExtra("Tipo")!!)
+            val varIntent= activity?.intent!!.getStringExtra("Tipo")!!
+            serviciosAdapter = ServiciosAdapter(serviciosList, db, varIntent)
             rvCalificaciones.adapter = serviciosAdapter
         }
+    }
+    private fun calcCalificacion(): Double {
+        return serviciosList.map { it.calificacionGeneral }.average()
     }
 
 

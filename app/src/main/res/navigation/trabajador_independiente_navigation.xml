@@ -22,6 +22,6 @@
     <fragment
         android:id="@+id/calificacionesTrabajador"
         android:name="cr.una.buildify.servicios.CalificacionesFragment"
-        android:label="fragment_registrar_servicio"
+        android:label="fragment_calificaciones"
         tools:layout="@layout/fragment_calificaciones" />
 </navigation>
