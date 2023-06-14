@@ -72,7 +72,9 @@ class CalificacionesFragment : Fragment() {
                     serviciosList.add(servicio)
                 }
             }
-            val varIntent= activity?.intent!!.getStringExtra("Tipo")!!
+            var varIntent= activity?.intent?.getStringExtra("Tipo")
+            if(varIntent == null)
+                varIntent = arguments?.getString("Tipo") ?: ""
             serviciosAdapter = ServiciosAdapter(serviciosList, db, varIntent)
             rvCalificaciones.adapter = serviciosAdapter
         }
