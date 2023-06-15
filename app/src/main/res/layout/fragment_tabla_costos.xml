@@ -36,21 +36,16 @@
                     android:gravity="center"
                     android:text="Visualizar Tabla De Costo"
                     android:textColor="@color/backgroundColor"
-                    android:textSize="34sp"
+                    android:textSize="30sp"
                     app:fontFamily="@font/montserrat_extrabold" />
 
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="411dp"
-                android:layout_height="19dp"
-                android:orientation="vertical" />
-
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:orientation="vertical">
 
                 <ScrollView
@@ -64,9 +59,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:shrinkColumns="*"
                         android:layout_marginRight="500dp"
-                        android:background="@color/white">
+                        android:background="@color/white"
+                        android:shrinkColumns="*">
 
                         <TableRow
                             android:layout_width="match_parent"
@@ -120,6 +115,29 @@
                     </TableLayout>
 
                 </ScrollView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="412dp"
+                android:layout_height="57dp"
+                android:background="@color/gris"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_detalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="Los datos presentados en la tabla corresponden a Banco Central de Costa Rica  son Estadísticas de la Construcción Privada en el transcurso 2022"
+                    android:textColor="@color/backgroundColor"
+                    android:textSize="10sp"
+                    app:fontFamily="@font/montserrat_extrabold" />
+
+
             </LinearLayout>
 
 
