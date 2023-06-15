@@ -48,6 +48,17 @@ class ServiciosAdapter(private val servicios: List<Servicio>, private val db: Fi
             itemView.findViewById<TextView>(R.id.tvEtapa).text = servicio.nombrePersona
             itemView.findViewById<TextView>(R.id.tvTelefono).text = servicio.telefono
             itemView.findViewById<TextView>(R.id.tvCorreo).text = servicio.correoElectronico
+            itemView.findViewById<TextView>(R.id.tvCalificacionServicio).text= servicio.calificacionGeneral.toString()
+            db.collection("Usuarios").document(servicio.correoElectronico).get().addOnSuccessListener {
+                var calificacion= it.get("Calificacion")
+                if(calificacion!=null) {
+                    itemView.findViewById<TextView>(R.id.tvCalificacionGeneral).text = calificacion.toString()
+                }else{
+                    itemView.findViewById<TextView>(R.id.tvCalificacionGeneral).text = "0"
+                }
+
+            }
+
         }
 
         fun calificarServicio(context: Context, servicioId: String) {

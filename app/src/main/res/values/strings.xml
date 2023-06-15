@@ -93,5 +93,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="calificar">Calificar</string>
+    <string name="calificacion">Calificación del servicio</string>
+    <string name="calificar_servicio">Calificar servicio</string>
 
 </resources>

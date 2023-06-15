@@ -44,12 +44,6 @@ class CalificacionesFragment : Fragment() {
         val tvCalificacionTrabajador: TextView
         tvCalificacionTrabajador=binding.tvCalificacionTrabajador
         tvIdNombreTrabajador.text = activity?.intent!!.getStringExtra("Email")!!
-        if(serviciosList.isEmpty()){
-            tvCalificacionTrabajador.text="0"
-            Toast.makeText(context, "El trabajador no tiene servicios asociados", Toast.LENGTH_SHORT).show()
-        }else{
-            tvCalificacionTrabajador.text = calcCalificacion().toString()
-        }
         rvCalificaciones = binding.rvCalificaciones
         rvCalificaciones.layoutManager = LinearLayoutManager(activity)
         db = FirebaseFirestore.getInstance()
@@ -72,6 +66,16 @@ class CalificacionesFragment : Fragment() {
                     serviciosList.add(servicio)
                 }
             }
+
+            if (serviciosList.isEmpty()) {
+                binding.tvCalificacionTrabajador.text = "0"
+                Toast.makeText(context, "El trabajador no tiene servicios asociados", Toast.LENGTH_SHORT).show()
+            } else {
+                db.collection("Usuarios").document(idTrabajador).update("Calificacion",calcCalificacion())
+
+                binding.tvCalificacionTrabajador.text = calcCalificacion().toString()
+            }
+
             var varIntent= activity?.intent?.getStringExtra("Tipo")
             if(varIntent == null)
                 varIntent = arguments?.getString("Tipo") ?: ""
@@ -80,7 +84,15 @@ class CalificacionesFragment : Fragment() {
         }
     }
     private fun calcCalificacion(): Double {
-        return serviciosList.map { it.calificacionGeneral }.average()
+        var tamannoLista = 0
+        var total = 0.0
+        serviciosList.forEach{
+            if(it.calificaciones!!.isNotEmpty()) {
+                tamannoLista++
+                total += it.calificacionGeneral
+            }
+        }
+        return total/tamannoLista
     }
 
 
