@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import cr.una.buildify.R
 import cr.una.buildify.databinding.FragmentDuennoObraMainBinding
 import cr.una.buildify.databinding.FragmentEvaluadorObraMainBinding
@@ -47,6 +48,11 @@ class Evaluador_Obra_Main : Fragment() {
             onDestroyView()
             onDetach()
             startActivity(cerrarSesion)
+        }
+
+        val crdFormIncidentes = binding.crdFormularioIncidentes
+        crdFormIncidentes.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.formularioIncidentesFragment)
         }
     }
 

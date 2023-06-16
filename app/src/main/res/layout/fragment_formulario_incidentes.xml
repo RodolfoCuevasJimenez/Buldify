@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FormularioIncidentes.FormularioIncidentesFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_200">
+
+        <TextView
+            android:id="@+id/tvInformacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Reporte de incidentes o mejoras"
+            android:textColor="@color/iconoapp_background"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.046"
+            tools:ignore="TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/etFechaIncidente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="300dp"
+            android:ems="10"
+            android:hint="Fecha del Registro"
+            android:importantForAutofill="no"
+            android:inputType="date"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="#595757"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvInformacion"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="@+id/tvInformacion"
+            app:layout_constraintTop_toBottomOf="@+id/tvInformacion"
+            app:layout_constraintVertical_bias="0.114" />
+
+        <EditText
+            android:id="@+id/etDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="300dp"
+            android:ems="10"
+            android:hint="@string/descripcionServicio"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:minHeight="48dp"
+            android:textColorHint="#595757"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/etFechaIncidente"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/etFechaIncidente"
+            app:layout_constraintTop_toBottomOf="@+id/etFechaIncidente"
+            app:layout_constraintVertical_bias="0.017" />
+
+        <EditText
+            android:id="@+id/etEtapaObra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="300dp"
+            android:ems="10"
+            android:hint="Etapa de la Obra"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:minHeight="48dp"
+            android:textColorHint="#595757"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/etDescripcion"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/etDescripcion"
+            app:layout_constraintTop_toBottomOf="@+id/etDescripcion"
+            app:layout_constraintVertical_bias="0.022" />
+
+        <EditText
+            android:id="@+id/etObservaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:width="300dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Observaciones"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:minHeight="48dp"
+            android:textColorHint="#595757"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/etEtapaObra"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/etEtapaObra"
+            app:layout_constraintTop_toBottomOf="@+id/etEtapaObra"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btnRegistrarIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190dp"
+            android:layout_marginBottom="144dp"
+            android:background="@drawable/botones"
+            android:backgroundTint="@color/iconoapp_background"
+            android:text="Registrar Incidente"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/etObservaciones"
+            app:layout_constraintStart_toStartOf="@+id/etObservaciones"
+            app:layout_constraintTop_toBottomOf="@+id/etObservaciones"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+        <CheckBox
+            android:id="@+id/chbxIncidente"
+            android:layout_width="107dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="30dp"
+            android:text="Incidente"
+            app:layout_constraintStart_toStartOf="@+id/etObservaciones"
+            app:layout_constraintTop_toBottomOf="@+id/etObservaciones"
+            android:buttonTint="@color/iconoapp_background"/>
+
+        <CheckBox
+            android:id="@+id/chbxMejora"
+            android:layout_width="104dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="24dp"
+            android:text="Propuesta de Mejora"
+            app:layout_constraintEnd_toEndOf="@+id/etObservaciones"
+            app:layout_constraintStart_toEndOf="@+id/chbxIncidente"
+            app:layout_constraintTop_toBottomOf="@+id/etObservaciones"
+            android:buttonTint="@color/iconoapp_background"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

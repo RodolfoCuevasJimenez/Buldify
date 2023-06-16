@@ -11,20 +11,9 @@
             android:title="Menú Principal" />
 
         <item
-            android:id="@+id/nav_formulario_incidentes"
+            android:id="@+id/formularioIncidentesFragment"
             android:icon="@drawable/formularioincidentes"
             android:title="Formulario Incidentes" />
-
-        <item
-            android:id="@+id/nav_evaluacion_etapa"
-            android:icon="@drawable/formularioevaluacion"
-            android:title="Evaluación Etapa" />
-
-        <item
-            android:id="@+id/nav_observaciones"
-            android:icon="@drawable/mejoras"
-            android:title="Observaciones Mejora" />
-
 
 
     </group>

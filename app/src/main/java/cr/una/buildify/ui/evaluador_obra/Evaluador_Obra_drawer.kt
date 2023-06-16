@@ -38,7 +38,7 @@ class Evaluador_Obra_drawer : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.evaluador_Obra_Main
+                R.id.evaluador_Obra_Main,R.id.formularioIncidentesFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
