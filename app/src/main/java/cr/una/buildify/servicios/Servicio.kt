@@ -11,7 +11,7 @@ data class Servicio(
         var nombrePersona: String = "",
         var telefono: String = "",
         var correoElectronico: String = "",
-        var calificaciones: ArrayList<Calificacion>? = ArrayList(),
+        var calificaciones: ArrayList<Calificacion> = ArrayList(),
         var calificacionGeneral: Float = 0.0f
 )
 

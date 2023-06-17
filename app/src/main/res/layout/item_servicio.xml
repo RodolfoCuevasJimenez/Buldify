@@ -49,8 +49,8 @@
 
             <TextView
                 android:id="@+id/tvDescripcion"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="297dp"
+                android:layout_height="26dp"
                 android:layout_marginEnd="70dp"
                 android:layout_marginBottom="104dp"
                 android:textColor="@color/black"
@@ -193,6 +193,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
+
                 app:layout_constraintEnd_toEndOf="@+id/tvCorreo"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/tvCorreo"
@@ -202,26 +203,30 @@
             <TextView
                 android:id="@+id/tvCalificacionServicio"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginEnd="128dp"
+
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/tvCalificacion"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.482"
+                app:layout_constraintHorizontal_bias="0.448"
                 app:layout_constraintStart_toEndOf="@+id/tvCalificacion"
                 app:layout_constraintTop_toTopOf="@+id/tvCalificacion"
-                app:layout_constraintVertical_bias="0.6" />
+                app:layout_constraintVertical_bias="0.2" />
 
             <ImageButton
                 android:id="@+id/ibCalificar"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="308dp"
                 android:background="#00FFFFFF"
                 android:contentDescription="@string/calificar"
                 android:tooltipText="Calificar servicio"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTituloServicio"
-                app:layout_constraintStart_toEndOf="@+id/tvTituloServicio"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.979"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvTituloServicio"
+                app:layout_constraintVertical_bias="0.538"
                 app:srcCompat="@drawable/calificar"
                 tools:ignore="ImageContrastCheck" />
 
@@ -229,23 +234,28 @@
                 android:id="@+id/ivCalificacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="136dp"
+                android:layout_marginStart="52dp"
+                android:contentDescription="@string/calificar_servicio"
                 app:layout_constraintBottom_toBottomOf="@+id/tvEtapa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/tvEtapa"
                 app:layout_constraintTop_toTopOf="@+id/tvEtapa"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/ic_calificar"
-                android:contentDescription="@string/calificar_servicio" />
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ic_calificar" />
 
             <TextView
                 android:id="@+id/tvCalificacionGeneral"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginStart="8dp"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/ivCalificacion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.011"
                 app:layout_constraintStart_toEndOf="@+id/ivCalificacion"
                 app:layout_constraintTop_toTopOf="@+id/ivCalificacion"
-                app:layout_constraintVertical_bias="0.4" />
+                app:layout_constraintVertical_bias="0.6" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

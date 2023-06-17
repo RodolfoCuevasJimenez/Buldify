@@ -39,7 +39,7 @@ class trabajador_independiente_drawer : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.trabajador_independiente_main,R.id.registrarServicioFragment, R.id.calificacionesTrabajador
+                R.id.trabajador_independiente_main,R.id.registrarServicioFragment, R.id.calificacionesTrabajador, R.id.buscarServicioFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

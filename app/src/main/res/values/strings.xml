@@ -20,7 +20,9 @@
     <string name="direccionPersona">Dirección</string>
     <string name="correo_electronico">Correo Electrónico</string>
     <string name="guardar_servicio">Guardar servicio</string>
-    <string name="datos">Por favor ingrese los datos del servicio</string>
+    <string name="crearServ">Crear servicio</string>
+    <string name="busquedaServ">Búsqueda de servicio</string>
+    <string name="calificaciones">Calificaciones</string>
     <!-- Pantalla de Creación de proyectos -->
     <string name="TituloCrearProyecto">Nuevo Proyecto</string>
     <string name="hintNombreProyecto">Nombre del proyecto</string>

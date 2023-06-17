@@ -1,5 +1,7 @@
-package cr.una.buildify.servicios
+package cr.una.buildify.servicio
 
+import cr.una.buildify.servicios.Calificacion
+import cr.una.buildify.servicios.Servicio
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.content.Context
@@ -14,7 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import cr.una.buildify.R
-class ServiciosAdapter(private val servicios: List<Servicio>, private val db: FirebaseFirestore, private val rol:String) : RecyclerView.Adapter<ServiciosAdapter.ServicioViewHolder>() {
+class ServiciosAdapter(private val servicios: List<Servicio>, private val db: FirebaseFirestore, private val rol:String, private val idUsuario:String) : RecyclerView.Adapter<ServiciosAdapter.ServicioViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServicioViewHolder {
         val view =
@@ -25,35 +27,55 @@ class ServiciosAdapter(private val servicios: List<Servicio>, private val db: Fi
     override fun onBindViewHolder(holder: ServicioViewHolder, position: Int) {
         val servicioId = servicios[position].id
         holder.bind(servicios[position], db)
-        if(rol!="Trabajador Independiente")
-           holder.ibCalificar.setOnClickListener {
-               holder.calificarServicio(holder.itemView.context, servicioId)
+        // Verificar el rol y si el servicio ya fue calificado
+        if (rol != "Trabajador Independiente" && !buscarCalificado(servicios[position])) {
+            // Si el rol no es "Trabajador Independiente" y el servicio no ha sido calificado
+            // Mostrar el botón de calificación y configurar su evento de clic
+            holder.ibCalificar.visibility = View.VISIBLE
+            holder.ibCalificar.setOnClickListener {
+                holder.calificarServicio(holder.itemView.context, servicioId)
+            }
         }
-        else{
-            holder.ibCalificar.visibility=View.INVISIBLE
-        }
+            else{
+            // Si el rol es "Trabajador Independiente" o el servicio ya ha sido calificado
+            // Ocultar el botón de calificación
+                holder.ibCalificar.visibility = View.INVISIBLE
+            }
+
     }
 
     override fun getItemCount(): Int {
         return servicios.size
     }
-
+    private fun buscarCalificado(servicio: Servicio): Boolean {
+        for(calificacion in servicio.calificaciones){
+            // Verificar si la calificación corresponde al ID de usuario actual
+            if(calificacion.idUsuario == idUsuario){
+                return true
+            }
+        }
+        return false
+    }
     inner class ServicioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ibCalificar: ImageButton = itemView.findViewById(R.id.ibCalificar)
 
         fun bind(servicio: Servicio, db: FirebaseFirestore) {
+            // Vincular los datos del servicio con las vistas del ViewHolder
             itemView.findViewById<TextView>(R.id.tvTituloServicio).text = servicio.titulo
             itemView.findViewById<TextView>(R.id.tvDescripcion).text = servicio.descripcion
             itemView.findViewById<TextView>(R.id.tvFecha).text = servicio.direccion
             itemView.findViewById<TextView>(R.id.tvEtapa).text = servicio.nombrePersona
             itemView.findViewById<TextView>(R.id.tvTelefono).text = servicio.telefono
             itemView.findViewById<TextView>(R.id.tvCorreo).text = servicio.correoElectronico
-            itemView.findViewById<TextView>(R.id.tvCalificacionServicio).text= servicio.calificacionGeneral.toString()
+            itemView.findViewById<TextView>(R.id.tvCalificacionServicio).text= String.format("%.2f",servicio.calificacionGeneral)
+            // Obtener la calificación del usuario asociada al servicio desde la base de datos
             db.collection("Usuarios").document(servicio.correoElectronico).get().addOnSuccessListener {
-                var calificacion= it.get("Calificacion")
+                val calificacion= it.get("Calificacion")
                 if(calificacion!=null) {
-                    itemView.findViewById<TextView>(R.id.tvCalificacionGeneral).text = calificacion.toString()
+                    // Mostrar la calificación general del usuario en la vista correspondiente
+                    itemView.findViewById<TextView>(R.id.tvCalificacionGeneral).text = String.format("%.2f",calificacion)
                 }else{
+                    // Si no hay calificación, mostrar "0" en la vista correspondiente
                     itemView.findViewById<TextView>(R.id.tvCalificacionGeneral).text = "0"
                 }
 
@@ -62,35 +84,38 @@ class ServiciosAdapter(private val servicios: List<Servicio>, private val db: Fi
         }
 
         fun calificarServicio(context: Context, servicioId: String) {
+            // Crear un diálogo de alerta para la calificación del servicio
             val builder: AlertDialog.Builder = AlertDialog.Builder(context)
             builder.setTitle("Calificar servicio")
             builder.setMessage("Por favor, califique el servicio.")
-
+            // Crear una barra de calificación (RatingBar)
             val ratingBar = RatingBar(context)
             ratingBar.numStars = 5
             ratingBar.stepSize = 1.0f
-
+            // Configurar los colores de la barra de calificación
             val progressColor = ContextCompat.getColor(context, R.color.buttonColor)
             val backgroundColor = ContextCompat.getColor(context, R.color.teal_200)
-
+            // Configurar los parámetros de diseño de la barra de calificación
             ratingBar.progressTintList = ColorStateList.valueOf(progressColor)
             ratingBar.progressBackgroundTintList = ColorStateList.valueOf(backgroundColor)
+            // Configurar los parámetros de diseño de la barra de calificación
             val layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
             layoutParams.gravity = Gravity.CENTER
             ratingBar.layoutParams = layoutParams
-
+            // Crear un contenedor lineal (LinearLayout) para la barra de calificación
             val container = LinearLayout(context)
             container.orientation = LinearLayout.VERTICAL
             container.addView(ratingBar)
 
             builder.setView(container)
+            // Configurar el botón "Aceptar" del diálogo
             builder.setPositiveButton("Aceptar") { dialog, _ ->
                 val puntaje = ratingBar.rating
                 Toast.makeText(context, "Calificación: $puntaje", Toast.LENGTH_SHORT).show()
-
+            // Obtener la referencia al servicio en la base de datos
                 val servicioRef = db.collection("Servicios").document(servicioId)
                 servicioRef.get()
                     .addOnSuccessListener { document ->
@@ -98,8 +123,7 @@ class ServiciosAdapter(private val servicios: List<Servicio>, private val db: Fi
                             val servicio = document.toObject(Servicio::class.java)
 
                             if (servicio != null) {
-                                val calificacion = Calificacion(puntaje)
-
+                                val calificacion = Calificacion(idUsuario, puntaje)
                                 // Verificar si el servicio ya tiene calificaciones
                                 if (servicio.calificaciones.isNullOrEmpty()) {
                                     servicio.calificaciones = arrayListOf(calificacion)
@@ -142,12 +166,14 @@ class ServiciosAdapter(private val servicios: List<Servicio>, private val db: Fi
                     }
                 dialog.dismiss()
             }
+            // Configurar el botón "Cancelar" del diálogo
             builder.setNegativeButton("Cancelar") { dialog, _ ->
                 dialog.dismiss()
             }
             val alertDialog = builder.create()
             alertDialog.show()
         }
+
     }
 }
 

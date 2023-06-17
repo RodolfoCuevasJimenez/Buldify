@@ -24,4 +24,9 @@
         android:name="cr.una.buildify.servicios.CalificacionesFragment"
         android:label="fragment_calificaciones"
         tools:layout="@layout/fragment_calificaciones" />
+    <fragment
+        android:id="@+id/buscarServicioFragment"
+        android:name="cr.una.buildify.servicios.buscarServicioFragment"
+        android:label="fragment_buscarServicio"
+        tools:layout="@layout/fragment_buscar_servicio" />
 </navigation>

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import cr.una.buildify.databinding.FragmentBuscarServicioBinding
+import cr.una.buildify.servicio.ServiciosAdapter
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 class buscarServicioFragment : Fragment() {
@@ -45,8 +46,8 @@ class buscarServicioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var btnBusqueda: Button
-        var etBusqueda: EditText
+        val btnBusqueda: Button
+        val etBusqueda: EditText
         etBusqueda = binding.etBusqueda
         btnBusqueda = binding.btnBusqueda
         recyclerViewServicios = binding.rvServicios
@@ -56,7 +57,7 @@ class buscarServicioFragment : Fragment() {
 
         filterServices("")
         btnBusqueda.setOnClickListener{
-            var tipo = etBusqueda.text.toString().trim().lowercase()
+            val tipo = etBusqueda.text.toString().trim().lowercase()
             filterServices(tipo)
         }
 
@@ -77,13 +78,14 @@ class buscarServicioFragment : Fragment() {
                     serviciosList.add(servicio)
                 }
             }
-
-            serviciosAdapter = ServiciosAdapter(serviciosList, db, activity?.intent!!.getStringExtra("Tipo")!!)
+            // Obtención de los valores de "Tipo" y "Email" desde el intent de la actividad
+            val tipo=activity?.intent?.getStringExtra("Tipo")?:""
+            val idUsuario=activity?.intent?.getStringExtra("Email")?:""
+            // Creación del adaptador de servicios y configuración en el RecyclerView
+            serviciosAdapter = ServiciosAdapter(serviciosList, db, tipo, idUsuario)
             recyclerViewServicios.adapter = serviciosAdapter
         }
     }
-
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
