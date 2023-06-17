@@ -24,6 +24,7 @@ class CrearProyectoFragment : Fragment() {
     private lateinit var etPresupuestoProyecto: EditText
     private lateinit var etMtlDescripcionProyecto: EditText
     private lateinit var btnCrearProyecto: Button
+    private lateinit var evaluador : String
     private var db = Firebase.firestore
 
     private val binding get() = _binding!!
@@ -63,6 +64,23 @@ class CrearProyectoFragment : Fragment() {
 
         // Se configura el OnClickListener para el botón de crear proyecto.
         btnCrearProyecto.setOnClickListener {
+            //Valida que se haya marcado alguna opción del evaluador
+            if(binding.chbxEvaluador1.isChecked() && !binding.chbxEvaluador2.isChecked()){
+                evaluador = "sí"
+
+            }
+            else if (!binding.chbxEvaluador1.isChecked() && binding.chbxEvaluador1.isChecked()){
+                evaluador = "no"
+            }
+            else if (binding.chbxEvaluador1.isChecked() && binding.chbxEvaluador1.isChecked()){
+                Toast.makeText(requireContext(), "Solamente se debe de seleccionar un tipo de reporte", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            else{
+                Toast.makeText(requireContext(), "Debe seleccionar al menos un tipo de Reporte", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             // Se obtiene el UID del director de proyecto desde la actividad anterior.
             val uid = activity?.intent?.getStringExtra("UID")
 
@@ -91,8 +109,13 @@ class CrearProyectoFragment : Fragment() {
                         Toast.makeText(context, "No se ha creado el proyecto.", Toast.LENGTH_SHORT).show()
                     }
 
-                // Se navega de regreso a la pantalla principal de director de proyecto.
-                view.let { Navigation.findNavController(it).navigate(R.id.director_Proyecto_Main) }
+                if(evaluador == "sí"){
+                    // Se navega al registro del evaluador.
+                    view.let { Navigation.findNavController(it).navigate(R.id.crearEvaluadorFragment) }
+                }else{
+                    // Se navega de regreso a la pantalla principal de director de proyecto.
+                    view.let { Navigation.findNavController(it).navigate(R.id.director_Proyecto_Main) }
+                }
             }
         }
     }

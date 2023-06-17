@@ -9,11 +9,13 @@ import com.google.firebase.Timestamp
  * @param descripcion Descripción de la visualización.
  * @param fecha Fecha de la visualización (puede ser nula).
  * @param observaciones Observaciones adicionales sobre la visualización.
+ * @param tipo Tipo de registro.
  */
 data class Visualizacion(
     var etapa: String = "",
     var descripcion: String = "",
     var fecha: Timestamp? = null,
-    var observaciones: String = ""
+    var observaciones: String = "",
+    var tipo : String = ""
     )
 

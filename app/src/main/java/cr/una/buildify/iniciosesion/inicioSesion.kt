@@ -32,7 +32,6 @@ import cr.una.buildify.R
 
 lateinit var btnRegistrar:Button
 lateinit var btnIngresar:Button
-lateinit var btnGoogle:TextView
 lateinit var autoCompleteTextView: AutoCompleteTextView
 
 @Suppress("DEPRECATION")

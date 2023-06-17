@@ -52,8 +52,7 @@ class VisualizacionAdapter(private val visualizacionList: MutableList<Visualizac
                 val dateString = formatter.format(date)
                 itemView.findViewById<TextView>(R.id.tvFecha).text = dateString
             }
-
-
+            itemView.findViewById<TextView>(R.id.tvTipo2).text=visualizacion.tipo
         }
     }
 }

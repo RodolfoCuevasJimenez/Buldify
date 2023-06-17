@@ -112,7 +112,11 @@
         android:id="@+id/crearProyectoFragment"
         android:name="cr.una.buildify.creacionProyecto.CrearProyectoFragment"
         android:label="fragment_crear_proyecto"
-        tools:layout="@layout/fragment_crear_proyecto" />
+        tools:layout="@layout/fragment_crear_proyecto" >
+        <action
+            android:id="@+id/action_crearProyectoFragment_to_crearEvaluadorFragment"
+            app:destination="@id/crearEvaluadorFragment" />
+    </fragment>
     <fragment
         android:id="@+id/visualizacionProyectosFragment"
         android:name="cr.una.buildify.visualizacionDeProyectos.VisualizacionProyectosFragment"
@@ -148,5 +152,14 @@
         android:label="Crear Tarea"
         tools:layout="@layout/fragment_add_tarea"
         />
+    <fragment
+        android:id="@+id/crearEvaluadorFragment"
+        android:name="cr.una.buildify.creacionProyecto.CrearEvaluadorFragment"
+        android:label="fragment_crear_evaluador"
+        tools:layout="@layout/fragment_crear_evaluador" >
+        <action
+            android:id="@+id/action_crearEvaluadorFragment_to_director_Proyecto_Main"
+            app:destination="@id/director_Proyecto_Main" />
+    </fragment>
 
 </navigation>

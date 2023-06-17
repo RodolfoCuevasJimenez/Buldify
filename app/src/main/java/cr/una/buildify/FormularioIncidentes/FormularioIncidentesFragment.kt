@@ -78,8 +78,6 @@ class FormularioIncidentesFragment : Fragment() {
             return
         }
 
-        // Crear un objeto con los datos del Incidente ingresados
-
         if(binding.chbxIncidente.isChecked() && !binding.chbxMejora.isChecked()){
             tipo = "Incidente"
         }
@@ -95,7 +93,7 @@ class FormularioIncidentesFragment : Fragment() {
             return
         }
 
-
+        // Crear un objeto con los datos del Incidente ingresados
         val objetoFormulario = hashMapOf(
             "descripcion" to binding.etDescripcion.text.toString(),
             "etapa" to binding.etEtapaObra.text.toString(),
