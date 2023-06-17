@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:width="300dp"
             android:ems="10"
-            android:hint="Fecha del Registro"
+            android:hint="Fecha del Registro (día-mes-año)"
             android:importantForAutofill="no"
             android:inputType="date"
             android:minHeight="48dp"

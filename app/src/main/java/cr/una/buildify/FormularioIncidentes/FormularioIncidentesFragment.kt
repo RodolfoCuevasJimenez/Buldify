@@ -10,8 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.Navigation
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 import cr.una.buildify.R
 import cr.una.buildify.carga_archivos.btn_Documentos
@@ -21,6 +23,8 @@ import cr.una.buildify.databinding.FragmentFormularioIncidentesBinding
 import cr.una.buildify.servicios.*
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 import cr.una.buildify.utiles.UtilesFormularios
+import java.text.SimpleDateFormat
+import java.util.*
 
 private lateinit var etFecha: EditText
 private lateinit var etDescripcion: EditText
@@ -93,11 +97,17 @@ class FormularioIncidentesFragment : Fragment() {
             return
         }
 
+        val dateString = binding.etFechaIncidente.text.toString()
+        val format = SimpleDateFormat("dd-MM-yyyy")
+        val parsedDate = format.parse(dateString)
+        val timestamp = Timestamp(Date(parsedDate.time))
+
+
         // Crear un objeto con los datos del Incidente ingresados
         val objetoFormulario = hashMapOf(
             "descripcion" to binding.etDescripcion.text.toString(),
             "etapa" to binding.etEtapaObra.text.toString(),
-            "fecha" to binding.etFechaIncidente.text.toString(),
+            "fecha" to timestamp,
             "observaciones" to binding.etObservaciones.text.toString(),
             "tipo" to tipo
         )
