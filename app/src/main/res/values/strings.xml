@@ -113,5 +113,14 @@
 
 
     <string name="titulovisualizarDetalle">Visualizar Solicitud Detalle de Obra</string>
+    <string name="btnAceptar">Aceptar</string>
+    <string name="chkboxCambiarDirector">Confirmo que quiero cambiar al Director del Proyecto</string>
+    <string name="spnCambiarDirector">Selecciona un Director</string>
+    <string name="tvCambiarDirector">Cambiar Director del Proyecto</string>
+    <string name="hint_tvSpnDirectores">Seleccione al nuevo Director del Proyecto</string>
+    <string name="hintEtBuscarDirector">Buscar…</string>
+    <string name="seleccione_un_director">Seleccione un Director</string>
+    <string name="cDDirector">Cambiar director de Proyecto</string>
+    <string name="hint_tvSpnClientes">Seleccione al Dueño de la obra</string>
 
 </resources>

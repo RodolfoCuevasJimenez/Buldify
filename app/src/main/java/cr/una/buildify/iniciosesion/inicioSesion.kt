@@ -14,6 +14,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
@@ -28,16 +29,17 @@ import cr.una.buildify.ui.usuario_invitado.Usuario_Invitado_Drawer
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import cr.una.buildify.R
+import cr.una.buildify.utiles.UtilesFormularios
 
 
-lateinit var btnRegistrar:Button
-lateinit var btnIngresar:Button
-lateinit var btnGoogle:TextView
-lateinit var autoCompleteTextView: AutoCompleteTextView
+
 
 @Suppress("DEPRECATION")
 class inicioSesion : AppCompatActivity() {
-
+    lateinit var btnRegistrar:Button
+    lateinit var btnIngresar:Button
+    lateinit var btnGoogle:TextView
+    lateinit var autoCompleteTextView: AutoCompleteTextView
     private lateinit var baseDatos: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,15 +52,26 @@ class inicioSesion : AppCompatActivity() {
         //Botón de registrar
         btnRegistrar = findViewById(R.id.btnRegistrar)
         btnRegistrar.setOnClickListener{
-            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty() && findViewById<TextView>(R.id.cmbRol).text.isNotEmpty()){
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(findViewById<TextView>(R.id.inputEmail).text.toString(),
-                    findViewById<TextView>(R.id.inputContrasena).text.toString()).addOnCompleteListener {
-                        if (it.isSuccessful){
-                            postUsuario(it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
-                            navegarPrincipal(it.result?.user?.uid?:"", it.result?.user?.email?:"",findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString())
-                        }
-                        else{
-                            mostrarAlerta()
+            if(findViewById<TextView>(R.id.inputEmail).text.isNotEmpty() && findViewById<TextView>(R.id.inputContrasena).text.isNotEmpty() && findViewById<TextView>(R.id.cmbRol).text.isNotEmpty()) {
+                getNombre { nuevoNombre ->
+                        FirebaseAuth.getInstance().createUserWithEmailAndPassword(
+                            findViewById<TextView>(R.id.inputEmail).text.toString(),
+                            findViewById<TextView>(R.id.inputContrasena).text.toString()
+                        ).addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                postUsuario(
+                                    nuevoNombre,
+                                    it.result?.user?.email ?: "",
+                                    findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString()
+                                )
+                                navegarPrincipal(
+                                    it.result?.user?.uid ?: "",
+                                    it.result?.user?.email ?: "",
+                                    findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString()
+                                )
+                            } else {
+                                mostrarAlerta()
+                            }
                         }
                 }
 
@@ -111,13 +124,40 @@ class inicioSesion : AppCompatActivity() {
             }
         }
     }
-    private fun postUsuario(email: String,tipo: String){
+
+    private fun getNombre(onNombreObtenido: (String) -> Unit) {
+        val builder = AlertDialog.Builder(this)
+        val etNuevoNombre = EditText(this)
+        etNuevoNombre.hint = "Ingrese su nombre completo"
+
+        builder.setView(etNuevoNombre)
+        builder.setTitle("Nuevo Usuario")
+
+        builder.setPositiveButton("Aceptar") { dialog, _ ->
+            if(UtilesFormularios.verificarCampo(etNuevoNombre)) {
+                val nuevoNombre = etNuevoNombre.text.toString()
+                onNombreObtenido(nuevoNombre.trim())
+                dialog.dismiss()
+            }
+            else{
+                Toast.makeText(this, "Debe ingresar su nombre", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+        val alertDialog = builder.create()
+        alertDialog.show()
+
+    }
+    private fun postUsuario(nuevoNombre: String, email: String,tipo: String){
         val idUsuario = findViewById<TextView>(R.id.inputEmail).text.toString() // Obtener el ID del usuario desde el TextView
         val tipo = findViewById<AutoCompleteTextView>(R.id.cmbRol).text.toString() // Obtener el tipo de usuario desde el AutoCompleteTextView
-
         val usuario = hashMapOf(
             "idUsuario" to idUsuario,
-            "tipo" to tipo
+            "tipo" to tipo,
+            "nombre" to nuevoNombre
         )
 
         baseDatos.collection("Usuarios")

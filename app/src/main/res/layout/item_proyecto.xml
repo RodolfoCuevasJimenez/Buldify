@@ -44,7 +44,7 @@
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvCorreoTrabajdor"
+                android:id="@+id/tvTipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -59,20 +59,20 @@
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvCorreoTrabajador"
+                android:id="@+id/tvPresupuesto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:layout_constraintStart_toStartOf="@+id/tvCorreoTrabajdor"
-                app:layout_constraintTop_toBottomOf="@+id/tvCorreoTrabajdor" />
+                app:layout_constraintStart_toStartOf="@+id/tvTipo"
+                app:layout_constraintTop_toBottomOf="@+id/tvTipo" />
 
             <TextView
                 android:id="@+id/tvCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:layout_constraintStart_toStartOf="@+id/tvCorreoTrabajador"
-                app:layout_constraintTop_toBottomOf="@+id/tvCorreoTrabajador" />
+                app:layout_constraintStart_toStartOf="@+id/tvPresupuesto"
+                app:layout_constraintTop_toBottomOf="@+id/tvPresupuesto" />
 
             <TextView
                 android:id="@+id/tvDescripcion"
@@ -97,6 +97,19 @@
                 app:srcCompat="@drawable/ic_editar"
                 app:tint="@color/iconoapp_background"
                 tools:ignore="ImageContrastCheck" />
+
+            <ImageButton
+                android:id="@+id/ibtnDirector"
+                android:layout_width="48dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_persona"
+                tools:ignore="ImageContrastCheck"
+                android:contentDescription="@string/cDDirector" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

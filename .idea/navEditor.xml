@@ -346,6 +346,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="nav_visualizar_cronograma">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="solicitudDetalleFragment">
                     <value>
                       <LayoutPositions>
@@ -377,6 +389,27 @@
                           <Point>
                             <option name="x" value="-358" />
                             <option name="y" value="629" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_visualizaRecorridosFragment_to_visualizarDocumentosFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="visualizacionProyectosFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>

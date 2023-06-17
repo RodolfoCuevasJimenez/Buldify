@@ -15,13 +15,16 @@ import com.google.firebase.firestore.FirebaseFirestore
 import cr.una.buildify.R
 import cr.una.buildify.creacionProyecto.Trabajador
 
-
 @Suppress("UNCHECKED_CAST")
-class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private val context: Context, private val UID: String) : RecyclerView.Adapter<TrabajadoresAdapter.TrabajadorViewHolder>() {
+class TrabajadoresAdapter(
+    private var trabajadores: List<Trabajador>,
+    private val context: Context,
+    private val UID: String
+) : RecyclerView.Adapter<TrabajadoresAdapter.TrabajadorViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrabajadorViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_trabajador, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_trabajador, parent, false)
         return TrabajadorViewHolder(view)
     }
 
@@ -35,22 +38,27 @@ class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private va
         return trabajadores.size
     }
 
+    @Suppress("DEPRECATION")
     inner class TrabajadorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         @SuppressLint("NotifyDataSetChanged")
         fun bind(trabajador: Trabajador) {
             // Asignar los datos del trabajador a los elementos de la vista
-            val correo = "Correo electrónico: \n" + trabajador.correo
+            if (trabajador.correo != "") {
+                val correo = "Correo electrónico: \n" + trabajador.correo
+                itemView.findViewById<TextView>(R.id.tvPresupuesto).text = correo
+            } else {
+                itemView.findViewById<TextView>(R.id.tvPresupuesto).visibility = View.GONE
+            }
             val rol = "Rol: " + trabajador.rol
             itemView.findViewById<TextView>(R.id.tvNombreTrabajador).text = trabajador.nombre
             itemView.findViewById<TextView>(R.id.tvRolTrabajador).text = rol
-            itemView.findViewById<TextView>(R.id.tvCorreoTrabajador).text = correo
 
             // Configurar los listeners de los botones para mostrar un diálogo o iniciar una actividad al hacer clic
             itemView.findViewById<ImageButton>(R.id.btnBorrarTrabajador).setOnClickListener {
                 mostrarDialog(adapterPosition)
             }
-            itemView.findViewById<ImageButton>(R.id.btnEditarTrabajador).setOnClickListener{
+            itemView.findViewById<ImageButton>(R.id.btnEditarTrabajador).setOnClickListener {
                 val intent = Intent(context, FormularioTrabajador::class.java).apply {
                     putExtra("Tipo", "Editar")
                     putExtra("uidProyecto", UID)
@@ -71,7 +79,7 @@ class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private va
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Eliminar Trabajador")
         builder.setMessage("¿Seguro que desea eliminar al trabajador?")
-        builder.setPositiveButton("Aceptar") { dialog, which ->
+        builder.setPositiveButton("Aceptar") { _, _ ->
             // Obtener la referencia de Firestore y el documento correspondiente al proyecto actual
             val db = FirebaseFirestore.getInstance()
             val coleccion = db.collection("Proyectos")
@@ -118,10 +126,9 @@ class TrabajadoresAdapter(private var trabajadores: List<Trabajador>, private va
                     Toast.makeText(context, "No se ha eliminado el trabajador.", Toast.LENGTH_SHORT).show()
                 }
         }
-        builder.setNegativeButton("Cancelar") { dialog, which ->
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
             dialog.dismiss()
         }
         builder.show()
     }
 }
-
