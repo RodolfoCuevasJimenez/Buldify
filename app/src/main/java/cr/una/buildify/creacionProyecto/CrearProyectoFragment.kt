@@ -94,22 +94,27 @@ class CrearProyectoFragment : Fragment() {
     private fun crearProyecto() {
         // Se obtiene el UID del director de proyecto desde la actividad anterior.
         val uid = activity?.intent?.getStringExtra("Email")
-            //Valida que se haya marcado alguna opción del evaluador
-            if(binding.chbxEvaluador1.isChecked() && !binding.chbxEvaluador2.isChecked()){
-                evaluador = "sí"
+        //Valida que se haya marcado alguna opción del evaluador
+        if (binding.chbxEvaluador1.isChecked && !binding.chbxEvaluador2.isChecked) {
+            evaluador = "sí"
 
-            }
-            else if (!binding.chbxEvaluador1.isChecked() && binding.chbxEvaluador1.isChecked()){
-                evaluador = "no"
-            }
-            else if (binding.chbxEvaluador1.isChecked() && binding.chbxEvaluador1.isChecked()){
-                Toast.makeText(requireContext(), "Solamente se debe de seleccionar un tipo de reporte", Toast.LENGTH_SHORT).show()
-                return
-            }
-            else{
-                Toast.makeText(requireContext(), "Debe seleccionar al menos un tipo de Reporte", Toast.LENGTH_SHORT).show()
-                return
-            }
+        } else if (!binding.chbxEvaluador1.isChecked && binding.chbxEvaluador1.isChecked) {
+            evaluador = "no"
+        } else if (binding.chbxEvaluador1.isChecked && binding.chbxEvaluador1.isChecked) {
+            Toast.makeText(
+                requireContext(),
+                "Solamente se debe de seleccionar un tipo de reporte",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        } else {
+            Toast.makeText(
+                requireContext(),
+                "Debe seleccionar al menos un tipo de Reporte",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
 
         // Se verifica el formulario antes de crear el proyecto.
         if (verificarFormulario()) {
@@ -118,7 +123,7 @@ class CrearProyectoFragment : Fragment() {
             // Se crea un objeto Proyecto con los datos ingresados por el usuario.
             val nuevoProyecto = Proyecto(
                 idDirector = uid!!,
-                idCliente = nuevoCliente?.idUsuario?:"",
+                idCliente = nuevoCliente?.idUsuario ?: "",
                 nombre = etNombreProyecto.text.toString().trim().lowercase(),
                 tipo = spnTipoProyecto.selectedItem.toString(),
                 moneda = spnTipoMoneda.selectedItem.toString(),
@@ -136,7 +141,6 @@ class CrearProyectoFragment : Fragment() {
                         Toast.makeText(context, "Proyecto creado.", Toast.LENGTH_SHORT)
                             .show()
                     }
-
                 }
                 .addOnFailureListener {
                     Toast.makeText(
@@ -147,12 +151,15 @@ class CrearProyectoFragment : Fragment() {
                 }
 
             // Se navega de regreso a la pantalla principal de director de proyecto.
-                if(evaluador == "sí"){
-                    // Se navega al registro del evaluador.
-                    view.let { Navigation.findNavController(it).navigate(R.id.crearEvaluadorFragment) }
-                }else{
-                    // Se navega de regreso a la pantalla principal de director de proyecto.
-                    view.let { Navigation.findNavController(it).navigate(R.id.director_Proyecto_Main) }
+            if (evaluador == "sí") {
+                // Se navega al registro del evaluador.
+                view.let {
+                    Navigation.findNavController(it!!).navigate(R.id.crearEvaluadorFragment)
+                }
+            } else {
+                // Se navega de regreso a la pantalla principal de director de proyecto.
+                view.let {
+                    Navigation.findNavController(it!!).navigate(R.id.director_Proyecto_Main)
                 }
             }
         }

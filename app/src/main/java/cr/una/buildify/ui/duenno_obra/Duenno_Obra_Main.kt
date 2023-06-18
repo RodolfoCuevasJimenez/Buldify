@@ -9,9 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import cr.una.buildify.R
-import cr.una.buildify.databinding.FragmentDirectorProyectoMainBinding
 import cr.una.buildify.databinding.FragmentDuennoObraMainBinding
-import cr.una.buildify.director_proyecto_drawer
 import cr.una.buildify.iniciosesion.inicioSesion
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
@@ -70,10 +68,20 @@ class Duenno_Obra_Main : Fragment() {
         crdVisualizarCronograma.setOnClickListener{
             val tipo = activity?.intent?.extras?.getString("Tipo")
             val uid = activity?.intent?.extras?.getString("UID")
-            var bundle = Bundle()
+            val bundle = Bundle()
             bundle.putString("UID", uid)
             bundle.putString("tipo", tipo)
             Navigation.findNavController(view).navigate(R.id.nav_visualizar_cronograma, bundle)
+        }
+
+        val crdVisualizarProyectos = binding.crdVisualizarProyectos
+        crdVisualizarProyectos.setOnClickListener{
+            val tipo = activity?.intent?.extras?.getString("Tipo")
+            val uid = activity?.intent?.extras?.getString("UID")
+            val bundle = Bundle()
+            bundle.putString("Tipo", tipo)
+            bundle.putString("UID", uid)
+            Navigation.findNavController(view).navigate(R.id.visualizacionProyectosFragment)
         }
 
         var cerrarSesion: Intent? = null
