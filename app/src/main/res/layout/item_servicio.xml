@@ -10,8 +10,8 @@
 
     <LinearLayout
         android:id="@+id/llServicios"
-        android:layout_width="385dp"
-        android:layout_height="wrap_content"
+        android:layout_width="392dp"
+        android:layout_height="314dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="8dp"
@@ -27,33 +27,55 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clServicios"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/forma">
+            android:layout_height="match_parent"
+            android:background="@drawable/forma"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-34dp">
 
             <TextView
                 android:id="@+id/tvTituloServicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.08"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.057"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
                 android:id="@+id/tvDescripcion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_width="297dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginBottom="104dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/tvTituloServicio"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/tvTituloServicio"
                 app:layout_constraintTop_toBottomOf="@+id/tvTituloServicio"
+                app:layout_constraintVertical_bias="0.088"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvObservaciones1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/correo"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tvDescripcion1"
+                app:layout_constraintHorizontal_bias="0.028"
+                app:layout_constraintStart_toStartOf="@+id/tvDescripcion1"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescripcion1"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
@@ -64,54 +86,11 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvEtapa1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.047"
                 app:layout_constraintStart_toEndOf="@+id/tvEtapa1"
                 app:layout_constraintTop_toTopOf="@+id/tvEtapa1"
                 app:layout_constraintVertical_bias="0.0"
-                tools:ignore="TextSizeCheck" />
-
-            <TextView
-                android:id="@+id/tvDescripcion1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/telefono"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/tvEtapa1"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvEtapa1"
-                app:layout_constraintTop_toBottomOf="@+id/tvEtapa1"
-                tools:ignore="TextSizeCheck" />
-
-            <TextView
-                android:id="@+id/tvEtapa1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/nombrePersona"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvFecha1"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvFecha1"
-                app:layout_constraintTop_toBottomOf="@+id/tvFecha1"
-                app:layout_constraintVertical_bias="0.015"
-                tools:ignore="TextSizeCheck" />
-
-            <TextView
-                android:id="@+id/tvFecha1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/direccion"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tvDescripcion"
-                app:layout_constraintTop_toBottomOf="@+id/tvDescripcion"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
@@ -129,33 +108,66 @@
                 tools:ignore="TextSizeCheck" />
 
             <TextView
-                android:id="@+id/tvObservaciones1"
+                android:id="@+id/tvFecha1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/correo"
+                android:layout_marginBottom="72dp"
+                android:text="@string/direccion"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/tvDescripcion1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tvDescripcion1"
-                app:layout_constraintTop_toBottomOf="@+id/tvDescripcion1"
+                app:layout_constraintStart_toStartOf="@+id/tvDescripcion"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescripcion"
+                app:layout_constraintVertical_bias="0.115"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvEtapa1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/nombrePersona"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvFecha1"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvFecha1"
+                app:layout_constraintTop_toBottomOf="@+id/tvFecha1"
+                app:layout_constraintVertical_bias="0.013"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvDescripcion1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/telefono"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/tvEtapa1"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvEtapa1"
+                app:layout_constraintTop_toBottomOf="@+id/tvEtapa1"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
                 android:id="@+id/tvCorreo"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="16dp"
+                android:layout_width="337dp"
+                android:layout_height="27dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/tvObservaciones1"
                 app:layout_constraintTop_toBottomOf="@+id/tvObservaciones1"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintVertical_bias="0.055"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
@@ -166,24 +178,84 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvDescripcion1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.025"
+                app:layout_constraintHorizontal_bias="0.027"
                 app:layout_constraintStart_toEndOf="@+id/tvDescripcion1"
                 app:layout_constraintTop_toTopOf="@+id/tvDescripcion1"
+                app:layout_constraintVertical_bias="1.0"
                 tools:ignore="TextSizeCheck" />
 
-            <ImageView
-                android:id="@+id/ivServicios"
-                android:layout_width="36dp"
-                android:layout_height="37dp"
-                android:contentDescription="icono"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <TextView
+                android:id="@+id/tvCalificacion"
+                android:layout_width="177dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/calificacion"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+                app:layout_constraintEnd_toEndOf="@+id/tvCorreo"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvCorreo"
+                app:layout_constraintTop_toBottomOf="@+id/tvCorreo"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvCalificacionServicio"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="128dp"
+
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCalificacion"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.954"
+                app:layout_constraintHorizontal_bias="0.448"
+                app:layout_constraintStart_toEndOf="@+id/tvCalificacion"
+                app:layout_constraintTop_toTopOf="@+id/tvCalificacion"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <ImageButton
+                android:id="@+id/ibCalificar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#00FFFFFF"
+                android:contentDescription="@string/calificar"
+                android:tooltipText="Calificar servicio"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTituloServicio"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.979"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.064"
-                app:srcCompat="@drawable/maleta"
-                tools:ignore="HardcodedText,ImageContrastCheck" />
+                app:layout_constraintTop_toTopOf="@+id/tvTituloServicio"
+                app:layout_constraintVertical_bias="0.538"
+                app:srcCompat="@drawable/calificar"
+                tools:ignore="ImageContrastCheck" />
+
+            <ImageView
+                android:id="@+id/ivCalificacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:contentDescription="@string/calificar_servicio"
+                app:layout_constraintBottom_toBottomOf="@+id/tvEtapa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tvEtapa"
+                app:layout_constraintTop_toTopOf="@+id/tvEtapa"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ic_calificar" />
+
+            <TextView
+                android:id="@+id/tvCalificacionGeneral"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/ivCalificacion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.011"
+                app:layout_constraintStart_toEndOf="@+id/ivCalificacion"
+                app:layout_constraintTop_toTopOf="@+id/ivCalificacion"
+                app:layout_constraintVertical_bias="0.6" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

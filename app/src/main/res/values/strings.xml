@@ -20,7 +20,9 @@
     <string name="direccionPersona">Dirección</string>
     <string name="correo_electronico">Correo Electrónico</string>
     <string name="guardar_servicio">Guardar servicio</string>
-    <string name="datos">Por favor ingrese los datos del servicio</string>
+    <string name="crearServ">Crear servicio</string>
+    <string name="busquedaServ">Búsqueda de servicio</string>
+    <string name="calificaciones">Calificaciones</string>
     <!-- Pantalla de Creación de proyectos -->
     <string name="TituloCrearProyecto">Nuevo Proyecto</string>
     <string name="hintNombreProyecto">Nombre del proyecto</string>
@@ -92,6 +94,9 @@
     <string name="newArchive">Archivo Cargado</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="calificar">Calificar</string>
+    <string name="calificacion">Calificación del servicio</string>
+    <string name="calificar_servicio">Calificar servicio</string>
     <string name="window_datepicker_btn_hora">Seleccionar hora</string>
     <string name="lbl_date_selected">Fecha seleccionada:</string>
     <string name="txt_task_name">Nombre de la tarea</string>

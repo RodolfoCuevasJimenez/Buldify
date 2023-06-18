@@ -8,6 +8,21 @@
     android:background="@color/teal_200"
     tools:context=".servicios.buscarServicioFragment">
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/busquedaServ"
+        android:textAlignment="center"
+        android:textColor="@color/iconoapp_background"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvServicios"
         android:layout_width="0dp"
@@ -24,14 +39,14 @@
         android:id="@+id/etBusqueda"
         android:layout_width="230dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="108dp"
-        android:autofillHints=""
+        android:layout_marginBottom="492dp"
 
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/hintBusqueda"
         android:inputType="textPersonName"
-        android:minHeight="52dp"
 
+        android:minHeight="52dp"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textColorHint="#616161"
@@ -39,10 +54,10 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintHorizontal_bias="0.182"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.098"
         tools:ignore="Autofill,TouchTargetSizeCheck"
         tools:targetApi="p" />
 

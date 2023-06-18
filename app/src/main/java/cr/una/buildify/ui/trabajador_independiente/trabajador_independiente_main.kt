@@ -42,6 +42,10 @@ class trabajador_independiente_main : Fragment() {
         crdRegistarServ.setOnClickListener(){
             Navigation.findNavController(view).navigate(R.id.registrarServicioFragment)
         }
+        val crdCalificaciones = binding.cardCalificaciones
+        crdCalificaciones.setOnClickListener(){
+            Navigation.findNavController(view).navigate(R.id.calificacionesTrabajador)
+        }
 
         var cerrarSesion: Intent? = null
         cerrarSesion = Intent(activity, inicioSesion::class.java)

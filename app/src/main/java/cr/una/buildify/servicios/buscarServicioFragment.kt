@@ -1,25 +1,20 @@
 package cr.una.buildify.servicios
 
 import android.content.ContentValues
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import cr.una.buildify.R
-import cr.una.buildify.carga_archivos.btn_Documentos
-import cr.una.buildify.carga_archivos.btn_Preconstruccion
-import cr.una.buildify.carga_archivos.btn_Progreso
 import cr.una.buildify.databinding.FragmentBuscarServicioBinding
-import cr.una.buildify.databinding.FragmentCargarArchivosBinding
+import cr.una.buildify.servicio.ServiciosAdapter
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 class buscarServicioFragment : Fragment() {
@@ -51,8 +46,8 @@ class buscarServicioFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Inicializa los elementos de la vista
-        var btnBusqueda: Button
-        var etBusqueda: EditText
+        val btnBusqueda: Button
+        val etBusqueda: EditText
         etBusqueda = binding.etBusqueda
         btnBusqueda = binding.btnBusqueda
         recyclerViewServicios = binding.rvServicios
@@ -63,7 +58,7 @@ class buscarServicioFragment : Fragment() {
         filterServices("")
         // Establece un listener de clic para el botón de búsqueda
         btnBusqueda.setOnClickListener{
-            var tipo = etBusqueda.text.toString().trim().lowercase()
+            val tipo = etBusqueda.text.toString().trim().lowercase()
             filterServices(tipo)
         }
     }
@@ -84,16 +79,19 @@ class buscarServicioFragment : Fragment() {
             for (doc in snapshot?.documents ?: emptyList()) {
                 val servicio = doc.toObject(Servicio::class.java)
                 if (servicio != null && servicio.tipo.contains(tipo, ignoreCase = true)) {
+                    servicio.id=doc.id
                     serviciosList.add(servicio)
                 }
             }
-            // Crea un adaptador de servicios usando la lista filtrada
-            serviciosAdapter = ServiciosAdapter(serviciosList)
             // Establece el adaptador en el recyclerViewServicios para mostrar los servicios filtrados
+            // Obtención de los valores de "Tipo" y "Email" desde el intent de la actividad
+            val tipo=activity?.intent?.getStringExtra("Tipo")?:""
+            val idUsuario=activity?.intent?.getStringExtra("Email")?:""
+            // Creación del adaptador de servicios y configuración en el RecyclerView
+            serviciosAdapter = ServiciosAdapter(serviciosList, db, tipo, idUsuario)
             recyclerViewServicios.adapter = serviciosAdapter
         }
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

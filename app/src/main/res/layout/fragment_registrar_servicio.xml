@@ -26,10 +26,10 @@
             android:textColorHint="#595757"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvInformacion"
-            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintHorizontal_bias="0.511"
             app:layout_constraintStart_toStartOf="@+id/tvInformacion"
             app:layout_constraintTop_toBottomOf="@+id/tvInformacion"
-            app:layout_constraintVertical_bias="0.114" />
+            app:layout_constraintVertical_bias="0.088" />
 
         <EditText
             android:id="@+id/etDescripción"
@@ -103,38 +103,18 @@
             app:layout_constraintTop_toBottomOf="@+id/etTelefono"
             app:layout_constraintVertical_bias="0.029" />
 
-        <EditText
-            android:id="@+id/etCorreoElectronico"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:width="300dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/correo_electronico"
-            android:inputType="textMultiLine"
-            android:minHeight="48dp"
-            android:textColorHint="#595757"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/etDireccion"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/etDireccion"
-            app:layout_constraintTop_toBottomOf="@+id/etDireccion"
-            app:layout_constraintVertical_bias="0.044" />
-
         <Button
             android:id="@+id/btnGuardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="148dp"
             android:background="@drawable/botones"
             android:backgroundTint="@color/iconoapp_background"
             android:text="@string/guardar_servicio"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/etCorreoElectronico"
-            app:layout_constraintHorizontal_bias="0.416"
-            app:layout_constraintStart_toStartOf="@+id/etCorreoElectronico"
-            app:layout_constraintTop_toBottomOf="@+id/etCorreoElectronico"
+            app:layout_constraintEnd_toEndOf="@+id/etDireccion"
+            app:layout_constraintStart_toStartOf="@+id/etDireccion"
+            app:layout_constraintTop_toBottomOf="@+id/etDireccion"
             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
         <TextView
@@ -142,9 +122,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
-            android:text="@string/datos"
+            android:text="@string/crearServ"
             android:textColor="@color/iconoapp_background"
-            android:textSize="20sp"
+            android:textSize="34sp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
