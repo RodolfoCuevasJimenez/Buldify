@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import cr.una.buildify.databinding.FragmentCalificacionesBinding
-import cr.una.buildify.servicio.ServiciosAdapter
 import cr.una.buildify.ui.trabajador_independiente.TrabajadorIndependienteMainViewModel
 
 
@@ -31,7 +30,7 @@ class CalificacionesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val homeViewModel =
             ViewModelProvider(this).get(TrabajadorIndependienteMainViewModel::class.java)
 
@@ -44,10 +43,7 @@ class CalificacionesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Inicialización de vistas y variables
-        val tvIdNombreTrabajador: TextView
-        tvIdNombreTrabajador = binding.tvIdNombreTrabajador
-        val tvCalificacionTrabajador: TextView
-        tvCalificacionTrabajador=binding.tvCalificacionTrabajador
+        val tvIdNombreTrabajador: TextView = binding.tvIdNombreTrabajador
         // Obtener el valor del correo electrónico pasado como extra desde la actividad
         tvIdNombreTrabajador.text = activity?.intent!!.getStringExtra("Email")!!
         rvCalificaciones = binding.rvCalificaciones
@@ -102,7 +98,7 @@ class CalificacionesFragment : Fragment() {
         var total = 0.0
         // Recorrer la lista de servicios y sumar las calificaciones
         serviciosList.forEach{
-            if(it.calificaciones!!.isNotEmpty()) {
+            if(it.calificaciones.isNotEmpty()) {
                 tamannoLista++
                 total += it.calificacionGeneral
             }

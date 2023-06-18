@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import cr.una.buildify.databinding.FragmentBuscarServicioBinding
-import cr.una.buildify.servicio.ServiciosAdapter
 import cr.una.buildify.ui.director_proyecto.DirectorProyectoMainViewModel
 
 class buscarServicioFragment : Fragment() {
@@ -85,10 +84,10 @@ class buscarServicioFragment : Fragment() {
             }
             // Establece el adaptador en el recyclerViewServicios para mostrar los servicios filtrados
             // Obtención de los valores de "Tipo" y "Email" desde el intent de la actividad
-            val tipo=activity?.intent?.getStringExtra("Tipo")?:""
+            val tipoUsuario=activity?.intent?.getStringExtra("Tipo")?:""
             val idUsuario=activity?.intent?.getStringExtra("Email")?:""
             // Creación del adaptador de servicios y configuración en el RecyclerView
-            serviciosAdapter = ServiciosAdapter(serviciosList, db, tipo, idUsuario)
+            serviciosAdapter = ServiciosAdapter(serviciosList, db, tipoUsuario, idUsuario)
             recyclerViewServicios.adapter = serviciosAdapter
         }
     }
