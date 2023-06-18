@@ -1,7 +1,6 @@
 package cr.una.buildify.servicios
 
-import cr.una.buildify.servicios.Calificacion
-import cr.una.buildify.servicios.Servicio
+
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.content.Context
@@ -142,7 +141,7 @@ class ServiciosAdapter(private val servicios: List<Servicio>, private val db: Fi
 
                                 // Calcular el promedio de las calificaciones
                                 val promedio =
-                                    servicio.calificaciones.map { it.puntaje }?.average()
+                                    servicio.calificaciones.map { it.puntaje }.average()
 
                                 if (promedio != null) {
                                     // Actualizar el servicio con la nueva calificación general

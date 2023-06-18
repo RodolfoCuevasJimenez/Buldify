@@ -65,7 +65,7 @@ class CalificacionesFragment : Fragment() {
                 return@addSnapshotListener
             }
 
-            serviciosList = mutableListOf<Servicio>()
+            serviciosList = mutableListOf()
             for (doc in snapshot?.documents ?: emptyList()) {
                 val servicio = doc.toObject(Servicio::class.java)
                 // Agregar el servicio a la lista si el ID del usuario coincide con el ID del trabajador

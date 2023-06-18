@@ -45,10 +45,8 @@ class buscarServicioFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Inicializa los elementos de la vista
-        val btnBusqueda: Button
-        val etBusqueda: EditText
-        etBusqueda = binding.etBusqueda
-        btnBusqueda = binding.btnBusqueda
+        val etBusqueda: EditText = binding.etBusqueda
+        val btnBusqueda: Button = binding.btnBusqueda
         recyclerViewServicios = binding.rvServicios
         recyclerViewServicios.layoutManager = LinearLayoutManager(activity)
 
