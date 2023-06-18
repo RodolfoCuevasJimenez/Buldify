@@ -40,7 +40,7 @@ class duenno_obra_drawer : AppCompatActivity() {
             setOf(
                 R.id.duenno_Obra_Main,R.id.buscarServicioFragment3,R.id.cargar_Archivos_Fragment2,
                 R.id.solicitudDetalleFragment, R.id.tablaCostosFragment2,R.id.visualizacion_inc_eva_obs_Fragment2,
-                R.id.visualizarPlanosFragment, R.id.visualizarProgresoFragment
+                R.id.visualizarPlanosFragment, R.id.visualizarProgresoFragment, R.id.visualizacionProyectosFragment
 
             ), drawerLayout
         )

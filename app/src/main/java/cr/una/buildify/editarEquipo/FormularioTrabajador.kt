@@ -137,7 +137,7 @@ class FormularioTrabajador : AppCompatActivity() {
 
     private fun verificarFormulario(): Boolean {
         // Verificar si los campos del formulario no están vacíos
-        return UtilesFormularios.verificarCampo(etNombre) and UtilesFormularios.verificarCampo(etRol) and UtilesFormularios.verificarCampo(etCorreo)
+        return UtilesFormularios.verificarCampo(etNombre) and UtilesFormularios.verificarCampo(etRol) and UtilesFormularios.verificarEmail(etCorreo)
     }
 
     private fun comprobarCambios(): Boolean {

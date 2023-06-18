@@ -7,6 +7,23 @@
     tools:context=".creacionProyecto.CrearProyectoFragment">
 
     <TextView
+        android:id="@+id/tvSpnClientes"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@android:drawable/editbox_background"
+        android:drawableEnd="@drawable/ic_dropdown"
+        android:hint="@string/hint_tvSpnClientes"
+        android:paddingTop="12dp"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/etPresupuestoProyecto"
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintStart_toStartOf="@+id/spTipoMoneda"
+        app:layout_constraintTop_toBottomOf="@+id/etPresupuestoProyecto"
+        tools:ignore="UseCompatTextViewDrawableXml" />
+
+    <TextView
         android:id="@+id/tvTituloFormularioTrabajador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,7 +99,8 @@
     <EditText
         android:id="@+id/etMtlDescripcionProyecto"
         android:layout_width="362dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/hintDescripcion"
@@ -90,11 +108,11 @@
         android:inputType="textMultiLine"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/etPresupuestoProyecto"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintStart_toStartOf="@+id/spTipoMoneda"
-        app:layout_constraintTop_toBottomOf="@+id/spTipoProyecto"
-        app:layout_constraintVertical_bias="0.267" />
+        app:layout_constraintEnd_toEndOf="@+id/tvSpnClientes"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvSpnClientes"
+        app:layout_constraintTop_toBottomOf="@+id/tvSpnClientes"
+        app:layout_constraintVertical_bias="0.014" />
 
     <TextView
         android:id="@+id/textView7"

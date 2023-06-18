@@ -49,6 +49,12 @@
         android:name="cr.una.buildify.visualizacionInc_eva_obs.Visualizacion_inc_eva_obs_Fragment"
         android:label="fragment_visualizacion_inc_eva_obs_"
         tools:layout="@layout/fragment_visualizacion_inc_eva_obs_" />
+
+    <fragment
+        android:id="@+id/visualizacionProyectosFragment"
+        android:name="cr.una.buildify.visualizacionDeProyectos.VisualizacionProyectosFragment"
+        android:label="fragment_visualizacion Proyectos"
+        tools:layout="@layout/fragment_visualizacion_proyectos" />
     <fragment
         android:id="@+id/visualizarRendersFragment"
         android:name="cr.una.buildify.ui.VisualizarArchivos.VisualizarRendersFragment"
