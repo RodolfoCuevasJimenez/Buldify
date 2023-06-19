@@ -7,8 +7,8 @@
     <fragment
         android:id="@+id/usuario_invitado_main"
         android:name="cr.una.buildify.ui.usuario_invitado.usuario_invitado_main"
-        android:label="fragment_usuario_invitado_main"
-        tools:layout="@layout/fragment_usuario_invitado_main" >
+        android:label="Menú Usuario Invitado"
+        tools:layout="@layout/fragment_usuario_invitado_main">
         <action
             android:id="@+id/action_usuario_invitado_main_to_buscarServicioFragment2"
             app:destination="@id/buscarServicioFragment2" />
@@ -22,18 +22,18 @@
     <fragment
         android:id="@+id/buscarServicioFragment2"
         android:name="cr.una.buildify.servicios.buscarServicioFragment"
-        android:label="fragment_buscar_servicio"
+        android:label="Buscar Servicios"
         tools:layout="@layout/fragment_buscar_servicio" />
     <fragment
         android:id="@+id/tablaCostosFragment3"
         android:name="cr.una.buildify.tabla_costo.tablaCostosFragment"
-        android:label="fragment_tabla_costos"
+        android:label="Tabla de Costos"
         tools:layout="@layout/fragment_tabla_costos" />
     <fragment
         android:id="@+id/visualizarRendersFragment"
         android:name="cr.una.buildify.ui.VisualizarArchivos.VisualizarRendersFragment"
-        android:label="fragment_visualizar_recorridos"
-        tools:layout="@layout/fragment_visualizar_recorridos" >
+        android:label="Visualizar Renders"
+        tools:layout="@layout/fragment_visualizar_recorridos">
         <action
             android:id="@+id/action_visualizarRendersFragment_to_visualizaRecorridosFragment"
             app:destination="@id/visualizaRecorridosFragment" />
@@ -42,8 +42,8 @@
     <fragment
         android:id="@+id/visualizarPlanosFragment"
         android:name="cr.una.buildify.ui.VisualizarArchivos.VisualizarPlanosFragment"
-        android:label="fragment_visualizar_planos"
-        tools:layout="@layout/fragment_visualizar_planos" >
+        android:label="Visualizar Planos"
+        tools:layout="@layout/fragment_visualizar_planos">
         <action
             android:id="@+id/action_visualizarPlanosFragment_to_visualizarRendersFragment"
             app:destination="@id/visualizarRendersFragment" />
@@ -51,8 +51,8 @@
     <fragment
         android:id="@+id/visualizaRecorridosFragment"
         android:name="cr.una.buildify.ui.VisualizarArchivos.VisualizarRecorridosFragment"
-        android:label="fragment_visualizar_recorridos"
-        tools:layout="@layout/fragment_visualizar_recorridos" >
+        android:label="Visualizar Recorridos"
+        tools:layout="@layout/fragment_visualizar_recorridos">
         <action
             android:id="@+id/action_visualizaRecorridosFragment_to_visualizarDocumentosFragment"
             app:destination="@id/visualizarDocumentosFragment" />
@@ -60,7 +60,7 @@
     <fragment
         android:id="@+id/visualizarDocumentosFragment"
         android:name="cr.una.buildify.ui.VisualizarArchivos.VisualizarPermisosFragment"
-        android:label="fragment_visualizar_permisos"
+        android:label="Visualizar Documentos"
         tools:layout="@layout/fragment_visualizar_permisos" />
 
 

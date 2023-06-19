@@ -9,8 +9,8 @@
     <fragment
         android:id="@+id/director_Proyecto_Main"
         android:name="cr.una.buildify.ui.director_proyecto.Director_Proyecto_Main"
-        android:label="fragment_director__proyecto__main"
-        tools:layout="@layout/fragment_director__proyecto__main" >
+        android:label="Menú Director de Proyecto"
+        tools:layout="@layout/fragment_director__proyecto__main">
 
         <action
             android:id="@+id/action_director_Proyecto_Main_to_cargar_Archivos_Fragment2"
@@ -41,8 +41,8 @@
     <fragment
         android:id="@+id/cargar_Archivos_Fragment"
         android:name="cr.una.buildify.carga_archivos.Cargar_Archivos_Fragment"
-        android:label="fragment_cargar__archivos"
-        tools:layout="@layout/fragment_cargar__archivos" >
+        android:label="Menú Cargar Archivos"
+        tools:layout="@layout/fragment_cargar__archivos">
         <action
             android:id="@+id/action_cargar_Archivos_Fragment_to_cargar_Planos_Fragment"
             app:destination="@id/cargar_Planos_Fragment" />
@@ -53,8 +53,8 @@
     <fragment
         android:id="@+id/cargar_Planos_Fragment"
         android:name="cr.una.buildify.carga_archivos.Cargar_Planos_Fragment"
-        android:label="fragment_cargar__planos"
-        tools:layout="@layout/fragment_cargar__planos" >
+        android:label="Cargar Planos"
+        tools:layout="@layout/fragment_cargar__planos">
         <action
             android:id="@+id/action_cargar_Planos_Fragment_to_cargar_Archivos_Fragment"
             app:destination="@id/cargar_Archivos_Fragment" />
@@ -65,8 +65,8 @@
     <fragment
         android:id="@+id/cargar_Renders_Fragment"
         android:name="cr.una.buildify.carga_archivos.Cargar_Renders_Fragment"
-        android:label="fragment_cargar__renders"
-        tools:layout="@layout/fragment_cargar__renders" >
+        android:label="Cargar Renders"
+        tools:layout="@layout/fragment_cargar__renders">
         <action
             android:id="@+id/action_cargar_Renders_Fragment_to_cargar_Planos_Fragment"
             app:destination="@id/cargar_Planos_Fragment" />
@@ -80,8 +80,8 @@
     <fragment
         android:id="@+id/cargar_Recorridos_Fragment"
         android:name="cr.una.buildify.carga_archivos.Cargar_Recorridos_Fragment"
-        android:label="fragment_cargar__recorridos"
-        tools:layout="@layout/fragment_cargar__recorridos" >
+        android:label="Cargar Recorridos"
+        tools:layout="@layout/fragment_cargar__recorridos">
         <action
             android:id="@+id/action_cargar_Recorridos_Fragment_to_cargar_Archivos_Fragment"
             app:destination="@id/cargar_Archivos_Fragment" />
@@ -92,8 +92,8 @@
     <fragment
         android:id="@+id/cargar_Documentos_Fragment"
         android:name="cr.una.buildify.carga_archivos.Cargar_Documentos_Fragment"
-        android:label="fragment_cargar__documentos"
-        tools:layout="@layout/fragment_cargar__documentos" >
+        android:label="Cargar Documentos"
+        tools:layout="@layout/fragment_cargar__documentos">
         <action
             android:id="@+id/action_cargar_Documentos_Fragment_to_cargar_Archivos_Fragment"
             app:destination="@id/cargar_Archivos_Fragment" />
@@ -101,18 +101,18 @@
     <fragment
         android:id="@+id/visualizacion_inc_eva_obs_Fragment"
         android:name="cr.una.buildify.visualizacionInc_eva_obs.Visualizacion_inc_eva_obs_Fragment"
-        android:label="fragment_visualizacion_inc_eva_obs_"
+        android:label="Visualizar Incidentes y Mejoras"
         tools:layout="@layout/fragment_visualizacion_inc_eva_obs_" />
     <fragment
         android:id="@+id/buscarServicioFragment"
         android:name="cr.una.buildify.servicios.buscarServicioFragment"
-        android:label="fragment_buscar_servicio"
+        android:label="Buscar Servicio"
         tools:layout="@layout/fragment_buscar_servicio" />
     <fragment
         android:id="@+id/crearProyectoFragment"
         android:name="cr.una.buildify.creacionProyecto.CrearProyectoFragment"
-        android:label="fragment_crear_proyecto"
-        tools:layout="@layout/fragment_crear_proyecto" >
+        android:label="Crear Proyecto"
+        tools:layout="@layout/fragment_crear_proyecto">
         <action
             android:id="@+id/action_crearProyectoFragment_to_crearEvaluadorFragment"
             app:destination="@id/crearEvaluadorFragment" />
@@ -120,17 +120,17 @@
     <fragment
         android:id="@+id/visualizacionProyectosFragment"
         android:name="cr.una.buildify.visualizacionDeProyectos.VisualizacionProyectosFragment"
-        android:label="fragment_visualizacion_proyectos"
+        android:label="Visualizar Proyectos"
         tools:layout="@layout/fragment_visualizacion_proyectos" />
     <fragment
         android:id="@+id/cargar_Progreso_Fragment"
         android:name="cr.una.buildify.carga_archivos.Cargar_Progreso_Fragment"
-        android:label="fragment_cargar_progreso"
+        android:label="Cargar Evidencias de Progreso"
         tools:layout="@layout/fragment_cargar_progreso" />
     <fragment
         android:id="@+id/tablaCostosFragment"
         android:name="cr.una.buildify.tabla_costo.tablaCostosFragment"
-        android:label="fragment_tabla_costos"
+        android:label="Tabla de Costos"
         tools:layout="@layout/fragment_tabla_costos" />
     <fragment
         android:id="@+id/visualizacionSolicitudDetalleFragment"
@@ -155,8 +155,8 @@
     <fragment
         android:id="@+id/crearEvaluadorFragment"
         android:name="cr.una.buildify.creacionProyecto.CrearEvaluadorFragment"
-        android:label="fragment_crear_evaluador"
-        tools:layout="@layout/fragment_crear_evaluador" >
+        android:label="Crear Evaluador"
+        tools:layout="@layout/fragment_crear_evaluador">
         <action
             android:id="@+id/action_crearEvaluadorFragment_to_director_Proyecto_Main"
             app:destination="@id/director_Proyecto_Main" />

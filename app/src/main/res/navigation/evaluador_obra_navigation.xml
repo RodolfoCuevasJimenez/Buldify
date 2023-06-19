@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/evaluador_Obra_Main"
         android:name="cr.una.buildify.ui.evaluador_obra.Evaluador_Obra_Main"
-        android:label="fragment_evaluador__obra__main"
-        tools:layout="@layout/fragment_evaluador__obra__main" >
+        android:label="Menú Evaluador de la Obra"
+        tools:layout="@layout/fragment_evaluador__obra__main">
         <action
             android:id="@+id/action_evaluador_Obra_Main_to_formularioIncidentesFragment"
             app:destination="@id/formularioIncidentesFragment" />
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/formularioIncidentesFragment"
         android:name="cr.una.buildify.FormularioIncidentes.FormularioIncidentesFragment"
-        android:label="fragment_formulario_incidentes"
-        tools:layout="@layout/fragment_formulario_incidentes" >
+        android:label="Formulario de Incidentes o Mejoras"
+        tools:layout="@layout/fragment_formulario_incidentes">
         <action
             android:id="@+id/action_formularioIncidentesFragment_to_evaluador_Obra_Main"
             app:destination="@id/evaluador_Obra_Main" />
