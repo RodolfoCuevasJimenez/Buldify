@@ -1,7 +1,6 @@
 package cr.una.buildify.ui.general.cronograma
 
 import android.content.Context
-import android.content.Context.LAYOUT_INFLATER_SERVICE
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -11,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CalendarView
+import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.Spinner
@@ -23,7 +23,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.gson.Gson
 import cr.una.buildify.R
 import cr.una.buildify.creacionProyecto.Proyecto
-import cr.una.buildify.databinding.FragmentAddTareaBinding
+import cr.una.buildify.databinding.FragmentUpdtTaskBinding
 import cr.una.buildify.ui.general.cronograma.modelo.TareaCronograma
 import cr.una.buildify.ui.general.servicios.proyecto.ProyectoRepositorio
 import cr.una.buildify.ui.general.servicios.tarea.TareaRepositorio
@@ -32,18 +32,17 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Date
 
-
-class FragmentAddTask : Fragment(), AdapterView.OnItemSelectedListener {
-
-    private var _binding: FragmentAddTareaBinding? = null
+class FragmentUpdtTask : Fragment(), AdapterView.OnItemSelectedListener {
+    private var _binding: FragmentUpdtTaskBinding? = null
     private val binding get() = _binding!!
 
     private var uid: String? = null
     private val listProyectos = mutableListOf<Proyecto>()
     private var idProyecto: String? = null
     private val dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-    private val simpleFormat = SimpleDateFormat("dd-MM-yyyy")
     private lateinit var dateSelected: LocalDate
+    private val simpleFormat = SimpleDateFormat("dd-MM-yyyy")
+    private lateinit var tareaSeleccionada: TareaCronograma
 
     private val proyectoDB: ProyectoRepositorio = ProyectoRepositorio()
     private val tareaDB: TareaRepositorio = TareaRepositorio()
@@ -51,11 +50,10 @@ class FragmentAddTask : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAddTareaBinding.inflate(inflater, container, false)
+        _binding = FragmentUpdtTaskBinding.inflate(inflater, container, false)
         val view: View = binding.root
 
-        //val view: View = inflater.inflate(R.layout.fragment_add_tarea, container, false)
-        val dropdownProyectos = view.findViewById<Spinner>(R.id.dropdown_proyecto)
+        val dropdownProyectos = view.findViewById<Spinner>(R.id.dropdown_proyecto_updt)
 
         try {
 
@@ -80,7 +78,12 @@ class FragmentAddTask : Fragment(), AdapterView.OnItemSelectedListener {
                         listProyectos.add(proyecto)
                     }
 
-                    SetDropdownProyectos(view, dropdownProyectos, listProyectos)
+                    SetDropdownProyectos(
+                        view,
+                        dropdownProyectos,
+                        listProyectos,
+                        this.tareaSeleccionada.idProyecto
+                    )
                 }
                 .addOnFailureListener {
                     Toast.makeText(
@@ -88,65 +91,68 @@ class FragmentAddTask : Fragment(), AdapterView.OnItemSelectedListener {
                     ).show()
                 }
 
-            view.findViewById<TextInputEditText>(R.id.txt_task_date_ini)
+            view.findViewById<TextInputEditText>(R.id.txt_task_date_ini_updt)
                 .setOnClickListener {
                     SetDatePicker(view, R.id.txt_task_date_ini)
                 }
-            view.findViewById<TextInputEditText>(R.id.txt_task_date_fin)
+            view.findViewById<TextInputEditText>(R.id.txt_task_date_fin_updt)
                 .setOnClickListener {
-                    SetDatePicker(view, R.id.txt_task_date_fin)
-                }
-            view.findViewById<TextInputEditText>(R.id.txt_task_dateSelected_ini)
-                .setOnClickListener {
-                    OpenGetCalendarView(view, R.id.txt_task_dateSelected_ini)
+                    SetDatePicker(view, R.id.txt_task_date_fin_updt)
                 }
 
-            view.findViewById<TextInputEditText>(R.id.txt_task_dateSelected_fin)
+            view.findViewById<TextInputEditText>(R.id.txt_task_dateSelected_ini_updt)
                 .setOnClickListener {
-                    OpenGetCalendarView(view, R.id.txt_task_dateSelected_fin)
+                    OpenGetCalendarView(view, R.id.txt_task_dateSelected_ini_updt)
                 }
 
-            view.findViewById<Button>(R.id.btn_add_task).setOnClickListener {
+            view.findViewById<TextInputEditText>(R.id.txt_task_dateSelected_fin_updt)
+                .setOnClickListener {
+                    OpenGetCalendarView(view, R.id.txt_task_dateSelected_fin_updt)
+                }
 
+            view.findViewById<Button>(R.id.btn_updt_task).setOnClickListener {
                 val titulo =
-                    view.findViewById<TextInputLayout>(R.id.txt_lay_ds).editText?.text?.toString()
+                    view.findViewById<TextInputLayout>(R.id.txt_lay_ds_updt).editText?.text?.toString()
                         ?: ""
                 val desc =
-                    view.findViewById<TextInputLayout>(R.id.txt_lay_td).editText?.text?.toString()
+                    view.findViewById<TextInputLayout>(R.id.txt_lay_td_updt).editText?.text?.toString()
                         ?: ""
-                val fechaIni = _binding?.txtLayDateSelectedIni?.editText?.text?.toString()
-                val fechaFin = _binding?.txtLayDateSelectedFin?.editText?.text?.toString()
-
+                val fechaIni = _binding?.txtLayDateSelectedIniUpdt?.editText?.text?.toString()
+                val fechaFin = _binding?.txtLayDateSelectedFinUpdt?.editText?.text?.toString()
                 val horaInicio =
-                    view.findViewById<TextInputLayout>(R.id.txt_lay_di).editText?.text?.toString()
+                    view.findViewById<TextInputLayout>(R.id.txt_lay_di_updt).editText?.text?.toString()
                         ?: ""
                 val horaFin =
-                    view.findViewById<TextInputLayout>(R.id.txt_lay_df).editText?.text?.toString()
+                    view.findViewById<TextInputLayout>(R.id.txt_lay_df_updt).editText?.text?.toString()
                         ?: ""
 
                 val tarea = TareaCronograma(
-                    "",
+                    this.tareaSeleccionada.Id,
                     titulo,
                     desc,
                     simpleFormat.parse(fechaIni.toString()).time,
                     simpleFormat.parse(fechaFin.toString()).time,
                     horaInicio,
                     horaFin,
-                    false,
+                    _binding?.chkEstaTerminado?.isChecked!!,
                     this.idProyecto ?: ""
                 )
                 tareaDB
-                    .agregarTarea(tarea)
+                    .Actualizar(tarea)
                     .addOnSuccessListener {
-                        it.update("id", it.id).addOnSuccessListener {
-                            Toast.makeText(context, "Tarea agregada", Toast.LENGTH_SHORT)
-                                .show()
+                        Toast.makeText(context, "Tarea actualizada", Toast.LENGTH_SHORT).show()
 
-                            Navigation.findNavController(view).popBackStack()
-                        }
+                        Navigation.findNavController(view).popBackStack()
                     }
             }
 
+            _binding?.btnDelTask?.setOnClickListener {
+                tareaDB.Eliminar(this.tareaSeleccionada.Id).addOnSuccessListener {
+                    Toast.makeText(requireContext(), "Tarea eliminada", Toast.LENGTH_SHORT).show()
+
+                    Navigation.findNavController(view).popBackStack()
+                }
+            }
         } catch (ex: Exception) {
             Toast.makeText(context, ex.message, Toast.LENGTH_SHORT)
                 .show()
@@ -163,7 +169,7 @@ class FragmentAddTask : Fragment(), AdapterView.OnItemSelectedListener {
      */
     private fun SetDatePicker(view: View, editText: Int) {
         val inflater: LayoutInflater =
-            activity?.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val popupView: View = inflater.inflate(R.layout.popup_window_datepicker, null)
 
         val time_picker = popupView.findViewById<TimePicker>(R.id.time_picker)
@@ -206,18 +212,10 @@ class FragmentAddTask : Fragment(), AdapterView.OnItemSelectedListener {
         uid = arguments?.getString("uid")
         val tarea = arguments?.getString("tarea")
         val accion = arguments?.getString("accion")
-        if (!tarea.isNullOrEmpty()) {
-
-        }
 
         if (!tarea.isNullOrEmpty()) {
             var gson = Gson()
             SetValoresTarea(gson.fromJson(tarea, TareaCronograma::class.java), view)
-        } else {
-            val aux = arguments?.getString("fechaSeleccionada")
-
-            val dateSelected = LocalDate.parse(aux!!)
-            _binding?.txtLayDateSelectedIni?.editText?.setText(dateSelected.format(dateFormatter))
         }
     }
 
@@ -231,7 +229,8 @@ class FragmentAddTask : Fragment(), AdapterView.OnItemSelectedListener {
     private fun SetDropdownProyectos(
         view: View,
         dropdown: Spinner,
-        listProyectos: MutableList<Proyecto>
+        listProyectos: MutableList<Proyecto>,
+        idProyecto: String
     ) {
         var arrayAdapter = ArrayAdapter(
             view.context,
@@ -240,7 +239,14 @@ class FragmentAddTask : Fragment(), AdapterView.OnItemSelectedListener {
         )
         dropdown.adapter = arrayAdapter
 
-        dropdown.onItemSelectedListener = this@FragmentAddTask
+        val proyectoSelected = listProyectos.find {
+            it.id == idProyecto
+        }
+
+        val posProy = arrayAdapter.getPosition(proyectoSelected?.nombre)
+        dropdown.setSelection(posProy)
+
+        dropdown.onItemSelectedListener = this@FragmentUpdtTask
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -258,11 +264,15 @@ class FragmentAddTask : Fragment(), AdapterView.OnItemSelectedListener {
      * @param [view] vista del fragment
      */
     private fun SetValoresTarea(tarea: TareaCronograma, view: View) {
-        view.findViewById<TextInputLayout>(R.id.txt_lay_ds).editText?.setText(tarea.titulo)
-        view.findViewById<TextInputLayout>(R.id.txt_lay_td).editText?.setText(tarea.descripcion)
-        _binding?.txtLayDateSelectedIni?.editText?.setText(simpleFormat.format(Date(tarea.fechaIni)))
-        view.findViewById<TextInputLayout>(R.id.txt_lay_di).editText?.setText(tarea.horaInicio)
-        view.findViewById<TextInputLayout>(R.id.txt_lay_df).editText?.setText(tarea.horaFin)
+        this.tareaSeleccionada = tarea
+
+        view.findViewById<TextInputLayout>(R.id.txt_lay_ds_updt).editText?.setText(tarea.titulo)
+        view.findViewById<TextInputLayout>(R.id.txt_lay_td_updt).editText?.setText(tarea.descripcion)
+        _binding?.txtLayDateSelectedIniUpdt?.editText?.setText(simpleFormat.format(tarea.fechaIni))
+        _binding?.txtLayDateSelectedFinUpdt?.editText?.setText(simpleFormat.format(tarea.fechaFin))
+        view.findViewById<TextInputLayout>(R.id.txt_lay_di_updt).editText?.setText(tarea.horaInicio)
+        view.findViewById<TextInputLayout>(R.id.txt_lay_df_updt).editText?.setText(tarea.horaFin)
+        view.findViewById<CheckBox>(R.id.chk_esta_terminado).isChecked = tarea.estaCompleta
     }
 
     fun OpenGetCalendarView(view: View, editText: Int) {

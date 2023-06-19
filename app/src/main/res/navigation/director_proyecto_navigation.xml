@@ -162,4 +162,11 @@
             app:destination="@id/director_Proyecto_Main" />
     </fragment>
 
+    <fragment
+        android:id="@+id/nav_updt_task"
+        android:name="cr.una.buildify.ui.general.cronograma.FragmentUpdtTask"
+        android:label="Actualizar Tarea"
+        tools:layout="@layout/fragment_updt_task"
+        />
+
 </navigation>

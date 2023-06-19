@@ -13,4 +13,5 @@
     <color name="buttonColor">#FFA82A</color>
     <color name="gris">#191919</color>
     <color name="gray_1">#F0F0F0</color>
+    <color name="red">#FFF44336</color>
 </resources>

@@ -3,24 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_form_add_task"
+        android:id="@+id/layout_form_updt_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/border"
-        android:padding="25dp"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311">
+        app:layout_constraintVertical_bias="0.215">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_dateSelected_ini"
+            android:id="@+id/txt_lay_dateSelected_ini_updt"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -29,110 +31,71 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_task_dateSelected_ini"
+                android:id="@+id/txt_task_dateSelected_ini_updt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Fecha de inicio" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_dateSelected_fin"
+            android:id="@+id/txt_lay_dateSelected_fin_updt"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_dateSelected_ini">
+            app:layout_constraintTop_toBottomOf="@+id/txt_lay_dateSelected_ini_updt">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_task_dateSelected_fin"
+                android:id="@+id/txt_task_dateSelected_fin_updt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Fecha de finalización" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--<LinearLayout
-            android:id="@+id/container_dateSelected"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:id="@+id/date_selected_lay"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/lbl_date_selected"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/lbl_date_selected"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/date_selected"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    tools:text="MM/dd/YYYY" />
-
-            </LinearLayout>
-
-        </LinearLayout>-->
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_ds"
+            android:id="@+id/txt_lay_ds_updt"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_dateSelected_fin">
+            app:layout_constraintTop_toBottomOf="@+id/txt_lay_dateSelected_fin_updt">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_task_name"
+                android:id="@+id/txt_task_name_updt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/txt_task_name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_td"
+            android:id="@+id/txt_lay_td_updt"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_ds">
+            app:layout_constraintTop_toBottomOf="@+id/txt_lay_ds_updt">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_task_desc"
+                android:id="@+id/txt_task_desc_updt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/txt_task_desc" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_di"
+            android:id="@+id/txt_lay_di_updt"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_td">
+            app:layout_constraintTop_toBottomOf="@+id/txt_lay_td_updt">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_task_date_ini"
+                android:id="@+id/txt_task_date_ini_updt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
@@ -141,33 +104,33 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_df"
+            android:id="@+id/txt_lay_df_updt"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_di">
+            app:layout_constraintTop_toBottomOf="@+id/txt_lay_di_updt">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_task_date_fin"
+                android:id="@+id/txt_task_date_fin_updt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/txt_task_date_fin" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
-            android:id="@+id/layoutSelectProy"
+            android:id="@+id/layoutSelectProy_updt"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_df">
+            app:layout_constraintTop_toBottomOf="@+id/txt_lay_df_updt">
 
             <TextView
-                android:id="@+id/lbl_proy_asignado"
+                android:id="@+id/lbl_proy_asignado_updt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/lbl_proy_asignado"
@@ -175,27 +138,72 @@
                 android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/dropdown_proyecto"
-                android:layout_width="wrap_content"
+                android:id="@+id/dropdown_proyecto_updt"
+                android:layout_width="150dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="20dp"
                 android:background="@drawable/bg_spinner" />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/layout_completado"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutSelectProy_updt">
+
+            <TextView
+                android:id="@+id/lbl_esta_completado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Esta terminado?"
+                android:textColor="@color/black"
+                android:textStyle="italic" />
+
+            <CheckBox
+                android:id="@+id/chk_esta_terminado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/purple_500" />
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/btn_add_task"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/btn_add_task"
-        android:textColor="@color/black"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_form_add_task" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_form_updt_task">
+
+        <Button
+            android:id="@+id/btn_updt_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Actualizar tarea"
+            android:textColor="@color/black"
+            />
+
+        <Button
+            android:id="@+id/btn_del_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:text="Eliminar tarea"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/red"
+            />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

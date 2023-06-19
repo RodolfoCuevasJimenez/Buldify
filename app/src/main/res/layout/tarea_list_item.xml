@@ -22,7 +22,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingStart="5dp">
 
             <TextView
                 android:id="@+id/title_task"
@@ -37,6 +38,34 @@
                 tools:text="@tools:sample/lorem" />
 
             <ImageView
+                android:id="@+id/ic_calendar"
+                android:layout_width="35dp"
+                android:layout_height="26dp"
+                android:layout_below="@+id/title_task"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toTopOf="@+id/ic_clockCrono"
+                app:layout_constraintEnd_toStartOf="@id/task_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_task"
+                app:srcCompat="@drawable/ic_calendar"
+                tools:srcCompat="@drawable/ic_calendar" />
+
+            <TextView
+                android:id="@+id/task_date"
+                android:layout_width="338dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="5dp"
+                android:gravity="start"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ic_calendar"
+                app:layout_constraintTop_toBottomOf="@+id/title_task"
+                tools:text="@tools:sample/lorem" />
+
+            <ImageView
                 android:id="@+id/ic_clockCrono"
                 android:layout_width="35dp"
                 android:layout_height="26dp"
@@ -47,7 +76,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/ic_complete"
                 app:layout_constraintEnd_toStartOf="@id/task_time"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_task"
+                app:layout_constraintTop_toBottomOf="@+id/ic_calendar"
                 app:srcCompat="@drawable/baseline_access_time_filled_24"
                 tools:srcCompat="@drawable/baseline_access_time_filled_24" />
 
@@ -61,7 +90,7 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ic_clockCrono"
-                app:layout_constraintTop_toBottomOf="@+id/title_task"
+                app:layout_constraintTop_toBottomOf="@+id/ic_calendar"
                 tools:text="@tools:sample/lorem" />
 
             <ImageView
