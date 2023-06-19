@@ -18,8 +18,10 @@ import cr.una.buildify.ui.general.cronograma.Adapters.TareaCronogramaAdapter
 import cr.una.buildify.ui.general.cronograma.modelo.TareaCronograma
 import cr.una.buildify.ui.general.servicios.proyecto.ProyectoRepositorio
 import cr.una.buildify.ui.general.servicios.tarea.TareaRepositorio
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.Date
 import java.util.Locale
 
 class CronogramaFragment : Fragment() {
@@ -29,6 +31,7 @@ class CronogramaFragment : Fragment() {
 
     private lateinit var dateSelected: LocalDate
     private val dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+    private val simpleFormat = SimpleDateFormat("dd-MM-yyyy")
     private var uid: String? = null
     private var tipo: String? = null
 
@@ -47,7 +50,7 @@ class CronogramaFragment : Fragment() {
         uid = this.activity?.intent?.extras?.getString("UID")
         tipo = this.activity?.intent?.extras?.getString("Tipo")
 
-        if(tipo?.lowercase() == "dueño de la obra"){
+        if (tipo?.lowercase() == "dueño de la obra") {
             view.findViewById<FloatingActionButton>(R.id.btn_view_add_task).visibility = View.GONE
         }
 
@@ -112,32 +115,52 @@ class CronogramaFragment : Fragment() {
         val listTareas = mutableListOf<TareaCronograma>()
         val listIds = mutableListOf<String>()
 
-        proyectoRepositorio
-            .getListaProyectos(uid.toString())
-            .addOnSuccessListener {
-                for (res in it) {
-                    listIds.add(res["id"].toString())
-                }
+        try {
 
-                tareaRepositorio
-                    .listarTareas(listIds, dateSelected.format(dateFormatter))
-                    .addOnSuccessListener { result ->
-                        for (tarea in result) {
-                            listTareas.add(
-                                TareaCronograma(
-                                    tarea["titulo"].toString(),
-                                    tarea["descripcion"].toString(),
-                                    tarea["fecha"].toString(),
-                                    tarea["horaInicio"].toString(),
-                                    tarea["horaFin"].toString(),
-                                    tarea["estaCompleta"].toString().toBoolean(),
-                                    tarea["idProyecto"].toString()
-                                )
-                            )
-                        }
-
-                        cronoAdapter.listaTareas = listTareas.toList()
+            proyectoRepositorio
+                .getListaProyectos(uid.toString())
+                .addOnSuccessListener {
+                    for (res in it) {
+                        listIds.add(res["id"].toString())
                     }
-            }
+
+                    tareaRepositorio
+                        .listarTareas(
+                            listIds,
+                            simpleFormat.parse(dateSelected.format(dateFormatter))
+                        )
+                        .addOnSuccessListener { result ->
+
+                            for (tarea in result) {
+                                val aux = Date(tarea["fechaIni"].toString().toLong())
+                                if (aux <= simpleFormat.parse(dateSelected.format(dateFormatter))
+                                ) {
+
+                                    listTareas.add(
+                                        TareaCronograma(
+                                            tarea["id"].toString(),
+                                            tarea["titulo"].toString(),
+                                            tarea["descripcion"].toString(),
+                                            Date(tarea["fechaIni"].toString().toLong()).time,
+                                            Date(tarea["fechaFin"].toString().toLong()).time,
+                                            tarea["horaInicio"].toString(),
+                                            tarea["horaFin"].toString(),
+                                            tarea["estaCompleta"].toString().toBoolean(),
+                                            tarea["idProyecto"].toString()
+                                        )
+                                    )
+                                }
+                            }
+
+                            cronoAdapter.listaTareas = listTareas.toList()
+                        }
+                        .addOnFailureListener {
+                            it.message
+                        }
+                }
+        } catch (ex: Exception) {
+            Toast.makeText(context, ex.message, Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 }

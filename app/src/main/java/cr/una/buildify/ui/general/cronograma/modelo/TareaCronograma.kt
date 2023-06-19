@@ -7,9 +7,11 @@ import java.util.Date
  * @author Nestor Pasos
  */
 data class TareaCronograma(
+    val Id: String,
     val titulo: String,
     val descripcion: String,
-    val fecha: String,
+    val fechaIni: Long,
+    val fechaFin: Long,
     val horaInicio: String,
     val horaFin: String,
     val estaCompleta: Boolean,
